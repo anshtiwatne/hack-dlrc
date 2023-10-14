@@ -46,7 +46,7 @@ export default function RootLayout({
             </button>
           </nav>
         </header>
-        <div className="py-3">
+        <div className="py-4">
           <hr />
         </div>
 

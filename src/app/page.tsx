@@ -4,18 +4,12 @@ import './globals.css';
 import Image from 'next/image';
 import qs from 'qs';
 import axios from 'axios';
-import hljs from 'highlight.js';
-import javascript from 'highlight.js/lib/languages/javascript';
-import 'highlight.js/styles/github-dark.css';
 import { JetBrains_Mono } from 'next/font/google';
 import React, { useState, useEffect } from 'react';
+import Editor from '@monaco-editor/react';
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import {
-  getFirestore,
-  getDoc,
-  doc,
-} from 'firebase/firestore';
+// import { getAnalytics } from 'firebase/analytics';
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCBHUFCh8uhn1vIW3b9EpQV7qAzAEHT2Oo',
@@ -41,7 +35,6 @@ type problemData = {
   resources: Array<Object>;
 };
 
-hljs.registerLanguage('javascript', javascript);
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 let questionNumber = 1;
@@ -56,7 +49,7 @@ function QuestionNav({ number }: { number: number }) {
   const questions = Array.from({ length: number }, (_, i) => i + 1);
   return (
     <div>
-      <nav className="mb-2 flex justify-center text-zinc-700 py-2">
+      <nav className="mb-2 flex justify-center py-2 text-zinc-700">
         {questions.map((questionNum) => (
           <button
             key={questionNum}
@@ -136,22 +129,16 @@ function Question({ questionNum }: { questionNum: number }) {
 }
 
 function IDE() {
-  const code =
-    "console.log('Highlighted Code')\n// This will be a fully functional IDE with syntax highlighting, code execution, stdin and stdout";
-  const highlightedCode = hljs.highlight(code, {
-    language: 'javascript',
-  }).value;
-
   return (
-    <div
-      className={`${jetBrainsMono.className} mb-4 ml-2 min-h-[100dvh] w-[50dvw] rounded-lg bg-gray-800 p-4 text-neutral-200`}
-    >
-      <div
-        contentEditable="true"
-        dangerouslySetInnerHTML={{
-          __html: highlightedCode,
-        }}
+    <div className="ml-2 w-[50vw] mb-4 bg-[#1E1E1E] rounded-lg">
+      <div className='my-4 mx-2'>
+      <Editor
+        height="100vh"
+        theme="vs-dark"
+        defaultLanguage="typescript"
+        defaultValue="// TS code here"
       />
+      </div>
     </div>
   );
 }

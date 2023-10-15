@@ -41,7 +41,7 @@ export default function RootLayout({
 
           <nav className="flex items-center text-zinc-600">
             <div className="px-2 font-semibold">⭐ 30</div>
-            <button className="rounded bg-slate-500 px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600">
+            <button className="rounded bg-slate-500 px-2 py-1 ml-4 text-sm font-semibold text-white hover:bg-slate-600">
               Logged in as Ansh
             </button>
           </nav>
@@ -52,10 +52,8 @@ export default function RootLayout({
 
         {children}
 
-        <footer className="bg-slate-100 w-full absolute left-0">
-          <div className="m-4">
-            ©️ DLRC Foundation 2023
-          </div>
+        <footer className="absolute left-0 w-full bg-slate-100">
+          <div className="m-4">©️ DLRC Foundation 2023</div>
         </footer>
       </body>
     </html>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import qs from 'qs';
 import axios from 'axios';
 import { JetBrains_Mono } from 'next/font/google';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Editor from '@monaco-editor/react';
 import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
@@ -120,24 +120,95 @@ function Question({ questionNum }: { questionNum: number }) {
       </div>
       <div className="text-xl font-medium text-gray-800">Resources</div>
       <div className="py-4 text-blue-600">
-        {data.resources.map((link) => (
-          <a href={Object.entries(link)[0][1]}>{Object.entries(link)[0][0]}</a>
+        {data.resources.map((link, index) => (
+          <a key={index} href={Object.entries(link)[0][1]}>{Object.entries(link)[0][0]}</a>
         ))}
       </div>
     </div>
   );
 }
 
+type languagesObject = {
+  [key: string]: {
+    display: string;
+    monaco: string;
+    codex: string;
+    helloWorld: string;
+  };
+};
+
+const languages: languagesObject = {
+  java: {display: 'Java', monaco: 'java', codex: 'java', helloWorld: 'class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, HackDLRC");\n    }\n}'},
+  python: {display: 'Python', monaco: 'python', codex: 'py', helloWorld: 'print("Hello, HackDLRC")'},
+  cpp: {display: 'C++', monaco: 'cpp', codex: 'cpp', helloWorld: '#include <iostream>\n\nint main() {\n    std::cout << "Hello, HackDLRC";\n}'},
+  c: {display: 'C', monaco:'c', codex: 'c', helloWorld: '#include <stdio.h>\n\nint main() {\n    printf("Hello, HackDLRC");\n}'},
+  go: {display: 'Go', monaco: 'go', codex:'go', helloWorld: 'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, HackDLRC")\n}'},
+  cs: {display: 'C#', monaco: 'csharp', codex:'cs', helloWorld: 'using System;\n\npublic class Program\n{\n    public static void Main()\n    {\n        Console.WriteLine("Hello, HackDLRC");\n    }\n}'},
+  js: {display: 'JavaScript', monaco: 'javascript', codex: 'js', helloWorld: 'console.log("Hello, HackDLRC")'},
+}
+
+function codexAPI(code: string, lang: string, stdin:string) {
+  let data = qs.stringify({
+    code: code,
+    language: lang,
+    input: stdin,
+  });
+
+  let config = {
+    method: "post",
+    url: "https://api.codex.jaagrav.in",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    data: data,
+  };
+
+  axios(config).then(function (response) {
+    console.log(response.data.output);
+  });
+}
+
 function IDE() {
+  const [lang, setLang] = useState(languages.java);
+
+  const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLang = event.target.value;
+    setLang(languages[selectedLang]);
+  }
+
+  const editorRef = useRef<any>(null);
+
+  const handleEditorDidMount = (editor: any) => {
+    editorRef.current = editor;
+  };
+
+  const handleClick = () => {
+    const editorValue = editorRef.current?.getValue();
+    const output = codexAPI(editorValue, lang.codex, "");
+  };
+
   return (
-    <div className="ml-2 w-[50vw] mb-4 bg-[#1E1E1E] rounded-lg">
-      <div className='my-4 mx-2'>
-      <Editor
-        height="100vh"
-        theme="vs-dark"
-        defaultLanguage="typescript"
-        defaultValue="// TS code here"
-      />
+    <div className="ml-2 w-[50vw] mb-4 bg-[#1E1E1E] rounded-lg text-neutral-50 flex flex-col">
+      <div className='m-2'>
+        <select className='bg-neutral-700 rounded-md p-1 mr-2' name="language" id="lang" onChange={handleLangChange}>
+          {Object.keys(languages).map((key) => (
+            <option key={key} value={key}>{languages[key].display}</option>
+          ))}
+        </select>
+
+        <button className='bg-neutral-700 p-1 rounded-md' onClick={handleClick}>▶ Run (open console)</button>
+      </div>
+
+      <hr className='border-neutral-700' />
+      
+      <div className='m-2 pt-2'>
+        <Editor
+          height="100vh"
+          theme="vs-dark"
+          language={lang.monaco}
+          value={lang.helloWorld}
+          onMount={handleEditorDidMount}
+        />
       </div>
     </div>
   );

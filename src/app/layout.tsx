@@ -52,7 +52,7 @@ export default function RootLayout({
 
         {children}
 
-        <footer className="absolute left-0 w-full bg-slate-100">
+        <footer className="absolute left-0 w-full bg-slate-100 mt-4">
           <div className="m-4">©️ DLRC Foundation 2023</div>
         </footer>
       </body>

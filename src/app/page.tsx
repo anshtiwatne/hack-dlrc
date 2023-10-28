@@ -10,6 +10,7 @@ import Editor from '@monaco-editor/react';
 import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
 import { getFirestore, getDoc, doc } from 'firebase/firestore';
+import { error } from 'console';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCBHUFCh8uhn1vIW3b9EpQV7qAzAEHT2Oo',
@@ -30,98 +31,106 @@ type problemData = {
   points: number;
   description: string;
   positiveData: Array<string>;
-  negativeData: Array<string>;
   additionalInfo: Array<string>;
   resources: Array<Object>;
+  input: Array<string>;
+  output: Array<string>;
 };
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
-let questionNumber = 1;
 
 function QuestionNav({ number }: { number: number }) {
   const [btnNum, questionClicked] = useState(1);
   function handleClick(btnNum: number) {
     questionClicked(btnNum);
-    questionNumber = btnNum;
   }
 
-  const questions = Array.from({ length: number }, (_, i) => i + 1);
-  return (
-    <div>
-      <nav className="mb-2 flex justify-center py-2 text-zinc-700">
-        {questions.map((questionNum) => (
-          <button
-            key={questionNum}
-            onClick={() => {
-              handleClick(questionNum);
-            }}
-            className={`mx-2 h-8 w-8 rounded-md border ${
-              btnNum === questionNum
-                ? 'bg-blue-600 text-neutral-50'
-                : 'bg-slate-50 hover:bg-slate-100'
-            }`}
-          >
-            {questionNum}
-          </button>
-        ))}
-      </nav>
-      <Question questionNum={btnNum} />
-    </div>
-  );
-}
-
-function Question({ questionNum }: { questionNum: number }) {
   const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState<problemData | null | undefined>(undefined);
+  const [questionData, setData] = useState<problemData | null | undefined>(undefined);
   useEffect(() => {
     async function fetchData() {
-      const docRef = doc(db, 'problems', questionNum.toString());
+      const docRef = doc(db, 'problems', btnNum.toString());
       const docSnap = await getDoc(docRef);
       const docData = docSnap.data() as problemData | undefined;
       setData(docData);
       setLoading(false);
     }
     fetchData();
-  }, [questionNum]);
+  }, [btnNum]);
 
+  const questions = Array.from({ length: number }, (_, i) => i + 1);
+  return (
+    <div className="flex min-h-full justify-between">
+      <div>
+        <nav className="mb-2 flex justify-center py-2 text-zinc-700">
+          {questions.map((questionNum) => (
+            <button
+              key={questionNum}
+              onClick={() => {
+                handleClick(questionNum);
+              }}
+              className={`mx-2 h-8 w-8 rounded-md border ${
+                btnNum === questionNum
+                  ? 'bg-blue-600 text-neutral-50'
+                  : 'bg-slate-50 hover:bg-slate-100'
+              }`}
+            >
+              {questionNum}
+            </button>
+          ))}
+        </nav>
+        <Question questionNum={btnNum} questionData={questionData} isLoading={isLoading} />
+      </div>
+      <IDE questionNum={btnNum} questionData={questionData} isLoading={isLoading}/>
+    </div>
+  );
+}
+
+function formattedText(text: string) {
+  const newText = text.replace(
+    /\`(.*?)\`/g,
+    (match, content) => '<span class="font-bold">' + content + '</span>',
+  );
+
+  return <span dangerouslySetInnerHTML={{ __html: newText }}></span>;
+}
+
+function Question({ questionNum, questionData, isLoading }: { questionNum: number, questionData: problemData | null | undefined, isLoading: boolean }) {
+  
   if (isLoading) return <p className="mr-2 w-[50vw]">Loading...</p>;
-  if (!data) return <p className="mr-2 w-[50vw]">No question data</p>;
+  if (!questionData) return <p className="mr-2 w-[50vw]">No question data</p>;
 
   return (
     <div className="mr-2 w-[50vw]">
       <div className="text-xl font-medium text-gray-800">
-        {data.title} ({data.points}pts)
+        {questionData.title} ({questionData.points}pts)
       </div>
-      <div className="py-4 text-gray-900">{data.description}</div>
-      <div className="text-xl font-medium text-gray-800">Positive Data</div>
       <div className="py-4 text-gray-900">
-        {data.positiveData.map((data, index) => (
-          <div key={index}>
-            {index + 1}. {data}
-          </div>
-        ))}
+        {formattedText(questionData.description)}
       </div>
-      <div className="text-xl font-medium text-gray-800">Negative Data</div>
+      <div className="text-xl font-medium text-gray-800">Examples</div>
       <div className="py-4 text-gray-900">
-        {data.negativeData.map((data, index) => (
+        {questionData.positiveData.map((data, index) => (
           <div key={index}>
-            {index + 1}. {data}
+            {index + 1}. {formattedText(data)}
           </div>
         ))}
       </div>
       <div className="text-xl font-medium text-gray-800">Additional Info</div>
       <div className="py-4 text-gray-900">
-        {data.additionalInfo.map((data, index) => (
+        {questionData.additionalInfo.map((data, index) => (
           <div key={index}>
-            {index + 1}. {data}
+            {index + 1}. {formattedText(data)}
           </div>
         ))}
       </div>
       <div className="text-xl font-medium text-gray-800">Resources</div>
       <div className="py-4 text-blue-600">
-        {data.resources.map((link, index) => (
-          <a key={index} href={Object.entries(link)[0][1]}>{Object.entries(link)[0][0]}</a>
+        {questionData.resources.map((link, index) => (
+          <a key={index} href={Object.entries(link)[0][1]}>
+            {Object.entries(link)[0][0]}
+          </a>
         ))}
       </div>
     </div>
@@ -138,16 +147,62 @@ type languagesObject = {
 };
 
 const languages: languagesObject = {
-  java: {display: 'Java', monaco: 'java', codex: 'java', helloWorld: 'class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, HackDLRC");\n    }\n}'},
-  python: {display: 'Python', monaco: 'python', codex: 'py', helloWorld: 'print("Hello, HackDLRC")'},
-  cpp: {display: 'C++', monaco: 'cpp', codex: 'cpp', helloWorld: '#include <iostream>\n\nint main() {\n    std::cout << "Hello, HackDLRC";\n}'},
-  c: {display: 'C', monaco:'c', codex: 'c', helloWorld: '#include <stdio.h>\n\nint main() {\n    printf("Hello, HackDLRC");\n}'},
-  go: {display: 'Go', monaco: 'go', codex:'go', helloWorld: 'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, HackDLRC")\n}'},
-  cs: {display: 'C#', monaco: 'csharp', codex:'cs', helloWorld: 'using System;\n\npublic class Program\n{\n    public static void Main()\n    {\n        Console.WriteLine("Hello, HackDLRC");\n    }\n}'},
-  js: {display: 'JavaScript', monaco: 'javascript', codex: 'js', helloWorld: 'console.log("Hello, HackDLRC")'},
-}
+  java: {
+    display: 'Java',
+    monaco: 'java',
+    codex: 'java',
+    helloWorld:
+      'class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, HackDLRC");\n    }\n}',
+  },
+  python: {
+    display: 'Python',
+    monaco: 'python',
+    codex: 'py',
+    helloWorld: 'print("Hello, HackDLRC")',
+  },
+  cpp: {
+    display: 'C++',
+    monaco: 'cpp',
+    codex: 'cpp',
+    helloWorld:
+      '#include <iostream>\n\nint main() {\n    std::cout << "Hello, HackDLRC";\n}',
+  },
+  c: {
+    display: 'C',
+    monaco: 'c',
+    codex: 'c',
+    helloWorld:
+      '#include <stdio.h>\n\nint main() {\n    printf("Hello, HackDLRC");\n}',
+  },
+  go: {
+    display: 'Go',
+    monaco: 'go',
+    codex: 'go',
+    helloWorld:
+      'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, HackDLRC")\n}',
+  },
+  cs: {
+    display: 'C#',
+    monaco: 'csharp',
+    codex: 'cs',
+    helloWorld:
+      'using System;\n\npublic class Program\n{\n    public static void Main()\n    {\n        Console.WriteLine("Hello, HackDLRC");\n    }\n}',
+  },
+  js: {
+    display: 'JavaScript',
+    monaco: 'javascript',
+    codex: 'js',
+    helloWorld: 'console.log("Hello, HackDLRC")',
+  },
+  other: {
+    display: 'Other',
+    monaco: 'plaintext',
+    codex: 'null',
+    helloWorld: 'your language here\n\nyour code here',
+  },
+};
 
-function codexAPI(code: string, lang: string, stdin:string) {
+function runCode(code: string, lang: string, stdin: string) {
   let data = qs.stringify({
     code: code,
     language: lang,
@@ -155,60 +210,149 @@ function codexAPI(code: string, lang: string, stdin:string) {
   });
 
   let config = {
-    method: "post",
-    url: "https://api.codex.jaagrav.in",
+    method: 'post',
+    url: 'https://api.codex.jaagrav.in',
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     data: data,
   };
 
-  axios(config).then(function (response) {
-    console.log(response.data.output);
-  });
+  return new Promise((resolve) => {
+    axios(config).then(function (response) {
+      resolve([response.data.output, response.data.error])
+    });
+  })
 }
 
-function IDE() {
+function IDE({ questionNum, questionData, isLoading }: { questionNum: number, questionData: problemData | null | undefined, isLoading: boolean }) {
   const [lang, setLang] = useState(languages.java);
 
   const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLang = event.target.value;
     setLang(languages[selectedLang]);
-  }
+  };
 
   const editorRef = useRef<any>(null);
+  const inputRef = useRef<any>(null);
 
-  const handleEditorDidMount = (editor: any) => {
+  function handleEditorDidMount(editor: any) {
     editorRef.current = editor;
   };
 
-  const handleClick = () => {
+  function inputDidMount(editor: any) {
+    inputRef.current = editor;
+  }
+
+  const [response, setResponse] = useState<string>('');
+
+  async function handleClick() {
+    setResponse('Running...');
     const editorValue = editorRef.current?.getValue();
-    const output = codexAPI(editorValue, lang.codex, "");
+    // const input = questionData?.input?.join('\n') ?? '';
+    const input = inputRef.current?.getValue();
+    const apiResponse: [string, string] = await runCode(editorValue, lang.codex, input) as [string, string];
+    setResponse(apiResponse[0] + apiResponse[1]);
   };
 
   return (
-    <div className="ml-2 w-[50vw] mb-4 bg-[#1E1E1E] rounded-lg text-neutral-50 flex flex-col">
-      <div className='m-2'>
-        <select className='bg-neutral-700 rounded-md p-1 mr-2' name="language" id="lang" onChange={handleLangChange}>
+    <div className="mb-4 ml-2 flex w-[50vw] flex-col rounded-lg bg-[#1E1E1E] text-neutral-50 h-screen">
+      <div className="m-2">
+        <select
+          className="mr-2 rounded-md bg-neutral-700 p-1"
+          name="language"
+          id="lang"
+          onChange={handleLangChange}
+        >
           {Object.keys(languages).map((key) => (
-            <option key={key} value={key}>{languages[key].display}</option>
+            <option key={key} value={key}>
+              {languages[key].display}
+            </option>
           ))}
         </select>
 
-        <button className='bg-neutral-700 p-1 rounded-md' onClick={handleClick}>▶ Run (open console)</button>
+        <button
+          className={`rounded-md bg-neutral-700 p-1 ${
+            lang.codex === 'null' ? 'hidden' : ''
+          }`}
+          onClick={handleClick}
+        >
+          ▶ Run (open console)
+        </button>
       </div>
 
-      <hr className='border-neutral-700' />
-      
-      <div className='m-2 pt-2'>
+      <hr className="border-neutral-700" />
+
+      <div className="mt-4">
         <Editor
-          height="100vh"
+          height="62vh"
           theme="vs-dark"
           language={lang.monaco}
           value={lang.helloWorld}
+          options={{
+            fontSize: 14,
+            fontFamily: 'JetBrains Mono',
+            fontLigatures: true,
+            minimap: { enabled: false },
+            scrollbar: {
+              vertical: 'hidden',
+              horizontal: 'hidden',
+            },
+            overviewRulerLanes: 0,
+          }}
           onMount={handleEditorDidMount}
         />
+      </div>
+      <hr className="border-neutral-700" />
+      <div className='flex justify-between mt-2'>
+        <div className='inline-block w-1/2'>
+          <div className='mx-8 mb-2 font-light text-sm text-neutral-200'>INPUT</div>
+          <Editor className='pl-1'
+            height="18vh"
+            theme="vs-dark"
+            language="plaintext"
+            options={{
+              fontSize: 14,
+              fontFamily: 'JetBrains Mono',
+              fontLigatures: true,
+              minimap: { enabled: false },
+              scrollbar: {
+                vertical: 'hidden',
+                horizontal: 'hidden',
+              },
+              overviewRulerLanes: 0,
+              cursorStyle: 'block',
+              lineNumbers: 'off',
+            }}
+            onMount={inputDidMount}
+          />
+        </div>
+        <div className='inline-block w-1/2'>
+        <div className='mx-8 mb-2 font-light text-sm text-neutral-200'>OUTPUT</div>
+          <Editor className='pl-1 pr-5'
+            height="18vh"
+            theme="vs-dark"
+            language="plaintext"
+            value={response}
+            options={{
+              fontSize: 14,
+              fontFamily: 'JetBrains Mono',
+              fontLigatures: true,
+              minimap: { enabled: false },
+              scrollbar: {
+                vertical: 'hidden',
+                horizontal: 'hidden',
+              },
+              overviewRulerLanes: 0,
+              readOnly: true,
+              domReadOnly: true,
+              lineNumbers: 'off',
+              renderLineHighlight: 'none',
+              renderWhitespace: 'none',
+              guides: { indentation: false },
+            }}
+          />
+        </div>
       </div>
     </div>
   );
@@ -217,10 +361,7 @@ function IDE() {
 export default function Home() {
   return (
     <main>
-      <div className="flex min-h-full justify-between">
-        <QuestionNav number={10} />
-        <IDE />
-      </div>
+      <QuestionNav number={10} />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import './globals.css';
-import Image from 'next/image';
+// import Image from 'next/image';
 import qs from 'qs';
 import axios, { AxiosError } from 'axios';
 import { JetBrains_Mono } from 'next/font/google';
@@ -10,8 +10,6 @@ import Editor from '@monaco-editor/react';
 import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
 import { getFirestore, getDoc, doc } from 'firebase/firestore';
-import { error } from 'console';
-import { json } from 'stream/consumers';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCBHUFCh8uhn1vIW3b9EpQV7qAzAEHT2Oo',
@@ -40,7 +38,6 @@ type problemData = {
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
-
 function QuestionNav({ number }: { number: number }) {
   const [btnNum, questionClicked] = useState(1);
   function handleClick(btnNum: number) {
@@ -48,7 +45,9 @@ function QuestionNav({ number }: { number: number }) {
   }
 
   const [isLoading, setLoading] = useState(true);
-  const [questionData, setData] = useState<problemData | null | undefined>(undefined);
+  const [questionData, setData] = useState<problemData | null | undefined>(
+    undefined,
+  );
   useEffect(() => {
     async function fetchData() {
       const docRef = doc(db, 'problems', btnNum.toString());
@@ -81,9 +80,17 @@ function QuestionNav({ number }: { number: number }) {
             </button>
           ))}
         </nav>
-        <Question questionNum={btnNum} questionData={questionData} isLoading={isLoading} />
+        <Question
+          questionNum={btnNum}
+          questionData={questionData}
+          isLoading={isLoading}
+        />
       </div>
-      <IDE questionNum={btnNum} questionData={questionData} isLoading={isLoading}/>
+      <IDE
+        questionNum={btnNum}
+        questionData={questionData}
+        isLoading={isLoading}
+      />
     </div>
   );
 }
@@ -97,8 +104,15 @@ function formattedText(text: string) {
   return <span dangerouslySetInnerHTML={{ __html: newText }}></span>;
 }
 
-function Question({ questionNum, questionData, isLoading }: { questionNum: number, questionData: problemData | null | undefined, isLoading: boolean }) {
-  
+function Question({
+  questionNum,
+  questionData,
+  isLoading,
+}: {
+  questionNum: number;
+  questionData: problemData | null | undefined;
+  isLoading: boolean;
+}) {
   if (isLoading) return <p className="mr-2 w-[50vw]">Loading...</p>;
   if (!questionData) return <p className="mr-2 w-[50vw]">No question data</p>;
 
@@ -221,20 +235,29 @@ function runCode(code: string, lang: string, stdin: string) {
 
   return new Promise((resolve) => {
     if (code === '' || lang === 'null') {
-      resolve(['', ''])
+      resolve(['', '']);
+    } else {
+      axios(config)
+        .then(function (response) {
+          resolve([response.data.output, response.data.error]);
+          console.log(response.data);
+        })
+        .catch((AxiosError) => {
+          resolve(['', AxiosError.message]);
+        });
     }
-    else {
-      axios(config).then(function (response) {
-        resolve([response.data.output, response.data.error])
-        console.log(response.data)
-      }).catch(AxiosError => {
-        resolve(['', AxiosError.message])
-      });
-    }
-  })
+  });
 }
 
-function IDE({ questionNum, questionData, isLoading }: { questionNum: number, questionData: problemData | null | undefined, isLoading: boolean }) {
+function IDE({
+  questionNum,
+  questionData,
+  isLoading,
+}: {
+  questionNum: number;
+  questionData: problemData | null | undefined;
+  isLoading: boolean;
+}) {
   const [lang, setLang] = useState(languages.java);
 
   const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -247,7 +270,7 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
 
   function handleEditorDidMount(editor: any) {
     editorRef.current = editor;
-  };
+  }
 
   function inputDidMount(editor: any) {
     inputRef.current = editor;
@@ -260,9 +283,13 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
     const editorValue = editorRef.current?.getValue();
     // const input = questionData?.input?.join('\n') ?? '';
     const input = inputRef.current?.getValue();
-    const apiResponse: [string, string] = await runCode(editorValue, lang.codex, input) as [string, string];
+    const apiResponse: [string, string] = (await runCode(
+      editorValue,
+      lang.codex,
+      input,
+    )) as [string, string];
     setResponse(apiResponse[0] + apiResponse[1]);
-  };
+  }
 
   return (
     <div className="mb-4 ml-2 flex w-[50vw] flex-col rounded-lg bg-[#1E1E1E] text-neutral-50">
@@ -294,7 +321,7 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
 
       <div className="mt-4">
         <Editor
-          height="62vh"
+          height={lang.codex === 'null' ? '80vh' : '62vh'}
           theme="vs-dark"
           language={lang.monaco}
           value={lang.helloWorld}
@@ -312,11 +339,24 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
           onMount={handleEditorDidMount}
         />
       </div>
-      <hr className="border-neutral-700" />
-      <div className='flex justify-between mt-2'>
-        <div className='inline-block w-1/2'>
-          <div className='mx-8 mb-2 font-light text-sm text-neutral-200'>INPUT</div>
-          <Editor className='pl-1'
+
+      <hr
+        className={`border-neutral-700 ${
+          lang.codex === 'null' ? 'hidden' : ''
+        }`}
+      />
+
+      <div
+        className={`mt-2 flex justify-between pb-1 ${
+          lang.codex === 'null' ? 'hidden' : ''
+        }`}
+      >
+        <div className="inline-block w-1/2">
+          <div className="mx-7 mb-2 text-sm font-light text-neutral-200">
+            INPUT
+          </div>
+          <Editor
+            className="pl-1 pr-4"
             height="18vh"
             theme="vs-dark"
             language="plaintext"
@@ -332,13 +372,24 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
               overviewRulerLanes: 0,
               cursorStyle: 'block',
               lineNumbers: 'off',
+              renderLineHighlight: 'none',
             }}
             onMount={inputDidMount}
           />
         </div>
-        <div className='inline-block w-1/2'>
-        <div className='mx-8 mb-2 font-light text-sm text-neutral-200'>OUTPUT</div>
-          <Editor className='pl-1 pr-5'
+
+        <div
+        className={`border border-neutral-700 ${
+          lang.codex === 'null' ? 'hidden' : ''
+        }`}
+        />
+
+        <div className="inline-block w-1/2">
+          <div className="mx-6 mb-2 text-sm font-light text-neutral-200">
+            OUTPUT
+          </div>
+          <Editor
+            className="pr-1"
             height="18vh"
             theme="vs-dark"
             language="plaintext"

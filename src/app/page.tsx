@@ -62,7 +62,7 @@ function QuestionNav({ number }: { number: number }) {
   const questions = Array.from({ length: number }, (_, i) => i + 1);
   return (
     <div className="flex min-h-full justify-between">
-      <div>
+      <div className='inline-block w-[55%]'>
         <nav className="mb-2 flex justify-center py-2 text-zinc-700">
           {questions.map((questionNum) => (
             <button
@@ -86,11 +86,13 @@ function QuestionNav({ number }: { number: number }) {
           isLoading={isLoading}
         />
       </div>
+      <div className='inline-block w-[45%]'>
       <IDE
         questionNum={btnNum}
         questionData={questionData}
         isLoading={isLoading}
       />
+      </div>
     </div>
   );
 }
@@ -117,7 +119,7 @@ function Question({
   if (!questionData) return <p className="mr-2 w-[50vw]">No question data</p>;
 
   return (
-    <div className="mr-2 w-[50vw]">
+    <div className="mr-2">
       <div className="text-xl font-medium text-gray-800">
         {questionData.title} ({questionData.points}pts)
       </div>
@@ -292,7 +294,7 @@ function IDE({
   }
 
   return (
-    <div className="mb-4 ml-2 flex w-[50vw] flex-col rounded-lg bg-[#1E1E1E] text-neutral-50">
+    <div className="mb-4 ml-2 flex flex-col rounded-lg bg-[#1E1E1E] text-neutral-50">
       <div className="m-2">
         <select
           className="mr-2 rounded-md bg-neutral-700 p-1"

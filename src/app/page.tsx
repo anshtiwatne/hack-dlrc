@@ -11,6 +11,7 @@ import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
 import { getFirestore, getDoc, doc } from 'firebase/firestore';
 import { error } from 'console';
+import { json } from 'stream/consumers';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCBHUFCh8uhn1vIW3b9EpQV7qAzAEHT2Oo',
@@ -219,9 +220,15 @@ function runCode(code: string, lang: string, stdin: string) {
   };
 
   return new Promise((resolve) => {
-    axios(config).then(function (response) {
-      resolve([response.data.output, response.data.error])
-    });
+    if (code === '' || lang === 'null') {
+      resolve(['', ''])
+    }
+    else {
+      axios(config).then(function (response) {
+        resolve([response.data.output, response.data.error])
+        console.log(response.data)
+      });
+    }
   })
 }
 
@@ -256,7 +263,7 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
   };
 
   return (
-    <div className="mb-4 ml-2 flex w-[50vw] flex-col rounded-lg bg-[#1E1E1E] text-neutral-50 h-screen">
+    <div className="mb-4 ml-2 flex w-[50vw] flex-col rounded-lg bg-[#1E1E1E] text-neutral-50">
       <div className="m-2">
         <select
           className="mr-2 rounded-md bg-neutral-700 p-1"
@@ -277,7 +284,7 @@ function IDE({ questionNum, questionData, isLoading }: { questionNum: number, qu
           }`}
           onClick={handleClick}
         >
-          ▶ Run (open console)
+          ▶ Run
         </button>
       </div>
 

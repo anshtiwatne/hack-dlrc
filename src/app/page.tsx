@@ -281,7 +281,7 @@ function IDE() {
   }
 
   return (
-    <div className="flex h-full flex-col bg-[#1E1E1E] text-neutral-50">
+    <div className="flex h-full flex-col bg-[#1E1E1E] text-neutral-50 rounded-sm">
       <div>
         <select
           className="m-2 rounded-md bg-neutral-700 p-1 outline-none"
@@ -320,8 +320,8 @@ function IDE() {
               fontLigatures: true,
               minimap: { enabled: false },
               scrollbar: {
-                vertical: 'hidden',
-                horizontal: 'hidden',
+                horizontalScrollbarSize: 5,
+                verticalScrollbarSize: 5,
               },
               overviewRulerLanes: 0,
             }}
@@ -353,8 +353,9 @@ function IDE() {
                 fontLigatures: true,
                 minimap: { enabled: false },
                 scrollbar: {
-                  vertical: 'hidden',
-                  horizontal: 'hidden',
+                  horizontalScrollbarSize: 5,
+                  verticalScrollbarSize: 5,
+                  useShadows: false,
                 },
                 overviewRulerLanes: 0,
                 cursorStyle: 'block',
@@ -387,8 +388,9 @@ function IDE() {
                 fontLigatures: true,
                 minimap: { enabled: false },
                 scrollbar: {
-                  vertical: 'hidden',
-                  horizontal: 'hidden',
+                  horizontalScrollbarSize: 5,
+                  verticalScrollbarSize: 5,
+                  useShadows: false,
                 },
                 overviewRulerLanes: 0,
                 readOnly: true,

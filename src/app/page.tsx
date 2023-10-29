@@ -3,7 +3,7 @@
 import './globals.css';
 import Image from 'next/image';
 import qs from 'qs';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { JetBrains_Mono } from 'next/font/google';
 import React, { useState, useEffect, useRef } from 'react';
 import Editor from '@monaco-editor/react';
@@ -227,6 +227,8 @@ function runCode(code: string, lang: string, stdin: string) {
       axios(config).then(function (response) {
         resolve([response.data.output, response.data.error])
         console.log(response.data)
+      }).catch(AxiosError => {
+        resolve(['', AxiosError.message])
       });
     }
   })

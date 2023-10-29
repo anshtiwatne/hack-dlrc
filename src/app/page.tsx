@@ -108,6 +108,20 @@ function Question({
   if (isLoading) return <p className="mr-2 w-[50vw]">Loading...</p>;
   if (!questionData) return <p className="mr-2 w-[50vw]">No question data</p>;
 
+  let resources = <div></div>
+
+  if (questionData.resources !== undefined) {
+    resources = (
+      <div className="py-4 text-blue-600">
+        {questionData.resources.map((link, index) => (
+          <a key={index} href={Object.entries(link)[0][1]}>
+            {Object.entries(link)[0][0]}
+          </a>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="text-xl font-medium text-gray-800">
@@ -132,14 +146,14 @@ function Question({
           </div>
         ))}
       </div>
-      <div className="text-xl font-medium text-gray-800">Resources</div>
-      <div className="py-4 text-blue-600">
-        {questionData.resources.map((link, index) => (
-          <a key={index} href={Object.entries(link)[0][1]}>
-            {Object.entries(link)[0][0]}
-          </a>
-        ))}
+      <div
+        className={`text-xl font-medium text-gray-800 ${
+          questionData.resources == undefined ? 'hidden' : ''
+        }`}
+      >
+        Resources
       </div>
+      {resources}
     </div>
   );
 }

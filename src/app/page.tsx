@@ -3,8 +3,7 @@
 import './globals.css';
 // import Image from 'next/image';
 import qs from 'qs';
-import axios, { AxiosError } from 'axios';
-import { JetBrains_Mono } from 'next/font/google';
+import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import Editor from '@monaco-editor/react';
 import { initializeApp } from 'firebase/app';
@@ -36,62 +35,55 @@ type problemData = {
   output: Array<string>;
 };
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+type languagesObject = {
+  [key: string]: {
+    display: string;
+    monaco: string;
+    codex: string;
+    helloWorld: string;
+  };
+};
 
-function QuestionNav({ number }: { number: number }) {
-  const [btnNum, questionClicked] = useState(1);
-  function handleClick(btnNum: number) {
-    questionClicked(btnNum);
-  }
-
+function QuestionNav({ number: totalQuestions }: { number: number }) {
+  const [questionNum, setQuestionNum] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const [questionData, setData] = useState<problemData | null | undefined>(
     undefined,
   );
+
   useEffect(() => {
     async function fetchData() {
-      const docRef = doc(db, 'problems', btnNum.toString());
+      const docRef = doc(db, 'problems', questionNum.toString());
       const docSnap = await getDoc(docRef);
       const docData = docSnap.data() as problemData | undefined;
       setData(docData);
       setLoading(false);
     }
     fetchData();
-  }, [btnNum]);
+  }, [questionNum]);
 
-  const questions = Array.from({ length: number }, (_, i) => i + 1);
+  const questions = Array.from({ length: totalQuestions }, (_, i) => i + 1);
+
   return (
-    <div className="flex min-h-full justify-between">
-      <div className='inline-block w-[55%]'>
-        <nav className="mb-2 flex justify-center py-2 text-zinc-700">
-          {questions.map((questionNum) => (
-            <button
-              key={questionNum}
-              onClick={() => {
-                handleClick(questionNum);
-              }}
-              className={`mx-2 h-8 w-8 rounded-md border ${
-                btnNum === questionNum
-                  ? 'bg-blue-600 text-neutral-50'
-                  : 'bg-slate-50 hover:bg-slate-100'
-              }`}
-            >
-              {questionNum}
-            </button>
-          ))}
-        </nav>
-        <Question
-          questionNum={btnNum}
-          questionData={questionData}
-          isLoading={isLoading}
-        />
-      </div>
-      <div className='inline-block w-[45%]'>
-      <IDE
-        questionNum={btnNum}
-        questionData={questionData}
-        isLoading={isLoading}
-      />
+    <div className="flex h-full flex-col">
+      <nav className="flex justify-center pb-2 pt-4 text-zinc-700">
+        {questions.map((btnNum) => (
+          <button
+            key={btnNum}
+            onClick={() => setQuestionNum(btnNum)}
+            className={`mx-2 h-8 w-8 rounded-md border ${
+              btnNum === questionNum
+                ? 'bg-blue-600 text-neutral-50'
+                : 'bg-slate-50 hover:bg-slate-100'
+            }`}
+          >
+            {btnNum}
+          </button>
+        ))}
+      </nav>
+      {/* some sort of bug: flex-grow is only working if any random height is set */}
+      <div className="h-1 flex-grow overflow-auto p-4 pt-0">
+        <Question questionData={questionData} isLoading={isLoading} />
       </div>
     </div>
   );
@@ -107,11 +99,9 @@ function formattedText(text: string) {
 }
 
 function Question({
-  questionNum,
   questionData,
   isLoading,
 }: {
-  questionNum: number;
   questionData: problemData | null | undefined;
   isLoading: boolean;
 }) {
@@ -119,7 +109,7 @@ function Question({
   if (!questionData) return <p className="mr-2 w-[50vw]">No question data</p>;
 
   return (
-    <div className="mr-2">
+    <div>
       <div className="text-xl font-medium text-gray-800">
         {questionData.title} ({questionData.points}pts)
       </div>
@@ -153,15 +143,6 @@ function Question({
     </div>
   );
 }
-
-type languagesObject = {
-  [key: string]: {
-    display: string;
-    monaco: string;
-    codex: string;
-    helloWorld: string;
-  };
-};
 
 const languages: languagesObject = {
   java: {
@@ -251,15 +232,7 @@ function runCode(code: string, lang: string, stdin: string) {
   });
 }
 
-function IDE({
-  questionNum,
-  questionData,
-  isLoading,
-}: {
-  questionNum: number;
-  questionData: problemData | null | undefined;
-  isLoading: boolean;
-}) {
+function IDE() {
   const [lang, setLang] = useState(languages.java);
 
   const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -294,10 +267,10 @@ function IDE({
   }
 
   return (
-    <div className="mb-4 ml-2 flex flex-col rounded-lg bg-[#1E1E1E] text-neutral-50">
-      <div className="m-2">
+    <div className="flex h-full flex-col bg-[#1E1E1E] text-neutral-50">
+      <div>
         <select
-          className="mr-2 rounded-md bg-neutral-700 p-1"
+          className="m-2 rounded-md bg-neutral-700 p-1 outline-none"
           name="language"
           id="lang"
           onChange={handleLangChange}
@@ -310,58 +283,23 @@ function IDE({
         </select>
 
         <button
-          className={`rounded-md bg-neutral-700 p-1 ${
+          className={`m-2 ml-0 rounded-md bg-neutral-700 p-1 py-[0.15rem] ${
             lang.codex === 'null' ? 'hidden' : ''
           }`}
           onClick={handleClick}
         >
           ▶ Run
         </button>
+
+        <hr className="border-neutral-700" />
       </div>
 
-      <hr className="border-neutral-700" />
-
-      <div className="mt-4">
-        <Editor
-          height={lang.codex === 'null' ? '80vh' : '62vh'}
-          theme="vs-dark"
-          language={lang.monaco}
-          value={lang.helloWorld}
-          options={{
-            fontSize: 14,
-            fontFamily: 'JetBrains Mono',
-            fontLigatures: true,
-            minimap: { enabled: false },
-            scrollbar: {
-              vertical: 'hidden',
-              horizontal: 'hidden',
-            },
-            overviewRulerLanes: 0,
-          }}
-          onMount={handleEditorDidMount}
-        />
-      </div>
-
-      <hr
-        className={`border-neutral-700 ${
-          lang.codex === 'null' ? 'hidden' : ''
-        }`}
-      />
-
-      <div
-        className={`mt-2 flex justify-between pb-1 ${
-          lang.codex === 'null' ? 'hidden' : ''
-        }`}
-      >
-        <div className="inline-block w-1/2">
-          <div className="mx-7 mb-2 text-sm font-light text-neutral-200">
-            INPUT
-          </div>
+      <div className="flex flex-grow flex-col">
+        <div className="inline-block h-[75%] w-full pt-2">
           <Editor
-            className="pl-1 pr-4"
-            height="18vh"
             theme="vs-dark"
-            language="plaintext"
+            language={lang.monaco}
+            value={lang.helloWorld}
             options={{
               fontSize: 14,
               fontFamily: 'JetBrains Mono',
@@ -372,48 +310,82 @@ function IDE({
                 horizontal: 'hidden',
               },
               overviewRulerLanes: 0,
-              cursorStyle: 'block',
-              lineNumbers: 'off',
-              renderLineHighlight: 'none',
             }}
-            onMount={inputDidMount}
+            onMount={handleEditorDidMount}
+          />
+          <hr
+            className={`border-neutral-700 ${
+              lang.codex === 'null' ? 'hidden' : ''
+            }`}
           />
         </div>
-
         <div
-        className={`border border-neutral-700 ${
-          lang.codex === 'null' ? 'hidden' : ''
-        }`}
-        />
-
-        <div className="inline-block w-1/2">
-          <div className="mx-6 mb-2 text-sm font-light text-neutral-200">
-            OUTPUT
+          className={`flex w-full flex-grow ${
+            lang.codex === 'null' ? 'hidden' : ''
+          }`}
+        >
+          <div className="inline-block w-1/2">
+            <div className="mx-7 mb-1 mt-2 text-sm font-light text-neutral-200">
+              INPUT
+            </div>
+            <Editor
+              className="pl-1 pr-4"
+              height="15vh"
+              theme="vs-dark"
+              language="plaintext"
+              options={{
+                fontSize: 14,
+                fontFamily: 'JetBrains Mono',
+                fontLigatures: true,
+                minimap: { enabled: false },
+                scrollbar: {
+                  vertical: 'hidden',
+                  horizontal: 'hidden',
+                },
+                overviewRulerLanes: 0,
+                cursorStyle: 'block',
+                lineNumbers: 'off',
+                renderLineHighlight: 'none',
+              }}
+              onMount={inputDidMount}
+            />
           </div>
-          <Editor
-            className="pr-1"
-            height="18vh"
-            theme="vs-dark"
-            language="plaintext"
-            value={response}
-            options={{
-              fontSize: 14,
-              fontFamily: 'JetBrains Mono',
-              fontLigatures: true,
-              minimap: { enabled: false },
-              scrollbar: {
-                vertical: 'hidden',
-                horizontal: 'hidden',
-              },
-              overviewRulerLanes: 0,
-              readOnly: true,
-              domReadOnly: true,
-              lineNumbers: 'off',
-              renderLineHighlight: 'none',
-              renderWhitespace: 'none',
-              guides: { indentation: false },
-            }}
+
+          <div
+            className={`my-2 border border-neutral-700 ${
+              lang.codex === 'null' ? 'hidden' : ''
+            }`}
           />
+
+          <div className="inline-block w-1/2">
+            <div className="mx-6 mb-1 mt-2 text-sm font-light text-neutral-200">
+              OUTPUT
+            </div>
+            <Editor
+              className="pr-1"
+              height="15vh"
+              theme="vs-dark"
+              language="plaintext"
+              value={response}
+              options={{
+                fontSize: 14,
+                fontFamily: 'JetBrains Mono',
+                fontLigatures: true,
+                minimap: { enabled: false },
+                scrollbar: {
+                  vertical: 'hidden',
+                  horizontal: 'hidden',
+                },
+                overviewRulerLanes: 0,
+                readOnly: true,
+                domReadOnly: true,
+                lineNumbers: 'off',
+                renderLineHighlight: 'none',
+                renderWhitespace: 'none',
+                guides: { indentation: false },
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -422,8 +394,13 @@ function IDE({
 
 export default function Home() {
   return (
-    <main>
-      <QuestionNav number={10} />
+    <main className="flex flex-grow justify-between">
+      <div className="inline-block w-[55%]">
+        <QuestionNav number={10} />
+      </div>
+      <div className="inline-block w-[45%]">
+        <IDE />
+      </div>
     </main>
   );
 }

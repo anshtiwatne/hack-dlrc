@@ -1,5 +1,7 @@
 # Problem Name
 
+## Points <!-- could be set later -->
+
 ## Description
 
 ## Example

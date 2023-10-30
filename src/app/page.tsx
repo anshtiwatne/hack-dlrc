@@ -130,7 +130,7 @@ function Question({
       <div className="py-4 text-gray-900">
         {formattedText(questionData.description)}
       </div>
-      <div className="text-xl font-medium text-gray-800">Examples</div>
+      <div className="text-xl font-medium text-gray-800">Example</div>
       <div className="py-4 text-gray-900">
         {questionData.positiveData.map((data, index) => (
           <div key={index}>

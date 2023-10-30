@@ -360,7 +360,6 @@ function IDE() {
                 overviewRulerLanes: 0,
                 cursorStyle: 'block',
                 lineNumbers: 'off',
-                renderLineHighlight: 'none',
               }}
               onMount={inputDidMount}
             />

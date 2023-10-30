@@ -1,13 +1,13 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Inter, Open_Sans } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
-const openSans = Open_Sans({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
+const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "HackDLRC",
-  description: "The DLRC Hackathon",
+  title: 'HackDLRC',
+  description: 'The DLRC Hackathon',
 };
 
 export default function RootLayout({
@@ -16,45 +16,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header
-          className={`${openSans.className} flex items-center justify-between`}
-        >
-          <nav className="flex items-center text-zinc-500">
-            <a href="/" className="px-2 pr-8 text-xl font-bold text-zinc-800">
-              HackDLRC
-            </a>
-            {/* <a href="" className="px-2">About</a> */}
-            {/* <a href="" className="px-2">Sponsors</a> */}
-            <a href="" className="px-2">
-              Leaderboard
-            </a>
-            <a href="" className="px-2">
-              Help
-            </a>
-          </nav>
-
-          <div className="absolute left-1/2 -translate-x-1/2 transform text-xl font-bold text-zinc-700">
-            48:00:00
+    <html lang="en" className="h-full">
+      <body
+        className={`${inter.className} flex h-screen flex-col justify-between overflow-hidden`}
+      >
+        <header>
+          <div
+            className={`${openSans.className} flex items-center justify-between p-4`}
+          >
+            <nav className="flex items-center text-zinc-500">
+              <a href="/" className="px-2 pr-8 text-xl font-bold text-zinc-800">
+                HackDLRC
+              </a>
+              {/* <a href="" className="px-2">About</a> */}
+              {/* <a href="" className="px-2">Sponsors</a> */}
+              <a href="" className="px-2">
+                Leaderboard
+              </a>
+              <a href="" className="px-2">
+                Help
+              </a>
+            </nav>
+            <div className="absolute left-1/2 -translate-x-1/2 transform text-xl font-bold text-zinc-700">
+              48:00:00
+            </div>
+            <nav className="flex items-center text-zinc-600">
+              <div className="px-2 font-semibold">⭐ 30</div>
+              <button className="ml-4 rounded bg-slate-500 px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600">
+                Logged in as Ansh
+              </button>
+            </nav>
           </div>
-
-          <nav className="flex items-center text-zinc-600">
-            <div className="px-2 font-semibold">⭐ 30</div>
-            <button className="rounded bg-slate-500 px-2 py-1 ml-4 text-sm font-semibold text-white hover:bg-slate-600">
-              Logged in as Ansh
-            </button>
-          </nav>
-        </header>
-        <div className="py-4">
           <hr />
-        </div>
+        </header>
 
         {children}
 
-        <footer className="absolute left-0 w-full bg-slate-100">
+        {/* <footer className="w-full bg-slate-100">
           <div className="m-4">©️ DLRC Foundation 2023</div>
-        </footer>
+        </footer> */}
       </body>
     </html>
   );

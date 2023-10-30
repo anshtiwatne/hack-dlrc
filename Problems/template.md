@@ -2,12 +2,10 @@
 
 ## Description
 
-## Testing
-
-### Data
-
-### Undefined Behaviour (UB)
+## Example
 
 ## Additional Information
 
 ## Resources
+
+<!-- input data with corresponding expected output in separate directory -->

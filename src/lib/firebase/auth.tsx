@@ -35,8 +35,8 @@ export function AuthContextProvider({
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-			if (currentUser) {
-				setUser(currentUser)
+			if (currentUser == null || 'uid' in currentUser) {
+				setUser(currentUser as any)
 			} else {
 				setUser({})
 			}

@@ -102,7 +102,7 @@ function runCode(code: string, lang: string, stdin: string) {
 }
 
 export default function CodeEditor() {
-	const [lang, setLang] = useState(languages.java)
+	const [lang, setLang] = useState(languages.js)
 
 	const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const selectedLang = event.target.value

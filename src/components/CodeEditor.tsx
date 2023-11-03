@@ -9,6 +9,7 @@ type languagesObject = {
 		display: string
 		monaco: string
 		codex: string
+		comment: string
 		helloWorld: string
 	}
 }
@@ -18,18 +19,21 @@ const languages: languagesObject = {
 		display: 'JavaScript',
 		monaco: 'javascript',
 		codex: 'js',
+		comment: '// you can also code in your own setup',
 		helloWorld: 'console.log("Hello, HackDLRC")',
 	},
 	python: {
 		display: 'Python',
 		monaco: 'python',
 		codex: 'py',
+		comment: '# you can also code in your own setup',
 		helloWorld: 'print("Hello, HackDLRC")',
 	},
 	java: {
 		display: 'Java',
 		monaco: 'java',
 		codex: 'java',
+		comment: '// you can also code in your own setup',
 		helloWorld:
 			'class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, HackDLRC");\n    }\n}',
 	},
@@ -37,6 +41,7 @@ const languages: languagesObject = {
 		display: 'C',
 		monaco: 'c',
 		codex: 'c',
+		comment: '// you can also code in your own setup',
 		helloWorld:
 			'#include <stdio.h>\n\nint main() {\n    printf("Hello, HackDLRC");\n}',
 	},
@@ -44,6 +49,7 @@ const languages: languagesObject = {
 		display: 'C#',
 		monaco: 'csharp',
 		codex: 'cs',
+		comment: '// you can also code in your own setup',
 		helloWorld:
 			'using System;\n\npublic class Program\n{\n    public static void Main()\n    {\n        Console.WriteLine("Hello, HackDLRC");\n    }\n}',
 	},
@@ -51,6 +57,7 @@ const languages: languagesObject = {
 		display: 'C++',
 		monaco: 'cpp',
 		codex: 'cpp',
+		comment: '// you can also code in your own setup',
 		helloWorld:
 			'#include <iostream>\n\nint main() {\n    std::cout << "Hello, HackDLRC";\n}',
 	},
@@ -58,6 +65,7 @@ const languages: languagesObject = {
 		display: 'Go',
 		monaco: 'go',
 		codex: 'go',
+		comment: '// you can also code in your own setup',
 		helloWorld:
 			'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, HackDLRC")\n}',
 	},
@@ -65,7 +73,8 @@ const languages: languagesObject = {
 		display: 'Other',
 		monaco: 'plaintext',
 		codex: 'null',
-		helloWorld: 'your language here\n\nyour code here',
+		comment: 'sorry if your language isn\'t supported :(\nyou can code in your own setup instead',
+		helloWorld: '',
 	},
 }
 
@@ -168,7 +177,7 @@ export default function CodeEditor() {
 					<Editor
 						theme="vs-dark"
 						language={lang.monaco}
-						value={lang.helloWorld}
+						value={lang.helloWorld ? `${lang.comment}\n\n${lang.helloWorld}\n` : `${lang.comment}\n`}
 						options={{
 							fontSize: 14,
 							fontFamily: 'JetBrains Mono',

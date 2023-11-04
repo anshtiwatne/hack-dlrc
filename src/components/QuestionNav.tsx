@@ -2,8 +2,16 @@
 
 import Link from 'next/link'
 import React, { useState, useEffect, useRef } from 'react'
+import { userAuth } from '@/lib/firebase/auth'
 import { db } from '@/lib/firebase/config'
-import { getDoc, doc } from 'firebase/firestore'
+import { getDoc, doc, setDoc } from 'firebase/firestore'
+import { User } from 'firebase/auth'
+
+interface AuthProps {
+	user: User | null
+	signInWithGoogle: () => Promise<void>
+	signOut: () => Promise<void>
+}
 
 type problemData = {
 	title: string
@@ -14,6 +22,12 @@ type problemData = {
 	resources: Array<Object>
 	// input: Array<string>;
 	// output: Array<string>;
+}
+
+type userData = {
+	name: string
+	points: number
+	inputID: number
 }
 
 function formattedText(text: string) {
@@ -27,9 +41,11 @@ function formattedText(text: string) {
 }
 
 function Question({
+	questionNum,
 	questionData,
 	isLoading,
 }: {
+	questionNum: number
 	questionData: problemData | null | undefined
 	isLoading: boolean
 }) {
@@ -79,24 +95,47 @@ function Question({
 			</div>
 			{resources}
 			<br />
-			<Submit questionData={questionData} isLoading={isLoading} />
+			<Submit
+				questionNum={questionNum}
+				questionData={questionData}
+				isLoading={isLoading}
+			/>
 		</div>
 	)
 }
 
 function Submit({
+	questionNum,
 	questionData,
 	isLoading,
 }: {
+	questionNum: number
 	questionData: problemData | null | undefined
 	isLoading: boolean
 }) {
+	const { user } = userAuth() as AuthProps
+
+	function handleGetInput() {
+		return null
+	}
+
 	return (
-		<div className='flex'>
-			<button className='mr-4 rounded bg-slate-500 px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600'>Get your input</button>
-			<div className='bg-slate-500 rounded p-1'>
-				<input placeholder='Answer' className='mr-1 w-36 px-2 rounded outline-none focus:bg-slate-100' type="text" />
-				<button className='rounded px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600'>Submit</button>
+		<div className="flex">
+			<button
+				onClick={handleGetInput}
+				className="mr-4 rounded bg-slate-500 px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600"
+			>
+				Get your input
+			</button>
+			<div className="rounded bg-slate-500 p-1">
+				<input
+					placeholder="Answer"
+					className="mr-1 w-36 rounded px-2 outline-none focus:bg-slate-100"
+					type="text"
+				/>
+				<button className="rounded px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600">
+					Submit
+				</button>
 			</div>
 		</div>
 	)
@@ -145,7 +184,11 @@ export default function QuestionNav({
 			</nav>
 			{/* some sort of bug: flex-grow is only working if any random height is set */}
 			<div className="h-1 flex-grow overflow-auto p-4 pt-0">
-				<Question questionData={questionData} isLoading={isLoading} />
+				<Question
+					questionNum={questionNum}
+					questionData={questionData}
+					isLoading={isLoading}
+				/>
 			</div>
 		</div>
 	)

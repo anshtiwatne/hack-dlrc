@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Open_Sans } from 'next/font/google'
 import { userAuth } from '@/lib/firebase/auth'
 import firebase from 'firebase/compat/app'
+import { db } from '@/lib/firebase/config'
+import { getDoc, doc, setDoc } from 'firebase/firestore'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -9,6 +11,22 @@ interface AuthProps {
 	user: firebase.User | null
 	signInWithGoogle: () => Promise<void>
 	signOut: () => Promise<void>
+}
+
+function getInputID(uid: string) {
+	function customHash() {
+		let hash = 0
+		for (let i = 0; i < uid.length; i++) {
+			hash = (hash << 5) - hash + uid.charCodeAt(i)
+		}
+		return hash
+	}
+
+	const hash = customHash()
+	const min = 1
+	const max = 10
+	const range = max - min + 1
+	return (((hash % range) + range) % range) + min
 }
 
 export default function Navbar() {
@@ -29,8 +47,6 @@ export default function Navbar() {
 			console.error('Error signing out with Google', error)
 		}
 	}
-
-	console.log(user)
 
 	return (
 		<header>
@@ -67,7 +83,7 @@ export default function Navbar() {
 						<div className="px-2">Hello {'Ansh'}</div>
 						<div className="px-2 font-semibold">⭐ 30</div>
 						<button
-							onClick={handleSignOut}
+							onClick={handleSignIn}
 							className="ml-4 rounded bg-slate-500 px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600"
 						>
 							Sign out

@@ -1,4 +1,5 @@
 'use client'
+
 import qs from 'qs'
 import axios from 'axios'
 import Editor from '@monaco-editor/react'
@@ -73,7 +74,8 @@ const languages: languagesObject = {
 		display: 'Other',
 		monaco: 'plaintext',
 		codex: 'null',
-		comment: 'sorry if your language isn\'t supported :(\nyou can code in your own setup instead',
+		comment:
+			"sorry if your language isn't supported :(\nyou can code in your own setup instead",
 		helloWorld: '',
 	},
 }
@@ -110,7 +112,7 @@ function runCode(code: string, lang: string, stdin: string) {
 	})
 }
 
-export default function CodeEditor() {
+export default function CodeEditor({ minimized, setMinimized }: { minimized: boolean, setMinimized: React.Dispatch<React.SetStateAction<boolean>> }) {
 	const [lang, setLang] = useState(languages.js)
 
 	const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -145,72 +147,49 @@ export default function CodeEditor() {
 	}
 
 	return (
-		<div className="flex h-full flex-col rounded-sm bg-[#1E1E1E] text-neutral-50">
-			<div>
-				<select
-					className="m-2 rounded-md bg-neutral-700 p-1 outline-none"
-					name="language"
-					id="lang"
-					onChange={handleLangChange}
-				>
-					{Object.keys(languages).map((key) => (
-						<option key={key} value={key}>
-							{languages[key].display}
-						</option>
-					))}
-				</select>
-
-				<button
-					className={`m-2 ml-0 rounded-md bg-neutral-700 p-1 py-[0.15rem] ${
-						lang.codex === 'null' ? 'hidden' : ''
-					}`}
-					onClick={handleClick}
-				>
-					▶ Run
+		<div className='flex h-full'>
+			<div className="flex items-center">
+				<button onClick={() => {setMinimized(!minimized)}} className="flex-nowrap whitespace-nowrap ml-[-2rem] h-10 rounded-l-full bg-blue-600 px-2 text-neutral-50 hover:bg-blue-700">
+					{minimized ? '|<' : '>|'}
 				</button>
-
-				<hr className="border-neutral-700" />
 			</div>
+			<div className={`flex flex-col h-full rounded-sm bg-[#1E1E1E] text-neutral-50 ${minimized ? 'hidden' : 'w-full'}`}>
+				<div>
+					<select
+						className="m-2 rounded-md bg-neutral-700 p-1 outline-none"
+						name="language"
+						id="lang"
+						onChange={handleLangChange}
+					>
+						{Object.keys(languages).map((key) => (
+							<option key={key} value={key}>
+								{languages[key].display}
+							</option>
+						))}
+					</select>
 
-			<div className="flex flex-grow flex-col">
-				<div className="inline-block h-[75%] w-full pt-2">
-					<Editor
-						theme="vs-dark"
-						language={lang.monaco}
-						value={lang.helloWorld ? `${lang.comment}\n\n${lang.helloWorld}\n` : `${lang.comment}\n`}
-						options={{
-							fontSize: 14,
-							fontFamily: 'JetBrains Mono',
-							fontLigatures: true,
-							minimap: { enabled: false },
-							scrollbar: {
-								horizontalScrollbarSize: 5,
-								verticalScrollbarSize: 5,
-							},
-							overviewRulerLanes: 0,
-						}}
-						onMount={handleEditorDidMount}
-					/>
-					<hr
-						className={`border-neutral-700 ${
+					<button
+						className={`m-2 ml-0 rounded-md bg-neutral-700 p-1 py-[0.15rem] ${
 							lang.codex === 'null' ? 'hidden' : ''
 						}`}
-					/>
+						onClick={handleClick}
+					>
+						▶ Run
+					</button>
+
+					<hr className="border-neutral-700" />
 				</div>
-				<div
-					className={`flex w-full flex-grow ${
-						lang.codex === 'null' ? 'hidden' : ''
-					}`}
-				>
-					<div className="inline-block w-1/2">
-						<div className="mx-7 mb-1 mt-2 text-sm font-light text-neutral-200">
-							INPUT
-						</div>
+
+				<div className="flex flex-grow flex-col">
+					<div className="inline-block h-[75%] w-full pt-2">
 						<Editor
-							className="pl-1 pr-4"
-							height="15vh"
 							theme="vs-dark"
-							language="plaintext"
+							language={lang.monaco}
+							value={
+								lang.helloWorld
+									? `${lang.comment}\n\n${lang.helloWorld}\n`
+									: `${lang.comment}\n`
+							}
 							options={{
 								fontSize: 14,
 								fontFamily: 'JetBrains Mono',
@@ -219,51 +198,85 @@ export default function CodeEditor() {
 								scrollbar: {
 									horizontalScrollbarSize: 5,
 									verticalScrollbarSize: 5,
-									useShadows: false,
 								},
 								overviewRulerLanes: 0,
-								cursorStyle: 'block',
-								lineNumbers: 'off',
 							}}
-							onMount={inputDidMount}
+							onMount={handleEditorDidMount}
+						/>
+						<hr
+							className={`border-neutral-700 ${
+								lang.codex === 'null' ? 'hidden' : ''
+							}`}
 						/>
 					</div>
-
 					<div
-						className={`my-2 border border-neutral-700 ${
+						className={`flex w-full flex-grow ${
 							lang.codex === 'null' ? 'hidden' : ''
 						}`}
-					/>
-
-					<div className="inline-block w-1/2">
-						<div className="mx-6 mb-1 mt-2 text-sm font-light text-neutral-200">
-							OUTPUT
+					>
+						<div className="inline-block w-1/2">
+							<div className="mx-7 mb-1 mt-2 text-sm font-light text-neutral-200">
+								INPUT
+							</div>
+							<Editor
+								className="pl-1 pr-4"
+								height="15vh"
+								theme="vs-dark"
+								language="plaintext"
+								options={{
+									fontSize: 14,
+									fontFamily: 'JetBrains Mono',
+									fontLigatures: true,
+									minimap: { enabled: false },
+									scrollbar: {
+										horizontalScrollbarSize: 5,
+										verticalScrollbarSize: 5,
+										useShadows: false,
+									},
+									overviewRulerLanes: 0,
+									cursorStyle: 'block',
+									lineNumbers: 'off',
+								}}
+								onMount={inputDidMount}
+							/>
 						</div>
-						<Editor
-							className="pr-1"
-							height="15vh"
-							theme="vs-dark"
-							language="plaintext"
-							value={response}
-							options={{
-								fontSize: 14,
-								fontFamily: 'JetBrains Mono',
-								fontLigatures: true,
-								minimap: { enabled: false },
-								scrollbar: {
-									horizontalScrollbarSize: 5,
-									verticalScrollbarSize: 5,
-									useShadows: false,
-								},
-								overviewRulerLanes: 0,
-								readOnly: true,
-								domReadOnly: true,
-								lineNumbers: 'off',
-								renderLineHighlight: 'none',
-								renderWhitespace: 'none',
-								guides: { indentation: false },
-							}}
+
+						<div
+							className={`my-2 border border-neutral-700 ${
+								lang.codex === 'null' ? 'hidden' : ''
+							}`}
 						/>
+
+						<div className="inline-block w-1/2">
+							<div className="mx-6 mb-1 mt-2 text-sm font-light text-neutral-200">
+								OUTPUT
+							</div>
+							<Editor
+								className="pr-1"
+								height="15vh"
+								theme="vs-dark"
+								language="plaintext"
+								value={response}
+								options={{
+									fontSize: 14,
+									fontFamily: 'JetBrains Mono',
+									fontLigatures: true,
+									minimap: { enabled: false },
+									scrollbar: {
+										horizontalScrollbarSize: 5,
+										verticalScrollbarSize: 5,
+										useShadows: false,
+									},
+									overviewRulerLanes: 0,
+									readOnly: true,
+									domReadOnly: true,
+									lineNumbers: 'off',
+									renderLineHighlight: 'none',
+									renderWhitespace: 'none',
+									guides: { indentation: false },
+								}}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

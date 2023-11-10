@@ -15,11 +15,12 @@ interface problemData {
 interface userData {
     uid: string
     inputID: number
-    username: string
+    email: string
+    phone: string
     name: string
     photoURL: string
     answers: Object
-    points: string
+    points: number | null
     teamMembers: string[]
     lastLogin: Timestamp
 }

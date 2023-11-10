@@ -1,151 +1,54 @@
 'use client'
 
-import Link from 'next/link'
-import React, { useState, useEffect, useRef } from 'react'
-import { userAuth } from '@/lib/firebase/auth'
+import React, { useState, useEffect } from 'react'
 import { db } from '@/lib/firebase/config'
-import { getDoc, doc, setDoc } from 'firebase/firestore'
-import { User } from 'firebase/auth'
+import { getDoc, doc } from 'firebase/firestore'
+import { problemData } from '@/lib/utils/types'
+import Question from '@/components/Question'
 
-interface AuthProps {
-	user: User | null
-	signInWithGoogle: () => Promise<void>
-	signOut: () => Promise<void>
-}
-
-type problemData = {
-	title: string
-	points: number
-	description: string
-	example: string
-	additionalInfo: Array<string>
-	resources: Array<Object>
-	// input: Array<string>;
-	// output: Array<string>;
-}
-
-type userData = {
-	name: string
-	points: number
-	inputID: number
-}
-
-function formattedText(text: string) {
-	if (text === undefined) return <span></span>
-	const newText = text.replace(
-		/\`(.*?)\`/g,
-		(match, content) => '<span class="font-bold">' + content + '</span>',
-	)
-
-	return <span dangerouslySetInnerHTML={{ __html: newText }}></span>
-}
-
-function Question({
-	questionNum,
-	questionData,
-	isLoading,
-}: {
-	questionNum: number
-	questionData: problemData | null | undefined
-	isLoading: boolean
-}) {
-	if (isLoading) return <p className="mr-2 w-[50vw]">Loading...</p>
-	if (!questionData) return <p className="mr-2 w-[50vw]">No question data</p>
-
-	let resources = <div></div>
-
-	if (questionData.resources !== undefined) {
-		resources = (
-			<div className="py-4 text-blue-600">
-				{questionData.resources.map((link, index) => (
-					<a key={index} href={Object.entries(link)[0][1]}>
-						{Object.entries(link)[0][0]}
-					</a>
-				))}
-			</div>
-		)
-	}
-
-	return (
-		<div>
-			<div className="text-xl font-medium text-gray-800">
-				{questionData.title} ({questionData.points}pts)
-			</div>
-			<div className="py-4 text-gray-900">
-				{formattedText(questionData.description)}
-			</div>
-			<div className="text-xl font-medium text-gray-800">Example</div>
-			<div className="py-4 text-gray-900">
-				{formattedText(questionData.example)}
-			</div>
-			<div className="text-xl font-medium text-gray-800">Additional Info</div>
-			<div className="py-4 text-gray-900">
-				{questionData.additionalInfo.map((data, index) => (
-					<div key={index}>
-						{index + 1}. {formattedText(data)}
-					</div>
-				))}
-			</div>
-			<div
-				className={`text-xl font-medium text-gray-800 ${
-					questionData.resources == undefined ? 'hidden' : ''
-				}`}
-			>
-				Resources
-			</div>
-			{resources}
-			<br />
-			<Submit
-				questionNum={questionNum}
-				questionData={questionData}
-				isLoading={isLoading}
-			/>
-		</div>
-	)
-}
-
-function Submit({
-	questionNum,
-	questionData,
-	isLoading,
-}: {
-	questionNum: number
-	questionData: problemData | null | undefined
-	isLoading: boolean
-}) {
-	const { user } = userAuth() as AuthProps
+function Submit({ questionNum, questionData, isLoading }: { questionNum: number | 'sample', questionData: problemData | null | undefined, isLoading: boolean }) {
+	const [answer, setAnswer] = useState('')
 
 	function handleGetInput() {
 		return null
 	}
 
+	function handleSubmit() {
+		return null
+	}
+
 	return (
 		<div className="flex">
-			<button
-				onClick={handleGetInput}
-				className="mr-4 rounded bg-slate-500 px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600"
-			>
-				Get your input
-			</button>
-			<div className="rounded bg-slate-500 p-1">
-				<input
-					placeholder="Answer"
-					className="mr-1 w-36 rounded px-2 outline-none focus:bg-slate-100"
-					type="text"
-				/>
-				<button className="rounded px-2 py-1 text-sm font-semibold text-white hover:bg-slate-600">
-					Submit
-				</button>
+			<div>
+				<div className="flex items-center justify-center text-sm">
+					<button
+						onClick={handleSubmit}
+						className="rounded-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
+					>
+						Get Input
+					</button>
+					<div className="flex">
+						<input
+							value={answer}
+							onChange={(e) => setAnswer(e.currentTarget.value)}
+							className="ml-4 w-full rounded-l-full bg-slate-200 px-4 py-2 font-medium text-gray-900 outline-none"
+							type="text"
+							placeholder="Answer"
+						/>
+						<button
+							onClick={handleSubmit}
+							className="rounded-r-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
+						>
+							Submit
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	)
 }
 
-export default function QuestionNav({
-	number: totalQuestions,
-}: {
-	number: number
-}) {
+export default function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
 	const [questionNum, setQuestionNum] = useState(1)
 	const [isLoading, setLoading] = useState(true)
 	const [questionData, setData] = useState<problemData | null | undefined>(

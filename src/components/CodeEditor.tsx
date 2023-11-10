@@ -3,7 +3,12 @@
 import qs from 'qs'
 import axios from 'axios'
 import Editor from '@monaco-editor/react'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
+import FirstPageIcon from '@mui/icons-material/FirstPageRounded'
+import LastPageIcon from '@mui/icons-material/LastPageRounded'
+import PlayArrowIcon from '@mui/icons-material/PlayArrowRounded'
+import { displaySize } from '@/lib/utils/size'
+import { SizeProps } from '@/lib/utils/types'
 
 type languagesObject = {
 	[key: string]: {
@@ -113,6 +118,7 @@ function runCode(code: string, lang: string, stdin: string) {
 }
 
 export default function CodeEditor({ minimized, setMinimized }: { minimized: boolean, setMinimized: React.Dispatch<React.SetStateAction<boolean>> }) {
+	const { isMobile } = displaySize() as SizeProps
 	const [lang, setLang] = useState(languages.js)
 
 	const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -146,11 +152,13 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 		setResponse(apiResponse[0] + apiResponse[1])
 	}
 
+	if (isMobile) return (<div></div>)
+
 	return (
 		<div className='flex h-full'>
 			<div className="flex items-center">
-				<button onClick={() => {setMinimized(!minimized)}} className="flex-nowrap whitespace-nowrap ml-[-2rem] h-10 rounded-l-full bg-blue-600 px-2 text-neutral-50 hover:bg-blue-700">
-					{minimized ? '|<' : '>|'}
+				<button onClick={() => {setMinimized(!minimized)}} className="flex-nowrap whitespace-nowrap ml-[-2rem] h-10 rounded-l-full bg-blue-600 px-1 text-neutral-50 hover:bg-blue-700">
+					{minimized ? <FirstPageIcon /> : <LastPageIcon />}
 				</button>
 			</div>
 			<div className={`flex flex-col h-full rounded-sm bg-[#1E1E1E] text-neutral-50 ${minimized ? 'hidden' : 'w-full'}`}>
@@ -174,7 +182,7 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 						}`}
 						onClick={handleClick}
 					>
-						▶ Run
+						<div className='pr-2'><PlayArrowIcon /> Run</div>
 					</button>
 
 					<hr className="border-neutral-700" />

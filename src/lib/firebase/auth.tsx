@@ -1,55 +1,45 @@
+'use client'
+
 import { useContext, createContext, useEffect, useState } from 'react'
-import {
-	signInWithPopup,
-	onAuthStateChanged,
-	GoogleAuthProvider,
-} from 'firebase/auth'
+import { signInWithPopup, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth'
+import firebase from 'firebase/compat/app'
 import { auth } from './config'
 
-const AuthContext = createContext({})
+type User = firebase.User | null
+type ContextState = { user: User, signInWithGoogle: () => void, signOut: () => void }
 
-export function AuthContextProvider({
-	children,
-}: {
-	children: React.ReactNode
-}) {
-	const [user, setUser] = useState({})
+const AuthContext = createContext<ContextState | undefined>(undefined)
+
+export function AuthContextProvider({ children }:{ children: React.ReactNode}) {
+	const [user, setUser] = useState<User>(null)
 
 	function signInWithGoogle() {
 		const provider = new GoogleAuthProvider()
-
-		try {
-			signInWithPopup(auth, provider)
-		} catch (error) {
-			console.error('Error signing in with Google', error)
-		}
+		signInWithPopup(auth, provider)
 	}
 
 	function signOut() {
-		try {
-			auth.signOut()
-		} catch (error) {
-			console.error('Error signing out with Google', error)
-		}
+		auth.signOut()
 	}
 
 	useEffect(() => {
-		onAuthStateChanged(auth, (currentUser) => {
-			if (currentUser == null || !('uid' in currentUser)) {
-				setUser(currentUser as Object | any)
-			} else {
-				setUser({})
-			}
+		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+			setUser(currentUser as User)
 		})
+		return () => unsubscribe()
 	}, [user])
 
 	return (
 		<AuthContext.Provider value={{ user, signInWithGoogle, signOut }}>
-			{children}
+			{ children }
 		</AuthContext.Provider>
 	)
 }
 
 export function userAuth() {
-	return useContext(AuthContext)
+	const context = useContext(AuthContext)
+	if (context === undefined) {
+		throw new Error('useAuth must be used within a AuthContextProvider')
+	}
+	return context
 }

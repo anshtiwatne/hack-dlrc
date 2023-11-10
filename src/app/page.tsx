@@ -14,6 +14,7 @@ export default function Home() {
 			if (user) {
 				const usersRef = collection(db, 'users')
 				const userRef = doc(usersRef, user?.uid)
+				console.log(user)
 				getDoc(userRef).then((doc) => {
 					if (doc.exists()) {
 						setDoc(userRef, {
@@ -24,7 +25,7 @@ export default function Home() {
 							name: user.displayName,
 							photoURL: user.photoURL,
 							answers: {},
-							points: 0,
+							// points: 0,
 							teamMembers: [],
 							// fields above only till 24th Nov
 							lastLogin: serverTimestamp()

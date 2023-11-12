@@ -119,7 +119,7 @@ function runCode(code: string, lang: string, stdin: string) {
 
 export default function CodeEditor({ minimized, setMinimized }: { minimized: boolean, setMinimized: React.Dispatch<React.SetStateAction<boolean>> }) {
 	const { isMobile } = displaySize() as SizeProps
-	const [lang, setLang] = useState(languages.js)
+	const [lang, setLang] = useState(languages.python)
 
 	const handleLangChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const selectedLang = event.target.value
@@ -170,7 +170,7 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 						onChange={handleLangChange}
 					>
 						{Object.keys(languages).map((key) => (
-							<option key={key} value={key}>
+							<option key={key} value={key} selected={key === 'python'}>
 								{languages[key].display}
 							</option>
 						))}

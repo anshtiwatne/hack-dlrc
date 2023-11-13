@@ -7,7 +7,7 @@ import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyCBHUFCh8uhn1vIW3b9EpQV7qAzAEHT2Oo',
-	authDomain: 'hack.dlrc.in',
+	authDomain: 'hack-dlrc.firebaseapp.com',
 	projectId: 'hack-dlrc',
 	storageBucket: 'hack-dlrc.appspot.com',
 	messagingSenderId: '331587865815',

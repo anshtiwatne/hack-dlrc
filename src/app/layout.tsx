@@ -13,13 +13,15 @@ export const metadata: Metadata = {
 	description: 'A DLRC hackathon open to all created Ansh Tiwatne and Aneesh Bhave.',
 	openGraph: {
 		type: 'website',
+		title: 'HackDLRC',
 		url: 'https://hack.dlrc.in',
 		siteName: 'HackDLRC',
 		images: '/poster.webp'
 	},
 	twitter: {
-		images: '/poster.webp',
+		title: 'HackDLRC',
 		description: 'A DLRC hackathon open to all created Ansh Tiwatne and Aneesh Bhave.',
+		images: '/poster.webp',
 		creator: '@ansht_',
 	},
 }

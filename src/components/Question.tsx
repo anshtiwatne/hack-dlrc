@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { problemData } from '@/lib/utils/types'
 import formattedText from '@/lib/utils/text'
@@ -17,12 +18,13 @@ function Submit({ questionNum, questionData, isLoading }: { questionNum: number 
 		<div className="flex">
 			<div>
 				<div className="flex items-center justify-center text-sm">
-					<button
-						onClick={handleSubmit}
+					<Link
+						href='example.com'
+						target="_blank"
 						className="rounded-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
 					>
 						Get Input
-					</button>
+					</Link>
 					<div className="flex">
 						<input
 							value={answer}
@@ -72,9 +74,9 @@ export default function Question({ questionNum, questionData, isLoading }: { que
 		resources = (
 			<div className="py-4 text-blue-600">
 				{questionData.resources.map((link, index) => (
-					<a key={index} href={Object.entries(link)[0][1]}>
+					<Link key={index} href={Object.entries(link)[0][1]}>
 						{Object.entries(link)[0][0]}
-					</a>
+					</Link>
 				))}
 			</div>
 		)

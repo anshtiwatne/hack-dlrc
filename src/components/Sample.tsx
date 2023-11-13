@@ -90,7 +90,7 @@ function Submit({ questionNum, questionData, isLoading }: { questionNum: number 
 		<div className="flex">
 			<div>
             <div className='flex justify-center items-center text-sm'>
-				<Link href="https://pastebin.com/raw/SUn7vLUH" className='bg-slate-500 font-semibold text-white px-4 py-2 rounded-full hover:bg-slate-600 whitespace-nowrap'>Get Input</Link>
+				<Link href="https://pastebin.com/raw/SUn7vLUH" target="_blank" className='bg-slate-500 font-semibold text-white px-4 py-2 rounded-full hover:bg-slate-600 whitespace-nowrap'>Get Input</Link>
 					<div className='flex'>
 						<input value={answer} onChange={(e) => setAnswer(e.currentTarget.value)} className='w-full bg-slate-200 ml-4 px-4 py-2 outline-none rounded-l-full font-medium text-gray-900' type="text" placeholder='Answer' />
 						<button onClick={handleSubmit} className='bg-slate-500 font-semibold whitespace-nowrap text-white px-4 py-2 rounded-r-full hover:bg-slate-600'>Submit</button>

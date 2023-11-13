@@ -9,7 +9,13 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'HackDLRC',
-	description: 'The DLRC community hackathon',
+	description: 'A DLRC hackathon open to all created Ansh Tiwatne and Aneesh Bhave.',
+	openGraph: {
+		type: 'website',
+		url: 'https://hackdlrc.com',
+		siteName: 'HackDLRC',
+		images: '/poster.webp'
+	}
 }
 
 export default function RootLayout({

@@ -161,7 +161,7 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 					{minimized ? <FirstPageIcon /> : <LastPageIcon />}
 				</button>
 			</div>
-			<div className={`flex flex-col h-full rounded-sm bg-[#1E1E1E] text-neutral-50 ${minimized ? 'hidden' : 'w-full'}`}>
+			<div className={`flex flex-col h-full rounded-l-sm bg-[#1E1E1E] text-neutral-50 ${minimized ? 'hidden' : 'w-full'}`}>
 				<div>
 					<select
 						className="m-2 rounded-md bg-neutral-700 p-1 outline-none"

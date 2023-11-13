@@ -16,7 +16,9 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
-const perf = getPerformance(app)
+if (typeof window !== 'undefined') {
+	getAnalytics(app)
+	getPerformance(app)
+}
 export const db = getFirestore(app)
 export const auth = getAuth(app)

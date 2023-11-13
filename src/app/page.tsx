@@ -18,16 +18,6 @@ export default function Home() {
 				getDoc(userRef).then((doc) => {
 					if (doc.exists()) {
 						setDoc(userRef, {
-							uid: user.uid,
-							inputID: null,
-							email: user.email,
-							phone: user.phoneNumber,
-							name: user.displayName,
-							photoURL: user.photoURL,
-							answers: {},
-							// points: 0,
-							teamMembers: [],
-							// fields above only till 24th Nov
 							lastLogin: serverTimestamp()
 						}, {merge: true})
 					} else {

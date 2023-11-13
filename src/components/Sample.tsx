@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { getDoc, doc } from 'firebase/firestore'
 import { db } from '@/lib/firebase/config'
-import { displaySize } from '@/lib/utils/size';
+import { displaySize } from '@/lib/utils/size'
 import { problemData, SizeProps } from '@/lib/utils/types'
 import formattedText from '@/lib/utils/text'
 import CodeEditor from '@/components/CodeEditor'
@@ -17,8 +17,26 @@ function Question({
 	questionData: problemData | null | undefined
 	isLoading: boolean
 }) {
-	if (isLoading) return <p className={`${screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'}`}>Loading...</p>
-	if (!questionData) return <p className={`${screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'}`}>No question data</p>
+	if (isLoading)
+		return (
+			<p
+				className={`${
+					screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'
+				}`}
+			>
+				Loading...
+			</p>
+		)
+	if (!questionData)
+		return (
+			<p
+				className={`${
+					screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'
+				}`}
+			>
+				No question data
+			</p>
+		)
 
 	let resources = <div></div>
 
@@ -44,9 +62,11 @@ function Question({
 			</div>
 			<div className="text-xl font-medium text-gray-800">Example</div>
 			<div className="py-4 text-gray-900">
-                {formattedText(questionData.example, true)}
-            </div>
-			<div className="text-xl font-medium text-gray-800">Additional Info</div>
+				{formattedText(questionData.example, true)}
+			</div>
+			<div className="text-xl font-medium text-gray-800">
+				Additional Info
+			</div>
 			<div className="py-4 text-gray-900">
 				{questionData.additionalInfo.map((data, index) => (
 					<div key={index}>
@@ -72,28 +92,80 @@ function Question({
 	)
 }
 
-function Submit({ questionNum, questionData, isLoading }: { questionNum: number | 'sample', questionData: problemData | null | undefined, isLoading: boolean }) {
-    const [answer, setAnswer] = useState('')
+function Submit({
+	questionNum,
+	questionData,
+	isLoading,
+}: {
+	questionNum: number | 'sample'
+	questionData: problemData | null | undefined
+	isLoading: boolean
+}) {
+	const [answer, setAnswer] = useState('')
+	const [answerCorrect, setAnswerCorrect] = useState(false)
+	const [answerTimeout, setAnswerTimeout] = useState<number>(0)
+	useEffect(() => {
+		let intervalId: NodeJS.Timeout
 
-    function handleSubmit() {
-        if (answer === '1434572895') {
-            alert('correct')
-            setAnswer('')
-        }
-        else {
-            alert('incorrect')
-            setAnswer('')
-        }
-    }
+		if (answerTimeout > 0) {
+			intervalId = setInterval(() => {
+				setAnswerTimeout((prevTimeout) => prevTimeout - 1)
+			}, 1000)
+		}
+
+		return () => {
+			clearInterval(intervalId)
+		}
+	}, [answerTimeout])
+	console.log(answerTimeout)
+
+	function handleSubmit() {
+		if (answer === '1434572895') {
+			alert('correct')
+			setAnswer('')
+			setAnswerCorrect(true)
+		} else {
+			// alert('incorrect')
+			setAnswerCorrect(false)
+			setAnswer('')
+			setAnswerTimeout(60)
+		}
+	}
 
 	return (
 		<div className="flex">
 			<div>
-            <div className='flex justify-center items-center text-sm'>
-				<Link href="https://pastebin.com/raw/SUn7vLUH" target="_blank" className='bg-slate-500 font-semibold text-white px-4 py-2 rounded-full hover:bg-slate-600 whitespace-nowrap'>Get Input</Link>
-					<div className='flex'>
-						<input value={answer} onChange={(e) => setAnswer(e.currentTarget.value)} className='w-full bg-slate-200 ml-4 px-4 py-2 outline-none rounded-l-full font-medium text-gray-900' type="text" placeholder='Answer' />
-						<button onClick={handleSubmit} className='bg-slate-500 font-semibold whitespace-nowrap text-white px-4 py-2 rounded-r-full hover:bg-slate-600'>Submit</button>
+				<div className="flex items-center justify-center text-sm">
+					<Link
+						href="https://pastebin.com/raw/SUn7vLUH"
+						target="_blank"
+						className="whitespace-nowrap rounded-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
+					>
+						Get Input
+					</Link>
+					<div className="flex">
+						<input
+							value={answer}
+							onChange={(e) => setAnswer(e.currentTarget.value)}
+							className={`ml-4 w-full rounded-l-full bg-slate-200 px-4 py-2 font-medium text-gray-900 outline-none ${
+								answerTimeout > 0
+									? 'cursor-not-allowed bg-slate-300'
+									: ''
+							}`}
+							type="text"
+							placeholder={
+								answerTimeout > 0
+									? 'Incorrect'
+									: 'Answer'
+							}
+							disabled={answerTimeout > 0 ? true : false}
+						/>
+						<button
+							onClick={answerTimeout > 0 ? () => {} : handleSubmit}
+							className={`whitespace-nowrap rounded-r-full bg-slate-500 px-4 py-2 font-semibold text-white ${answerTimeout > 0 ? 'cursor-not-allowed' : 'hover:bg-slate-600'}`}
+						>
+							{answerTimeout > 0 ? <span className='font-mono px-4'>{answerTimeout.toString().padStart(2, '0')}</span> : 'Submit'}
+						</button>
 					</div>
 				</div>
 			</div>
@@ -120,9 +192,9 @@ function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
 	}, [questionNum])
 
 	return (
-		<div className="flex h-full flex-col pt-4">
+		<div className="flex h-full flex-col pt-4 w-full">
 			{/* some sort of bug: flex-grow is only working if any random height is set */}
-			<div className="h-1 flex-grow overflow-auto p-4 pt-0">
+			<div className="h-1 flex-grow overflow-auto p-4 pt-0 w-full">
 				<Question
 					questionNum={questionNum}
 					questionData={questionData}
@@ -134,36 +206,33 @@ function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
 }
 
 export default function Sample() {
-	const { width, height } = displaySize() as SizeProps;
-    const [editorMinimized, setEditorMinimized] = width > 1100 ? useState(false) : useState(true)
+	const { width, height } = displaySize() as SizeProps
+	const [editorMinimized, setEditorMinimized] =
+		width > 1100 ? useState(false) : useState(true)
 
-    return (
-        <div className="flex flex-grow justify-between">
-            <div
-                className={`inline-block ${
-                    editorMinimized ? 'w-100' : width > 1100 ? (
-                        'w-[55%]'
-                    ) : (
-                        'w-100'
-                    )
-                }`}
-            >
-                <QuestionNav totalQuestions={7} />
-            </div>
-            <div
-                className={`inline-block ${
-                    editorMinimized ? 'w-0' : width > 1100 ? (
-                        'w-[45%]'
-                    ) : (
-                        'w-0'
-                    )
-                }`}
-            >
-                <CodeEditor
-                    minimized={editorMinimized}
-                    setMinimized={setEditorMinimized}
-                />
-            </div>
-        </div>
-    )
+	return (
+		<div className="flex flex-grow justify-between">
+			<div
+				className={`inline-block ${
+					editorMinimized
+						? 'w-screen'
+						: width > 1100
+						? 'w-[55%]'
+						: 'w-screen'
+				}`}
+			>
+				<QuestionNav totalQuestions={7} />
+			</div>
+			<div
+				className={`inline-block ${
+					editorMinimized ? 'w-0' : width > 1100 ? 'w-[45%]' : 'w-0'
+				}`}
+			>
+				<CodeEditor
+					minimized={editorMinimized}
+					setMinimized={setEditorMinimized}
+				/>
+			</div>
+		</div>
+	)
 }

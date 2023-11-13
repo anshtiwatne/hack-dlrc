@@ -14,7 +14,7 @@ export default function Home() {
 			if (user) {
 				const usersRef = collection(db, 'users')
 				const userRef = doc(usersRef, user?.uid)
-				console.log(user)
+				
 				getDoc(userRef).then((doc) => {
 					if (doc.exists()) {
 						setDoc(userRef, {

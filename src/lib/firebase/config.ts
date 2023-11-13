@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
-// import { getAnalytics } from 'firebase/analytics'
+import { getAnalytics } from 'firebase/analytics'
+import { getPerformance } from "firebase/performance";
 import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -15,6 +16,7 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-// export const analytics = getAnalytics(app)
+const analytics = getAnalytics(app)
+const perf = getPerformance(app)
 export const db = getFirestore(app)
 export const auth = getAuth(app)

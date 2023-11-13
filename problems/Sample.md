@@ -3,7 +3,7 @@
 ## Points <!-- could be set later -->
 
 ## Description
-Megha Ma'am is teaching her students about square numbers. She assigns her students with a problem where they need to find the sum of the square of each number assigned to them.
+Megha Ma'am is teaching her students about square numbers. They are tasked with finding the sum of the square of each number assigned to them.
 
 ## Example
 1. Multi Line

@@ -94,7 +94,7 @@ export default function Main() {
 					<nav className="flex items-center text-zinc-500">
 						<button
 							onClick={() => setPageNav(0)}
-							className="px-2 pr-8 text-xl font-bold text-zinc-800"
+							className="pr-6 text-xl font-bold text-zinc-800"
 						>
 							HackDLRC
 						</button>
@@ -143,7 +143,7 @@ export default function Main() {
 							>
 								Sign out
 							</button>
-							<div className="relative ml-4 h-8 w-8">
+							<div className="relative ml-4 h-8 w-8 my-[-1rem]">
 								<Image
 									className="rounded-full"
 									src={user?.photoURL as string}
@@ -172,7 +172,7 @@ export default function Main() {
 						</button>
 						<button
 							onClick={() => setPageNav(0)}
-							className="px-2 pr-8 text-xl font-bold text-zinc-800"
+							className="pl-2 pr-4 text-xl font-bold text-zinc-800"
 						>
 							HackDLRC
 						</button>
@@ -197,7 +197,7 @@ export default function Main() {
 							>
 								Sign out
 							</button>
-							<div className="relative ml-4 h-8 w-8">
+							<div className="relative ml-4 h-8 w-8 my-[-1rem]">
 								<Image
 									className="rounded-full"
 									src={user?.photoURL as string}

@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 	description: 'A DLRC hackathon open to all created Ansh Tiwatne and Aneesh Bhave.',
 	openGraph: {
 		type: 'website',
-		url: 'https://hackdlrc.com',
+		url: 'https://hack.dlrc.in',
 		siteName: 'HackDLRC',
-		images: '/poster.webp'
+		images: 'https://hack.dlrc.in/poster.webp'
 	}
 }
 

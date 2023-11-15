@@ -124,6 +124,9 @@ export default function Main() {
 
 					{!user ? (
 						<nav className="flex items-center text-zinc-600">
+							{countdown != null && countdown > 0 && (
+							<Link className='px-2 text-zinc-500 hover:text-zinc-600' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Register a Team</Link>
+							)}
 							<button
 								onClick={handleSignIn}
 								className="ml-4 rounded-full bg-slate-500 px-3 py-1 text-sm font-semibold text-white hover:bg-slate-600"

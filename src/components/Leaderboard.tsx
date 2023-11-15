@@ -38,7 +38,8 @@ export default function Leaderboard() {
 								/>
 							</div>
 							<div className="font-medium text-gray-800">
-								{player.name}
+								{player.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}
+								{/* title case */}
 							</div>
 						</div>
 						<div className="font-semibold text-gray-800">

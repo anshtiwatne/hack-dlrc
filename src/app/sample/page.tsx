@@ -196,9 +196,9 @@ function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
 	}, [questionNum])
 
 	return (
-		<div className="flex h-full w-full flex-col pt-4">
+		<div className="flex h-full w-full flex-col">
 			{/* some sort of bug: flex-grow is only working if any random height is set */}
-			<div className="h-1 w-full flex-grow overflow-auto p-4 pt-0">
+			<div className="h-1 w-full flex-grow overflow-auto p-4">
 				<Question
 					questionNum={questionNum}
 					questionData={questionData}

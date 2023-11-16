@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { Open_Sans } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import MenuIcon from '@mui/icons-material/MenuRounded'
+import CloseIcon from '@mui/icons-material/CloseRounded'
 
 // Contexts
 import { serverTime } from '@/lib/firebase/time'
@@ -236,63 +237,65 @@ export default function Header() {
 
 	function HamburgerMenu() {
 		return (
-			<nav className="flex w-full flex-col items-center bg-slate-50 px-4 font-medium text-gray-700">
+			<nav className="flex w-max text-xl absolute h-[100dvh] rounded-r-lg flex-col bg-slate-200 px-4 pr-10 font-medium text-gray-700">
+				<button onClick={() => setMenuOpen(false)} className='w-full pt-5 pb-2 px-1 flex'>
+					<CloseIcon />
+				</button>
 				<Link
 					onClick={() => setMenuOpen(false)}
 					href="/"
-					className="p-2 text-xl"
+					className="p-2"
 				>
 					Home
 				</Link>
-				<hr className="w-full" />
+				{/* <hr className="w-full" /> */}
 				{countdown != null && countdown > 0 && (
-					<div className="flex w-full flex-col items-center justify-center">
+					<div className="flex w-full flex-col justify-center">
 						<Link
 							onClick={() => setMenuOpen(false)}
-							className="p-2 text-xl"
+							className="p-2"
 							href="https://forms.gle/RLTPQ8h9TQrzwJi5A"
 						>
 							Register a Team
 						</Link>
-						<hr className="w-full" />
+						{/* <hr className="w-full" /> */}
 					</div>
 				)}
 				{countdown != null && countdown > 0 && (
-					<div className="flex w-full flex-col items-center justify-center">
+					<div className="flex w-full flex-col justify-center">
 						<Link
 							onClick={() => setMenuOpen(false)}
 							href={'/sample'}
-							className="p-2 text-xl"
+							className="p-2"
 						>
 							Sample Question
 						</Link>
-						<hr className="w-full" />
+						{/* <hr className="w-full" /> */}
 					</div>
 				)}
 				<Link
 					onClick={() => setMenuOpen(false)}
 					href="/sponsors"
-					className="p-2 text-xl"
+					className="p-2"
 				>
 					Sponsors
 				</Link>
-				<hr className="w-full" />
+				{/* <hr className="w-full" /> */}
 				<Link
 					onClick={() => setMenuOpen(false)}
 					href="/leaderboard"
-					className="p-2 text-xl"
+					className="p-2"
 				>
 					Leaderboard
 				</Link>
-				<hr className="w-full" />
+				{/* <hr className="w-full" /> */}
 				<Link
 					onClick={() => setMenuOpen(false)}
 					href="/help"
-					className="p-2 text-xl"
+					className="p-2"
 				>
 					Help
 				</Link>
-				<hr className="w-full" />
 			</nav>
 		)
 	}

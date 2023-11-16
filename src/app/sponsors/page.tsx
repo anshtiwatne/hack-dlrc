@@ -15,7 +15,7 @@ function Sponsor({ imgSrc, imgAlt, description, text }: { imgSrc: string, imgAlt
                     src={imgSrc}
                     alt={imgAlt}
                     fill
-                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', zIndex: 0 }}
                 />
             </div>
             <div className={`font-medium ${isMobile ? 'px-2' : 'px-[3dvw]'} py-2 text-gray-600`}>

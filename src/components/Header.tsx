@@ -237,8 +237,11 @@ export default function Header() {
 
 	function HamburgerMenu() {
 		return (
-			<nav className="flex w-max text-xl shadow-lg absolute h-[100dvh] rounded-r-lg flex-col bg-slate-100 px-4 pr-10 font-medium text-gray-700 z-10">
-				<button onClick={() => setMenuOpen(false)} className='w-full pt-5 pb-2 px-1 flex'>
+			<nav className="absolute z-10 flex h-[100dvh] w-max flex-col rounded-r-lg bg-slate-100 px-4 pr-10 text-xl font-medium text-gray-700 shadow-lg">
+				<button
+					onClick={() => setMenuOpen(false)}
+					className="flex w-full px-1 pb-2 pt-5"
+				>
 					<CloseIcon />
 				</button>
 				<Link

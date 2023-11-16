@@ -6,7 +6,15 @@ import { getDoc, doc } from 'firebase/firestore'
 import { problemData } from '@/lib/utils/types'
 import Question from '@/components/Question'
 
-function Submit({ questionNum, questionData, isLoading }: { questionNum: number | 'sample', questionData: problemData | null | undefined, isLoading: boolean }) {
+function Submit({
+	questionNum,
+	questionData,
+	isLoading,
+}: {
+	questionNum: number | 'sample'
+	questionData: problemData | null | undefined
+	isLoading: boolean
+}) {
 	const [answer, setAnswer] = useState('')
 
 	function handleGetInput() {
@@ -48,7 +56,11 @@ function Submit({ questionNum, questionData, isLoading }: { questionNum: number 
 	)
 }
 
-export default function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
+export default function QuestionNav({
+	totalQuestions,
+}: {
+	totalQuestions: number
+}) {
 	const [questionNum, setQuestionNum] = useState(1)
 	const [isLoading, setLoading] = useState(true)
 	const [questionData, setData] = useState<problemData | null | undefined>(

@@ -22,21 +22,13 @@ function Question({
 
 	if (isLoading)
 		return (
-			<p
-				className={`${
-					!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'
-				}`}
-			>
+			<p className={`${!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'}`}>
 				Loading...
 			</p>
 		)
 	if (!questionData)
 		return (
-			<p
-				className={`${
-					!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'
-				}`}
-			>
+			<p className={`${!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'}`}>
 				No question data
 			</p>
 		)
@@ -156,17 +148,27 @@ function Submit({
 							}`}
 							type="text"
 							placeholder={
-								answerTimeout > 0
-									? 'Incorrect'
-									: 'Answer'
+								answerTimeout > 0 ? 'Incorrect' : 'Answer'
 							}
 							disabled={answerTimeout > 0 ? true : false}
 						/>
 						<button
-							onClick={answerTimeout > 0 ? () => {} : handleSubmit}
-							className={`whitespace-nowrap rounded-r-full bg-slate-500 px-4 py-2 font-semibold text-white ${answerTimeout > 0 ? 'cursor-not-allowed' : 'hover:bg-slate-600'}`}
+							onClick={
+								answerTimeout > 0 ? () => {} : handleSubmit
+							}
+							className={`whitespace-nowrap rounded-r-full bg-slate-500 px-4 py-2 font-semibold text-white ${
+								answerTimeout > 0
+									? 'cursor-not-allowed'
+									: 'hover:bg-slate-600'
+							}`}
 						>
-							{answerTimeout > 0 ? <span className='font-mono px-4'>{answerTimeout.toString().padStart(2, '0')}</span> : 'Submit'}
+							{answerTimeout > 0 ? (
+								<span className="px-4 font-mono">
+									{answerTimeout.toString().padStart(2, '0')}
+								</span>
+							) : (
+								'Submit'
+							)}
 						</button>
 					</div>
 				</div>
@@ -194,9 +196,9 @@ function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
 	}, [questionNum])
 
 	return (
-		<div className="flex h-full flex-col pt-4 w-full">
+		<div className="flex h-full w-full flex-col pt-4">
 			{/* some sort of bug: flex-grow is only working if any random height is set */}
-			<div className="h-1 flex-grow overflow-auto p-4 pt-0 w-full">
+			<div className="h-1 w-full flex-grow overflow-auto p-4 pt-0">
 				<Question
 					questionNum={questionNum}
 					questionData={questionData}

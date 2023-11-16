@@ -3,7 +3,15 @@ import { useState, useEffect } from 'react'
 import { problemData } from '@/lib/utils/types'
 import formattedText from '@/lib/utils/text'
 
-function Submit({ questionNum, questionData, isLoading }: { questionNum: number | 'sample', questionData: problemData | null | undefined, isLoading: boolean }) {
+function Submit({
+	questionNum,
+	questionData,
+	isLoading,
+}: {
+	questionNum: number | 'sample'
+	questionData: problemData | null | undefined
+	isLoading: boolean
+}) {
 	const [answer, setAnswer] = useState('')
 
 	function handleGetInput() {
@@ -19,7 +27,7 @@ function Submit({ questionNum, questionData, isLoading }: { questionNum: number 
 			<div>
 				<div className="flex items-center justify-center text-sm">
 					<Link
-						href='example.com'
+						href="example.com"
 						target="_blank"
 						className="rounded-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
 					>
@@ -46,7 +54,15 @@ function Submit({ questionNum, questionData, isLoading }: { questionNum: number 
 	)
 }
 
-export default function Question({ questionNum, questionData, isLoading }: { questionNum: number, questionData: problemData | null | undefined, isLoading: boolean }) {
+export default function Question({
+	questionNum,
+	questionData,
+	isLoading,
+}: {
+	questionNum: number
+	questionData: problemData | null | undefined
+	isLoading: boolean
+}) {
 	if (isLoading)
 		return (
 			<p

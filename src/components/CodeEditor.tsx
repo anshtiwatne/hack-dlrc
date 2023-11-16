@@ -117,7 +117,13 @@ function runCode(code: string, lang: string, stdin: string) {
 	})
 }
 
-export default function CodeEditor({ minimized, setMinimized }: { minimized: boolean, setMinimized: React.Dispatch<React.SetStateAction<boolean>> }) {
+export default function CodeEditor({
+	minimized,
+	setMinimized,
+}: {
+	minimized: boolean
+	setMinimized: React.Dispatch<React.SetStateAction<boolean>>
+}) {
 	const { isMobile } = displaySize() as SizeProps
 	const [lang, setLang] = useState(languages.python)
 
@@ -152,16 +158,25 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 		setResponse(apiResponse[0] + apiResponse[1])
 	}
 
-	if (isMobile) return (<div></div>)
+	if (isMobile) return <div></div>
 
 	return (
-		<div className='flex h-full'>
+		<div className="flex h-full">
 			<div className="flex items-center">
-				<button onClick={() => {setMinimized(!minimized)}} className="flex-nowrap whitespace-nowrap ml-[-2rem] h-10 rounded-l-full bg-blue-600 px-1 text-neutral-50 hover:bg-blue-700">
+				<button
+					onClick={() => {
+						setMinimized(!minimized)
+					}}
+					className="ml-[-2rem] h-10 flex-nowrap whitespace-nowrap rounded-l-full bg-blue-600 px-1 text-neutral-50 hover:bg-blue-700"
+				>
 					{minimized ? <FirstPageIcon /> : <LastPageIcon />}
 				</button>
 			</div>
-			<div className={`flex flex-col h-full rounded-l-sm bg-[#1E1E1E] text-neutral-50 ${minimized ? 'hidden' : 'w-full'}`}>
+			<div
+				className={`flex h-full flex-col rounded-l-sm bg-[#1E1E1E] text-neutral-50 ${
+					minimized ? 'hidden' : 'w-full'
+				}`}
+			>
 				<div>
 					<select
 						className="m-2 rounded-md bg-neutral-700 p-1 outline-none"
@@ -183,7 +198,9 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 						}`}
 						onClick={handleClick}
 					>
-						<div className='pr-2'><PlayArrowIcon /> Run</div>
+						<div className="pr-2">
+							<PlayArrowIcon /> Run
+						</div>
 					</button>
 
 					<hr className="border-neutral-700" />

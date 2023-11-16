@@ -29,13 +29,13 @@ function Sponsor({ imgSrc, imgAlt, description, text }: { imgSrc: string, imgAlt
 }
 
 export default function Sponsors() {
-    const { width } = displaySize() as SizeProps
+    const { isMobile } = displaySize() as SizeProps
 
 	return (
 		<div className="flex h-full items-center flex-col px-5 overflow-y-scroll">
-            <div className={`pt-5 font-light text-gray-600 ${width > 1100 ? 'text-4xl' : 'text-[7dvw]'}`}>Our Amazing Sponsors</div>
-            {width > 1100 ? (
-                <div className='flex flex-grow items-center flex-col'>
+            <div className={`pt-5 font-light text-gray-600 ${!isMobile ? 'text-4xl' : 'text-[7dvw]'}`}>Our Amazing Sponsors</div>
+            {!isMobile ? (
+                <div className='flex flex-grow items-center flex-col justify-evenly'>
                     <div className='flex w-full py-5'>
                         <Sponsor imgSrc='stckme.png' imgAlt='stck.me logo' description='The best place for writers to earn money from their fans. Start selling your stories, e-books, essays, poetry, and more!' text="They're sponsoring each participant with a ₹5000 giftable stck.me pro membership!" />
                         <Sponsor imgSrc='interviewcake.svg' imgAlt='Interview Cake logo' description='Interview Cake is a study tool that preps software engineering candidates for programming interviews.' text="They're sponsoring each participant with a $249 Interview Cake full course!" />

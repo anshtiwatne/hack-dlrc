@@ -14,15 +14,6 @@ import { userAuth } from '@/lib/firebase/auth'
 import { displaySize } from '@/lib/utils/size'
 import { AuthProps, TimeProps, SizeProps } from '@/lib/utils/types'
 
-// Components
-import Countdown from '@/components/Countdown'
-import Leaderboard from '@/components/Leaderboard'
-import Sponsors from '@/components/Sponsors'
-import Help from '@/components/Help'
-import QuestionNav from '@/components/QuestionNav'
-import CodeEditor from '@/components/CodeEditor'
-import Sample from '@/components/Sample'
-
 const openSans = Open_Sans({ subsets: ['latin'] })
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
@@ -42,11 +33,11 @@ function getInputID(uid: string) {
 	return (((hash % range) + range) % range) + min
 }
 
-export default function Main() {
+export default function Header() {
 	const { user, signInWithGoogle, signOut } = userAuth() as AuthProps
 	const { timer, countdown } = serverTime() as TimeProps
-	const { width } = displaySize() as SizeProps
-	const [pageNav, setPageNav] = useState(0)
+	const { isMobile } = displaySize() as SizeProps
+	const [menuOpen, setMenuOpen] = useState(false)
 
 	let days = ''
 	let hours = ''
@@ -92,23 +83,34 @@ export default function Main() {
 					className={`${openSans.className} flex items-center justify-between p-4`}
 				>
 					<nav className="flex items-center text-zinc-500">
-						<button
-							onClick={() => setPageNav(0)}
+						<Link
+							href="/"
 							className="pr-6 text-xl font-bold text-zinc-800"
 						>
 							HackDLRC
-						</button>
-						<button onClick={() => setPageNav(1)} className="px-2 hover:text-zinc-600">
+						</Link>
+						<Link
+							href="/sponsors"
+							className="px-2 hover:text-zinc-600"
+						>
 							Sponsors
-						</button>
-						<button onClick={() => setPageNav(2)} className="px-2 hover:text-zinc-600">
+						</Link>
+						<Link
+							href="/leaderboard"
+							className="px-2 hover:text-zinc-600"
+						>
 							Leaderboard
-						</button>
-						<button onClick={() => setPageNav(3)} className="px-2 hover:text-zinc-600">
+						</Link>
+						<Link href="/help" className="px-2 hover:text-zinc-600">
 							Help
-						</button>
+						</Link>
 						{countdown != null && countdown > 0 && (
-							<button onClick={() => setPageNav(4)} className='px-2 hover:text-zinc-600'>Sample Question</button>
+							<Link
+								href="/sample"
+								className="px-2 hover:text-zinc-600"
+							>
+								Sample Question
+							</Link>
 						)}
 					</nav>
 
@@ -125,7 +127,12 @@ export default function Main() {
 					{!user ? (
 						<nav className="flex items-center text-zinc-600">
 							{countdown != null && countdown > 0 && (
-							<Link className='px-2 text-zinc-500 hover:text-zinc-600' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Register a Team</Link>
+								<Link
+									className="px-2 text-zinc-500 hover:text-zinc-600"
+									href="https://forms.gle/RLTPQ8h9TQrzwJi5A"
+								>
+									Register a Team
+								</Link>
 							)}
 							<button
 								onClick={handleSignIn}
@@ -136,9 +143,16 @@ export default function Main() {
 						</nav>
 					) : (
 						<div className="flex items-center">
-							{timer != null && timer > 0 && <div className='font-medium'>⭐ 0</div>}
+							{timer != null && timer > 0 && (
+								<div className="font-medium">⭐ 0</div>
+							)}
 							{countdown != null && countdown > 0 && (
-							<Link className='px-2 text-zinc-500 hover:text-zinc-600' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Register a Team</Link>
+								<Link
+									className="px-2 text-zinc-500 hover:text-zinc-600"
+									href="https://forms.gle/RLTPQ8h9TQrzwJi5A"
+								>
+									Register a Team
+								</Link>
 							)}
 							<button
 								onClick={handleSignOut}
@@ -146,7 +160,7 @@ export default function Main() {
 							>
 								Sign out
 							</button>
-							<div className="relative ml-4 h-8 w-8 my-[-1rem]">
+							<div className="relative my-[-1rem] ml-4 h-8 w-8">
 								<Image
 									className="rounded-full"
 									src={user?.photoURL as string}
@@ -170,15 +184,16 @@ export default function Main() {
 					className={`${openSans.className} flex items-center justify-between p-4`}
 				>
 					<nav className="flex items-center text-zinc-500">
-						<button onClick={() => setPageNav(-1)}>
+						<button onClick={() => setMenuOpen(!menuOpen)}>
 							<MenuIcon />
 						</button>
-						<button
-							onClick={() => setPageNav(0)}
+						<Link
+							href="/"
+							onClick={() => setMenuOpen(false)}
 							className="pl-2 pr-4 text-xl font-bold text-zinc-800"
 						>
 							HackDLRC
-						</button>
+						</Link>
 					</nav>
 
 					{!user ? (
@@ -192,15 +207,17 @@ export default function Main() {
 						</nav>
 					) : (
 						<div className="flex items-center">
-							{timer != null && timer > 0 && <div className='font-medium'>⭐ 0</div>}
-							
+							{timer != null && timer > 0 && (
+								<div className="font-medium">⭐ 0</div>
+							)}
+
 							<button
 								onClick={handleSignOut}
 								className="ml-4 rounded-full bg-slate-500 px-3 py-1 text-sm font-semibold text-white hover:bg-slate-600"
 							>
 								Sign out
 							</button>
-							<div className="relative ml-4 h-8 w-8 my-[-1rem]">
+							<div className="relative my-[-1rem] ml-4 h-8 w-8">
 								<Image
 									className="rounded-full"
 									src={user?.photoURL as string}
@@ -219,84 +236,71 @@ export default function Main() {
 
 	function HamburgerMenu() {
 		return (
-			<nav className="flex h-full w-full flex-col items-center bg-slate-50 px-4 font-medium text-gray-700">
-				<button onClick={() => setPageNav(0)} className="p-2 text-xl">
+			<nav className="flex w-full flex-col items-center bg-slate-50 px-4 font-medium text-gray-700">
+				<Link
+					onClick={() => setMenuOpen(false)}
+					href="/"
+					className="p-2 text-xl"
+				>
 					Home
-				</button>
+				</Link>
 				<hr className="w-full" />
 				{countdown != null && countdown > 0 && (
-					<div className='w-full flex justify-center items-center flex-col'>
-						<Link className='p-2 text-xl' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Register a Team</Link>
-						<hr className='w-full' />
+					<div className="flex w-full flex-col items-center justify-center">
+						<Link
+							onClick={() => setMenuOpen(false)}
+							className="p-2 text-xl"
+							href="https://forms.gle/RLTPQ8h9TQrzwJi5A"
+						>
+							Register a Team
+						</Link>
+						<hr className="w-full" />
 					</div>
 				)}
 				{countdown != null && countdown > 0 && (
-					<div className='w-full flex justify-center items-center flex-col'>
-						<button onClick={() => setPageNav(4)} className='p-2 text-xl'>Sample Question</button>
-						<hr className='w-full' />
+					<div className="flex w-full flex-col items-center justify-center">
+						<Link
+							onClick={() => setMenuOpen(false)}
+							href={'/sample'}
+							className="p-2 text-xl"
+						>
+							Sample Question
+						</Link>
+						<hr className="w-full" />
 					</div>
 				)}
-				<button onClick={() => setPageNav(1)} className="p-2 text-xl">
+				<Link
+					onClick={() => setMenuOpen(false)}
+					href="/sponsors"
+					className="p-2 text-xl"
+				>
 					Sponsors
-				</button>
+				</Link>
 				<hr className="w-full" />
-				<button onClick={() => setPageNav(2)} className="p-2 text-xl">
+				<Link
+					onClick={() => setMenuOpen(false)}
+					href="/leaderboard"
+					className="p-2 text-xl"
+				>
 					Leaderboard
-				</button>
+				</Link>
 				<hr className="w-full" />
-				<button onClick={() => setPageNav(3)} className="p-2 text-xl">
+				<Link
+					onClick={() => setMenuOpen(false)}
+					href="/help"
+					className="p-2 text-xl"
+				>
 					Help
-				</button>
+				</Link>
 				<hr className="w-full" />
 			</nav>
 		)
 	}
 
-	const [editorMinimized, setEditorMinimized] = useState(
-		typeof window !== 'undefined' && window.innerWidth < 1100
-	)
-
 	return (
-		<div className="flex h-[100dvh] flex-col">
-			{width > 1100 ? <LargeHeader /> : <SmallHeader />}
-
-			{pageNav === 0 && countdown != null && countdown > 0 && (
-				<Countdown />
-			)}
-			{pageNav === 0 && countdown != null && countdown <= 0 && (
-				<div className="flex flex-grow justify-between">
-					<div
-						className={`inline-block ${
-							editorMinimized ? 'w-100' : width > 1100 ? (
-								'w-[55%]'
-							) : (
-								'w-100'
-							)
-						}`}
-					>
-						<QuestionNav totalQuestions={7} />
-					</div>
-					<div
-						className={`inline-block ${
-							editorMinimized ? 'w-0' : width > 1100 ? (
-								'w-[45%]'
-							) : (
-								'w-0'
-							)
-						}`}
-					>
-						<CodeEditor
-							minimized={editorMinimized}
-							setMinimized={setEditorMinimized}
-						/>
-					</div>
-				</div>
-			)}
-			{pageNav === 1 && <Sponsors />}
-			{pageNav === 2 && <Leaderboard />}
-			{pageNav === 3 && <Help />}
-			{pageNav === 4 && <Sample />}
-			{pageNav === -1 && <HamburgerMenu />}
-		</div>
+		<>
+			{!isMobile ? <LargeHeader /> : <SmallHeader />}
+			{menuOpen && <HamburgerMenu />}
+		</>
 	)
 }

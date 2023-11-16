@@ -1,9 +1,10 @@
+import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
 import { SizeContextProvider } from '@/lib/utils/size'
 import { TimeContextProvider } from '@/lib/firebase/time'
 import { AuthContextProvider } from '@/lib/firebase/auth'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,10 +34,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} overflow-hidden`}>
+			<body className={`${inter.className} overflow-hidden h-screen flex flex-col`}>
 				<SizeContextProvider>
 				<TimeContextProvider>
 				<AuthContextProvider>
+					<Header />
 					{children}
 				</AuthContextProvider>
 				</TimeContextProvider>

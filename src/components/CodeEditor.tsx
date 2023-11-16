@@ -168,9 +168,10 @@ export default function CodeEditor({ minimized, setMinimized }: { minimized: boo
 						name="language"
 						id="lang"
 						onChange={handleLangChange}
+						defaultValue="python"
 					>
 						{Object.keys(languages).map((key) => (
-							<option key={key} value={key} selected={key === 'python'}>
+							<option key={key} value={key}>
 								{languages[key].display}
 							</option>
 						))}

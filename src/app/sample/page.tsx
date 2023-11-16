@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { getDoc, doc } from 'firebase/firestore'
@@ -17,11 +18,13 @@ function Question({
 	questionData: problemData | null | undefined
 	isLoading: boolean
 }) {
+	const { isMobile } = displaySize() as SizeProps
+
 	if (isLoading)
 		return (
 			<p
 				className={`${
-					screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'
+					!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'
 				}`}
 			>
 				Loading...
@@ -31,7 +34,7 @@ function Question({
 		return (
 			<p
 				className={`${
-					screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'
+					!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'
 				}`}
 			>
 				No question data
@@ -117,7 +120,6 @@ function Submit({
 			clearInterval(intervalId)
 		}
 	}, [answerTimeout])
-	console.log(answerTimeout)
 
 	function handleSubmit() {
 		if (answer === '1434572895') {
@@ -206,17 +208,16 @@ function QuestionNav({ totalQuestions }: { totalQuestions: number }) {
 }
 
 export default function Sample() {
-	const { width, height } = displaySize() as SizeProps
-	const [editorMinimized, setEditorMinimized] =
-		width > 1100 ? useState(false) : useState(true)
+	const { isMobile } = displaySize() as SizeProps
+	const [editorMinimized, setEditorMinimized] = useState(false)
 
 	return (
-		<div className="flex flex-grow justify-between">
+		<main className="flex flex-grow justify-between">
 			<div
 				className={`inline-block ${
 					editorMinimized
 						? 'w-screen'
-						: width > 1100
+						: !isMobile
 						? 'w-[55%]'
 						: 'w-screen'
 				}`}
@@ -225,7 +226,7 @@ export default function Sample() {
 			</div>
 			<div
 				className={`inline-block ${
-					editorMinimized ? 'w-0' : width > 1100 ? 'w-[45%]' : 'w-0'
+					editorMinimized ? 'w-0' : !isMobile ? 'w-[45%]' : 'w-0'
 				}`}
 			>
 				<CodeEditor
@@ -233,6 +234,6 @@ export default function Sample() {
 					setMinimized={setEditorMinimized}
 				/>
 			</div>
-		</div>
+		</main>
 	)
 }

@@ -20,7 +20,7 @@ export default function Leaderboard() {
 	}, [])
 
 	return (
-		<div className="flex w-full flex-col flex-grow items-center justify-center">
+		<main className="flex flex-grow w-full h-full flex-col items-center justify-center">
 			{/* some bug: scroll only works on h-1 */}
 			<ol className="scroll flex h-1 w-full max-w-5xl flex-grow flex-col p-4 pr-6 pt-3 overflow-y-scroll overflow-x-hidden">
 				{players.map((player, i) => (
@@ -49,6 +49,6 @@ export default function Leaderboard() {
 					
 				))}
 			</ol>
-		</div>
+		</main>
 	)
 }

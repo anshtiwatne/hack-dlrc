@@ -1,12 +1,21 @@
 'use client'
 
-import Main from '@/components/Main'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { userAuth } from '@/lib/firebase/auth'
+import { serverTime } from '@/lib/firebase/time'
+import { displaySize } from '@/lib/utils/size'
 import { db } from '@/lib/firebase/config'
 import { collection, doc, getDoc, setDoc, serverTimestamp, updateDoc, arrayUnion } from 'firebase/firestore'
+import { TimeProps, SizeProps } from '@/lib/utils/types'
+
+import Countdown from '@/components/Countdown'
+import QuestionNav from '@/components/QuestionNav'
+import CodeEditor from '@/components/CodeEditor'
 
 export default function Home() {
+	const { countdown } = serverTime() as TimeProps
+	const { isMobile } = displaySize() as SizeProps
+	const [editorMinimized, setEditorMinimized] = useState(typeof window !== 'undefined' && window.innerWidth < 1100)
 	const { user } = userAuth()
 
 	useEffect(() => {
@@ -43,9 +52,42 @@ export default function Home() {
 		initUser()
 	}, [user])
 
+
 	return (
 		<main className="flex h-[100dvh] flex-col">
-			<Main />
+			{countdown != null && countdown > 0 && (
+				<Countdown />
+			)}
+
+			{countdown != null && countdown <= 0 && (
+				<div className="flex flex-grow justify-between">
+					<div
+						className={`inline-block ${
+							editorMinimized ? 'w-100' : !isMobile ? (
+								'w-[55%]'
+							) : (
+								'w-100'
+							)
+						}`}
+					>
+						<QuestionNav totalQuestions={7} />
+					</div>
+					<div
+						className={`inline-block ${
+							editorMinimized ? 'w-0' : !isMobile? (
+								'w-[45%]'
+							) : (
+								'w-0'
+							)
+						}`}
+					>
+						<CodeEditor
+							minimized={editorMinimized}
+							setMinimized={setEditorMinimized}
+						/>
+					</div>
+				</div>
+			)}
 		</main>
 	)
 }

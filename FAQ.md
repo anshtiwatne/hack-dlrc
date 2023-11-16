@@ -22,4 +22,4 @@ Everyone who participates will get a certificate of participation along with rew
 
 ## The FAQ does not include my question, what do I do?
 
-Contact either Aneesh or Ansh over here REDIRECT TO CONTACT.
+Feel free to [contact either Aneesh or Ansh](hack.dlrc.in/contact).

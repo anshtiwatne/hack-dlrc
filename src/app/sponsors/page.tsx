@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { displaySize } from '@/lib/utils/size'
 import { SizeProps } from '@/lib/utils/types'
+// import { Main } from '@/components/Main'
 
 function Sponsor({ imgSrc, imgAlt, description, text }: { imgSrc: string, imgAlt: string, description:string, text: string }) {
     const { isMobile } = displaySize() as SizeProps
@@ -32,7 +33,7 @@ export default function Sponsors() {
     const { isMobile } = displaySize() as SizeProps
 
 	return (
-		<div className="flex h-full items-center flex-col px-5 overflow-y-scroll">
+		<main className="flex flex-grow items-center flex-col px-5 overflow-y-scroll">
             <div className={`pt-5 font-light text-gray-600 ${!isMobile ? 'text-4xl' : 'text-[7dvw]'}`}>Our Amazing Sponsors</div>
             {!isMobile ? (
                 <div className='flex flex-grow items-center flex-col justify-evenly pt-5 pb-8'>
@@ -53,6 +54,6 @@ export default function Sponsors() {
                     <div className='py-5'><Sponsor imgSrc='aops.webp' imgAlt='AoPS logo' description="Art of Problem Solving (AoPS) develops educational opportunities for many of the most eager students in the world." text="They're providing the top 4 winners with a $25 AoPS giftcard!" /></div>
                 </div>
             )}
-		</div>
+		</main>
 	)
 }

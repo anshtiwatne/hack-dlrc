@@ -10,7 +10,7 @@ No, the only requirement is being able to code in a language of your choice.
 
 ## The online editor does not support my language, what do I do?
 
-You need not use the online editor, the only thing that matters is obtaining the final answer and submitting it in the Answer box.
+You need not use the online editor, the only thing that matters is obtaining the final answer and submitting it in the answer box.
 
 ## Do I need to be a student in DLRC to participate?
 

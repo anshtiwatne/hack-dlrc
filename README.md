@@ -1,2 +1,2 @@
-# dlrc-hackathon
-the DLRC comminity hackathon
+# HackDLRC
+An open to all online hackathon - [website](hack.dlrc.in)

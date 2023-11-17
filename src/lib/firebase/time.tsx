@@ -10,8 +10,8 @@ export function TimeContextProvider({ children }: { children: React.ReactNode })
     const [timer, setTimer] = useState<number | null>(null)
     const [countdown, setCountdown] = useState<number | null>(null)
 
-    const startDate = new Date('2023-11-24T00:17:00.000+05:30') // 24th Nov 5pm IST
-	const endDate = new Date('2023-11-26T00:17:00.000+05:30') // 26th Nov 5pm IST
+    const startDate = new Date('2023-11-24T17:00:00.000+05:30') // 24th Nov 5pm IST
+	const endDate = new Date('2023-11-26T17:00:00.000+05:30') // 26th Nov 5pm IST
 
 	useEffect(() => {
 		if (startDate > new Date(Timestamp.now().seconds * 1000)) {

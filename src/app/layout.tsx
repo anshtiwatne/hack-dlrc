@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} overflow-hidden h-screen flex flex-col`}>
+			<body className={`${inter.className} overflow-hidden h-[100dvh] flex flex-col`}>
 				<SizeContextProvider>
 				<TimeContextProvider>
 				<AuthContextProvider>

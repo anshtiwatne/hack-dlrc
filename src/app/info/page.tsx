@@ -6,7 +6,7 @@ import PhoneIcon from '@mui/icons-material/PhoneRounded'
 import { displaySize } from '@/lib/utils/size'
 import { SizeProps } from '@/lib/utils/types'
 
-export default function Help() {
+export default function Info() {
 	const { isMobile } = displaySize() as SizeProps
 
 	return (

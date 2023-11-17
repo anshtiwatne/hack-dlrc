@@ -102,8 +102,8 @@ export default function Header() {
 						>
 							Leaderboard
 						</Link>
-						<Link href="/help" className="px-2 hover:text-zinc-600">
-							Help
+						<Link href="/info" className="px-2 hover:text-zinc-600">
+							Info
 						</Link>
 						{countdown != null && countdown > 0 && (
 							<Link
@@ -294,10 +294,10 @@ export default function Header() {
 				{/* <hr className="w-full" /> */}
 				<Link
 					onClick={() => setMenuOpen(false)}
-					href="/help"
+					href="/info"
 					className="p-2"
 				>
-					Help
+					Info
 				</Link>
 			</nav>
 		)

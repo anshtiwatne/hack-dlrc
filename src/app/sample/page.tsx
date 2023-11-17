@@ -114,7 +114,7 @@ function Submit({
 	}, [answerTimeout])
 
 	function handleSubmit() {
-		if (answer === '1434572895') {
+		if (answer == questionData?.output[0]) {
 			alert('correct')
 			setAnswer('')
 			setAnswerCorrect(true)
@@ -131,7 +131,7 @@ function Submit({
 			<div>
 				<div className="flex items-center justify-center text-sm">
 					<Link
-						href="https://pastebin.com/raw/SUn7vLUH"
+						href={questionData?.input[0] as string}
 						target="_blank"
 						className="whitespace-nowrap rounded-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
 					>

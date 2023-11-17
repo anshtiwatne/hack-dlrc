@@ -6,21 +6,12 @@ import { displaySize } from '@/lib/utils/size'
 import { useState } from 'react'
 import { db } from '@/lib/firebase/config'
 import { doc, updateDoc, arrayUnion } from 'firebase/firestore'
+import { SizeProps, TimeProps } from '@/lib/utils/types'
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
-interface TimeProps {
-	timer: number
-	countdown: number
-}
-
-interface SizeProps {
-	width: number
-	height: number
-}
-
 export default function Countdown() {
-	const { width } = displaySize() as SizeProps
+	const { isMobile } = displaySize() as SizeProps
 	const { countdown } = serverTime() as TimeProps
 	const [email, setEmail] = useState<string>('')
 
@@ -65,7 +56,7 @@ export default function Countdown() {
 					className={`${
 						jetBrainsMono.className
 					} font-extrabold text-zinc-700 ${
-						width > 1100 ? 'text-[8dvw]' : 'text-[10dvw]'
+						!isMobile ? 'text-[8dvw]' : 'text-[10dvw]'
 					}`}
 				>
 					T-{days}:{hours}:{minutes}:{seconds}
@@ -83,7 +74,7 @@ export default function Countdown() {
 						onChange={(e) => setEmail(e.currentTarget.value)}
 						className="ml-4 w-full rounded-l-full bg-slate-200 px-4 py-2 font-medium text-gray-900 outline-none"
 						type="email"
-						placeholder="email"
+						placeholder={`email${!isMobile ? ' (we won\'t spam you)' : ''}`}
 					/>
 					<button
 						onClick={handleSubscribe}

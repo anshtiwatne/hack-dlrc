@@ -14,7 +14,7 @@ export default function Help() {
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>About</div>
 				<div className='py-2'>HackDLRC is a hackathon hosted by Ansh Tiwatne and Aneesh Bhave.</div>
-				<div className='py-2'>Being an online event, it is open to anyone anywhere. You can participate individually by signing in on this website or as a team through this <Link className='text-blue-500' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Google Form</Link></div>
+				<div className='py-2'>Being an online event, it is open to anyone anywhere. You can participate individually by signing in on this website or as a team through this <Link className='text-blue-500' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Google Form</Link>.</div>
 			</div>
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>Contact Us</div>
@@ -33,7 +33,7 @@ export default function Help() {
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>Solving Problems</div>
 				<div className='py-2'>HackDLRC consists of 7 problems that get progressively harder.</div>
-				<div className='py-2'>A beginner level <Link className='text-blue-500' href='/sample'>sample problem</Link> has been posted, you can also refer to the <Link className='text-blue-500' href='https://github.com/nouritsu/dlrc-hackathon-sample-solutions'>solution to the sample problem</Link> in your language</div>
+				<div className='py-2'>A beginner level <Link className='text-blue-500' href='/sample'>sample problem</Link> has been posted, you can also refer to the <Link className='text-blue-500' href='https://github.com/nouritsu/dlrc-hackathon-sample-solutions'>solution to the sample problem</Link> in your language.</div>
 				<div className='py-2'>The input for a problem is accessed by clicking on the "Get Input" button on the page of the problem. Make sure your program does not depend on the number of lines in the input.</div>
 				<div className='py-2'>Do not use AI to get on the leader board.</div>
 			</div>

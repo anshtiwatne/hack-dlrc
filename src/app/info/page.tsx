@@ -14,7 +14,7 @@ export default function Info() {
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>About</div>
 				<div className='py-2'>HackDLRC is a hackathon hosted by Ansh Tiwatne and Aneesh Bhave.</div>
-				<div className='py-2'>Being an online event, it is open to anyone anywhere. You can participate individually by signing in on this website or as a team through this <Link className='text-blue-500' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Google Form</Link>.</div>
+				<div className='py-2'>Being an online event, it is open to anyone anywhere. You can participate individually by signing in on this website or as a team through this <Link className='text-blue-600' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Google Form</Link>.</div>
 			</div>
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>Contact Us</div>
@@ -33,17 +33,18 @@ export default function Info() {
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>Solving Problems</div>
 				<div className='py-2'>HackDLRC consists of 7 problems that get progressively harder.</div>
-				<div className='py-2'>A beginner level <Link className='text-blue-500' href='/sample'>sample problem</Link> has been posted, you can also refer to the <Link className='text-blue-500' href='https://github.com/nouritsu/dlrc-hackathon-sample-solutions'>solution to the sample problem</Link> in your language.</div>
+				<div className='py-2'>A beginner level <Link className='text-blue-600' href='/sample'>sample problem</Link> has been posted, you can also refer to the <Link className='text-blue-600' href='https://github.com/nouritsu/dlrc-hackathon-sample-solutions'>solution to the sample problem</Link> in your language.</div>
 				<div className='py-2'>The input for a problem is accessed by clicking on the "Get Input" button on the page of the problem. Make sure your program does not depend on the number of lines in the input.</div>
-				<div className='py-2'>Do not use AI to get on the leader board.</div>
+				<div className='py-2'>In the embedded code editor this input can be pasted in the input section and read as regular STDIN through your code. In case that sounds unfamiliar, you can either save the input in a file and read from it in your own setup, or contact us for help.</div>
+				<div className='py-2'>We recommend against using AI tools to earn points.</div>
 			</div>
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>Interpreting Information</div>
 				<div className='py-2 pb-4'>Each problem comes with the name of the problem, the points associated with it, the description of the problem, a worked example, as well as additional information and resources that may help you solve the problem.</div>
 				<div className='text-xl font-medium text-gray-800'>• Name</div>
-				<div className='pl-4 pb-4'>Each problem is based on a subject taught at <Link className='text-blue-500' href='https://dlrc.in'>DLRC</Link>. The sample problem is a Math class for middle school.</div>
+				<div className='pl-4 pb-4'>Each problem is based on a subject taught at <Link className='text-blue-600' href='https://dlrc.in'>DLRC</Link>. The sample problem is a Math class for middle school.</div>
 				<div className='text-xl font-medium text-gray-800'>• Points</div>
-				<div className='pl-4 pb-4'>Solving each problem will award you a certain number of points. The <Link className='text-blue-500' href='/sample'>sample problem</Link> is worth 0 points.</div>
+				<div className='pl-4 pb-4'>Solving each problem will award you a certain number of points. The <Link className='text-blue-600' href='/sample'>sample problem</Link> is worth 0 points.</div>
 				<div className='text-xl font-medium text-gray-800'>• Description</div>
 				<div className='pl-4 pb-4'>The description of each problem introduces the premise and provides the necessary details.</div>
 				<div className='text-xl font-medium text-gray-800'>• Worked Example</div>

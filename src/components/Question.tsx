@@ -36,6 +36,7 @@ function Submit({
 					<div className="flex">
 						<input
 							name='answer'
+							autoComplete='off'
 							value={answer}
 							onChange={(e) => setAnswer(e.currentTarget.value)}
 							className="ml-4 w-full rounded-l-full bg-slate-200 px-4 py-2 font-medium text-gray-900 outline-none"

@@ -50,7 +50,7 @@ function Question({
 	return (
 		<div>
 			<div className="text-xl font-medium text-gray-800">
-				{questionData.title} (Sample)
+				{questionData.title} (sample)
 			</div>
 			<div className="py-4 text-gray-900">
 				{formattedText(questionData.description)}

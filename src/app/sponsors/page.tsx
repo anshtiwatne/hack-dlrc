@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { displaySize } from '@/lib/utils/size'
 import { SizeProps } from '@/lib/utils/types'
-// import { Main } from '@/components/Main'
 
 function Sponsor({
 	imgSrc,

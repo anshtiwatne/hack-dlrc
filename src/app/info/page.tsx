@@ -65,6 +65,8 @@ export default function Info() {
 				{/* <div className='py-2 pb-4'>Each problem comes with the name of the problem, the points associated with it, the description of the problem, a worked example, as well as additional information and resources that may help you solve the problem.</div> */}
 				<div className='text-xl font-medium text-gray-800'>• Do I need a team to participate?</div>
 				<div className='pl-4 pb-4'>No, you can participate individually or as a team of up to 4 members.</div>
+				<div className='text-xl font-medium text-gray-800'>• Do I need to be present with my team members physically during the hackathon?</div>
+				<div className='pl-4 pb-4'>You can choose to but it's totally upto you, you can most certainly collaborate online.</div>
 				<div className='text-xl font-medium text-gray-800'>• Is there an age limit?</div>
 				<div className='pl-4 pb-4'>No, the only requirement is being able to code in a language of your choice.</div>
 				<div className='text-xl font-medium text-gray-800'>• The online editor does not support my language, what do I do?</div>

@@ -65,7 +65,7 @@ function Question({
 			<div className="py-4 text-gray-900">
 				{questionData.additionalInfo.map((data, index) => (
 					<div key={index}>
-						{index + 1}. {formattedText(data)}
+						<span className='font-mono font-semibold text-gray-600'>{index + 1}.</span> {formattedText(data)}
 					</div>
 				))}
 			</div>

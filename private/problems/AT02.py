@@ -4,14 +4,16 @@ nucleotides = ['A', 'C', 'G', 'T']
 pairs = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
 
 # Generate two random strands of DNA
-main_strand = [random.choice(nucleotides) for _ in range(64)]
+main_strand = [random.choice(nucleotides) for _ in range(1024)]
 complementary_strand = [pairs[n] for n in main_strand]
 
 # Mutate one nucleotide
 replacement = random.choice(range(len(main_strand)))
 
-if main_strand[replacement] == "A": mutation = random.choice(['C', 'G'])
-else: mutation = random.choice(['A', 'T'])
+if main_strand[replacement] == "A":
+    mutation = random.choice(['C', 'G'])
+else:
+    mutation = random.choice(['A', 'T'])
 
 main_strand[replacement] = mutation
 

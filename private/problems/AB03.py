@@ -36,7 +36,7 @@ def solve(inp: str) -> int:
     return int(math.sqrt(x**2 + y**2))
 
 
-p = generate_problem()
-s = solve(p)
-
-print(json.dumps({"problem": p, "solution": s}))
+if __name__ == "__main__":
+    p = generate_problem()
+    s = solve(p)
+    print(json.dumps({"problem": p, "solution": s}))

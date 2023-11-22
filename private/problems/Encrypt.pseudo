@@ -1,0 +1,38 @@
+Impressive Work! We wanted to store participant emails securely in our database. But we forgot to encrypt them (no joke) and we're relying on you to code an encryption algorithm based on the pseudocode given below. The final answer is your email encrypted by the algorithm
+
+// Map_F(c) : takes a character c and returns the cesar cipher of the character
+// Map_B(c) : takes the ciphered character c and returns deciphered character
+// Hexify(i) : takes integer i and returns a string representing i in base 16
+// Prime(n) : takes integer n and returns the n-th prime number
+// Ascii(c) : takes character c and returns its ASCII value
+// Append(a, x): takes an array a and a value x and appends x to a
+// Join(a, s): takes an array a and a string s and returns a string s with each element in a joined with s
+
+DECLARE UserEmail : STRING
+INPUT UserEmail
+
+DECLARE StepOne : STRING
+FOR Character IN UserEmail:
+    StepOne = StepOne + Map_F(Character)
+ENDFOR
+
+DECLARE StepTwo : ARRAY OF INTEGER
+FOR Character IN StepOne:
+    I = Ascii(Character) - 32
+    Append(StepTwo, Prime(I))
+ENDFOR
+
+DECLARE StepThree : ARRAY OF STRING
+FOR Element IN StepTwo:
+    Append(StepThree, Hexify(Element))
+ENDFOR
+
+DECLARE StepFour : STRING
+StepFour = Join(StepThree, "-")
+
+DECLARE StepFive : STRING
+FOR Character in StepFour:
+    StepFive = StepFive + Map_B(Character)
+ENDFOR
+
+OUTPUT StepFive

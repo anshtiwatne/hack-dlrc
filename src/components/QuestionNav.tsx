@@ -67,6 +67,15 @@ export default function QuestionNav({
 		undefined,
 	)
 
+	if (questionNum == 7) {
+		console.log(
+			'https://hack.dlrc.in/finalboss'
+				.split('')
+				.map((c) => c.charCodeAt(0))
+				.map((i) => i * 20220239),
+		)
+	}
+
 	useEffect(() => {
 		async function fetchData() {
 			const docRef = doc(db, 'problems', questionNum.toString())

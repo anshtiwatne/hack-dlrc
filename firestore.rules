@@ -4,7 +4,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /problems/{problem} {
     	allow read: if problem == 'sample'
-      allow read: if request.auth.token.email == 'ansh.tiwatne@gmail.com' || request.auth.token.email == 'aneesh1701@gmail.com';
+      allow read: if request.auth.token.email == 'ansh.tiwatne@gmail.com' || request.auth.token.email == 'aneesh1701@gmail.com' || request.auth.token.email == 'neofernandes2006@gmail.com';
     	allow read: if timestamp.date(2023, 11, 24) < request.time && request.time < timestamp.date(2023, 11, 26);
     }
     match /users/{userID} {

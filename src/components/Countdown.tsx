@@ -19,7 +19,7 @@ export default function Countdown() {
 		console.log(email)
 		if (email) {
 			const subscribersRef = doc(db, 'mailList', 'subscribers')
-			updateDoc(subscribersRef, { emails: arrayUnion(email) })
+			updateDoc(subscribersRef, { emails: arrayUnion(email.toLowerCase()) })
 		}
 		alert("You'll receive a reminder soon")
 		setEmail('')

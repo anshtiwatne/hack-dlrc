@@ -75,6 +75,8 @@ export default function Info() {
 				<div className='pl-4 pb-4'>No, this event is open to all, including working professionals and teachers. Since it's online, programmers can participate from across the world.</div>
 				<div className='text-xl font-medium text-gray-800'>• What is the requirement to get an award?</div>
 				<div className='pl-4 pb-4'>Everyone who participates will get a certificate of participation along with rewards from our sponsors. You must be present and logged in on at least one of the hackathon days to be considered a participant.</div>
+				<div className='text-xl font-medium text-gray-800'>• The light theme is torturing my eyes, how do I enable dark mode?</div>
+				<div className='pl-4 pb-4'>You can use the Dark Reader extension on the website, it is decently supported.</div>
 				<div className='text-xl font-medium text-gray-800'>• The FAQ does not include my question, what do I do?</div>
 				<div className='pl-4 pb-4'>Feel free to contact us using the details above at any point in time.</div>
 			</div>

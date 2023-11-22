@@ -9,7 +9,7 @@ import QuestionNav from '@/components/QuestionNav'
 import CodeEditor from '@/components/CodeEditor'
 
 export default function Test() {
-	const authorizedUsers = ['ansh.tiwatne@gmail.com', 'aneesh1701@gmail.com']
+	const authorizedUsers = ['ansh.tiwatne@gmail.com', 'aneesh1701@gmail.com', 'neofernandes2006@gmail.com']
 	const { isMobile } = displaySize() as SizeProps
 	const [editorMinimized, setEditorMinimized] = useState(
 		typeof window !== 'undefined' && window.innerWidth < 1100,

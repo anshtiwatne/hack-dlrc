@@ -7,7 +7,7 @@ interface problemData {
     description: string
     example: string
     additionalInfo: string[]
-    resources: Array<Object>
+    resources: {[key: string]: string}
     input: string[]
     output: string[]
 }

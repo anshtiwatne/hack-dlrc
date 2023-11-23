@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Key } from 'react'
 import { problemData } from '@/lib/utils/types'
 import formattedText from '@/lib/utils/text'
 
@@ -131,10 +131,10 @@ export default function Question({
 
 	if (questionData.resources !== undefined) {
 		resources = (
-			<div className="py-4 text-blue-600">
-				{questionData.resources.map((link, index) => (
-					<Link key={index} href={Object.entries(link)[0][1]}>
-						{Object.entries(link)[0][0]}
+			<div className="py-3 text-blue-600 flex flex-col">
+				{Object.keys(questionData.resources).map((key, index) => (
+					<Link className='py-1' key={index} href={questionData.resources[key]} target='_blank'>
+						{key}
 					</Link>
 				))}
 			</div>
@@ -156,11 +156,11 @@ export default function Question({
 				{questionData.title} ({questionData.points}pts)
 			</div>
 			<div className="py-4 text-gray-900">
-				{formattedText(questionData.description)}
+				{formattedText(questionData.description, true)}
 			</div>
 			<div className="text-xl font-medium text-gray-800">Example</div>
 			<div className="py-4 text-gray-900">
-				{formattedText(questionData.example)}
+				{formattedText(questionData.example, true)}
 			</div>
 			<div className="text-xl font-medium text-gray-800">
 				Additional Info

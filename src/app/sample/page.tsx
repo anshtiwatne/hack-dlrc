@@ -37,10 +37,10 @@ function Question({
 
 	if (questionData.resources !== undefined) {
 		resources = (
-			<div className="py-4 text-blue-600">
-				{questionData.resources.map((link, index) => (
-					<Link key={index} href={Object.entries(link)[0][1]}>
-						{Object.entries(link)[0][0]}
+			<div className="py-3 text-blue-600">
+				{Object.keys(questionData.resources).map((key, index) => (
+					<Link className='py-1' key={index} href={questionData.resources[key]} target='_blank'>
+						{key}
 					</Link>
 				))}
 			</div>

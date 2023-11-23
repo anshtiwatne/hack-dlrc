@@ -1,4 +1,4 @@
-from random import randint, random, shuffle
+from random import randint, shuffle
 import json
 
 

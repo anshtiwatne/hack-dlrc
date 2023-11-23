@@ -13,7 +13,7 @@ export default function Info() {
 		<div className='flex flex-col flex-grow items-center text-lg text-gray-800 py-2 px-4 overflow-y-scroll'>
 			<div className='flex flex-col py-5 w-full max-w-5xl'>
 				<div className='text-2xl font-medium text-gray-800 pb-2'>About</div>
-				<div className='py-2'>HackDLRC is a hackathon hosted by Ansh Tiwatne and Aneesh Bhave.</div>
+				<div className='py-2'>HackDLRC is a hackathon hosted by Ansh Tiwatne and Aneesh Bhave (highschool students at DLRC).</div>
 				<div className='py-2'>Being an online event, it is open to anyone anywhere. You can participate individually by signing in on this website or as a team through this <Link className='text-blue-600' href='https://forms.gle/RLTPQ8h9TQrzwJi5A'>Google Form</Link>.</div>
 			</div>
 			<div className='flex flex-col py-5 w-full max-w-5xl'>

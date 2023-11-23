@@ -141,6 +141,15 @@ export default function Question({
 		)
 	}
 
+	if (questionNum == 7) {
+		console.log({ '÷':
+			'https://hack.dlrc.in/finalboss'
+				.split('')
+				.map((c) => c.charCodeAt(0))
+				.map((i) => i * 20220239),
+			})
+	}
+
 	return (
 		<div>
 			<div className="text-xl font-medium text-gray-800">

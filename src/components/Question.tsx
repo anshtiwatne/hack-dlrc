@@ -141,15 +141,6 @@ export default function Question({
 		)
 	}
 
-	if (questionNum == 7) {
-		console.log({ '÷':
-			'https://hack.dlrc.in/finalboss'
-				.split('')
-				.map((c) => c.charCodeAt(0))
-				.map((i) => i * 20220239),
-			})
-	}
-
 	return (
 		<div>
 			<div className="text-xl font-medium text-gray-800">
@@ -158,10 +149,14 @@ export default function Question({
 			<div className="py-4 text-gray-900">
 				{formattedText(questionData.description, true)}
 			</div>
-			<div className="text-xl font-medium text-gray-800">Example</div>
-			<div className="py-4 text-gray-900">
-				{formattedText(questionData.example, true)}
-			</div>
+			{questionData?.example && (
+				<>
+					<div className="text-xl font-medium text-gray-800">Example</div>
+					<div className="py-4 text-gray-900">
+						{formattedText(questionData.example, true)}
+					</div>
+				</>
+			)}
 			<div className="text-xl font-medium text-gray-800">
 				Additional Info
 			</div>
@@ -181,11 +176,13 @@ export default function Question({
 			</div>
 			{resources}
 			<br />
-			<Submit
-				questionNum={questionNum}
-				questionData={questionData}
-				isLoading={isLoading}
-			/>
+			{questionData?.input && (
+				<Submit
+					questionNum={questionNum}
+					questionData={questionData}
+					isLoading={isLoading}
+				/>
+			)}
 		</div>
 	)
 }

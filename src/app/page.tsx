@@ -77,8 +77,8 @@ export default function Home() {
 							editorMinimized
 								? 'w-100'
 								: !isMobile
-								? 'w-[55%]'
-								: 'w-100'
+								  ? 'w-[55%]'
+								  : 'w-100'
 						}`}
 					>
 						<QuestionNav totalQuestions={7} />
@@ -88,8 +88,8 @@ export default function Home() {
 							editorMinimized
 								? 'w-0'
 								: !isMobile
-								? 'w-[45%]'
-								: 'w-0'
+								  ? 'w-[45%]'
+								  : 'w-0'
 						}`}
 					>
 						<CodeEditor

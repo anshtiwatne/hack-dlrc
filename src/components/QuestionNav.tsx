@@ -6,6 +6,13 @@ import { getDoc, doc } from 'firebase/firestore'
 import { problemData } from '@/lib/utils/types'
 import Question from '@/components/Question'
 
+console.log({
+	'÷': 'https://hack.dlrc.in/finalboss'
+		.split('')
+		.map((c) => c.charCodeAt(0))
+		.map((i) => i * 20220239),
+}) // for question 7
+
 function Submit({
 	questionNum,
 	questionData,

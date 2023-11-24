@@ -8,8 +8,8 @@ G = 6.67 * (10e-11)
 
 def generate_problem() -> str:
     ps = []
-    for _ in range(2):
-        for _ in range(randint(1, 3)):
+    for _ in range(32):
+        for _ in range(randint(1, 16)):
             rbyv = random() + randint(0, 2)
 
             v = randint(2, 128)
@@ -39,7 +39,6 @@ def solve(string: str) -> int:
             t = (2 * PI * r) / v
             m = (4 * PI**2 * r**3) / (G * t**2)
             sum += m
-            print(m)
         averages.append(sum / len(s))
     return averages.index(max(averages)) + 1
 

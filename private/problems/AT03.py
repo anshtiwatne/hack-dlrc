@@ -46,4 +46,5 @@ def solve(string: str) -> int:
 if __name__ == "__main__":
     p = generate_problem()
     s = solve(p)
-    print(json.dumps({"problem": p, "solution": s}))
+    print(p)
+    print(s)

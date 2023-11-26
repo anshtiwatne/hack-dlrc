@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { userAuth } from '@/lib/firebase/auth'
 import { displaySize } from '@/lib/utils/size'
 import { SizeProps } from '@/lib/utils/types'
 
 import QuestionNav from '@/components/QuestionNav'
 import CodeEditor from '@/components/CodeEditor'
+import { arrayUnion, collection, doc, getDoc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
+import { db } from '@/lib/firebase/config'
 
 export default function Test() {
 	const authorizedUsers = ['ansh.tiwatne@gmail.com', 'aneesh1701@gmail.com', 'neofernandes2006@gmail.com']
@@ -15,6 +17,45 @@ export default function Test() {
 		typeof window !== 'undefined' && window.innerWidth < 1100,
 	)
 	const { user } = userAuth()
+
+	useEffect(() => {
+		async function initUser() {
+			if (user) {
+				const usersRef = collection(db, 'users')
+				const userRef = doc(usersRef, user?.uid)
+
+				getDoc(userRef).then((doc) => {
+					if (doc.exists()) {
+						setDoc(
+							userRef,
+							{
+								lastLogin: serverTimestamp(),
+							},
+							{ merge: true },
+						)
+					} else {
+						const randID = Math.floor(Math.random() * 16)
+						setDoc(userRef, {
+							uid: user.uid,
+							inputID: randID,
+							email: user.email,
+							phone: user.phoneNumber,
+							name: user.displayName,
+							photoURL: user.photoURL,
+							answers: {},
+							points: 0,
+							teamMembers: [],
+							lastLogin: serverTimestamp(),
+						})
+					}
+				})
+
+				const subscribersRef = doc(db, 'mailList', 'subscribers')
+				updateDoc(subscribersRef, { emails: arrayUnion(user.email) })
+			}
+		}
+		initUser()
+	}, [user])
 
 	return (
 		<main className="flex h-[100dvh] flex-col">
@@ -29,7 +70,7 @@ export default function Test() {
 								: 'w-100'
 						}`}
 					>
-						<QuestionNav totalQuestions={7} isUserInit={false} />
+						<QuestionNav totalQuestions={7} />
 					</div>
 					<div
 						className={`inline-block ${
@@ -47,7 +88,7 @@ export default function Test() {
 					</div>
 				</div>
 			) : (
-                <div>You're not permitted to view this content</div>
+                <></>
             )}
 		</main>
 	)

@@ -17,6 +17,15 @@ export default function Leaderboard() {
 			)
 			const usersSnapshot = await getDocs(usersRef)
 			const usersList = usersSnapshot.docs.map((doc) => doc.data())
+
+			usersList.sort((a, b) => {
+				if (a.points !== 100) return 1
+				const timestampA = Number(a.answers?.finalboss?.timestamp)
+				const timestampB = Number(b.answers?.finalboss?.timestamp)
+			  
+				return timestampA - timestampB
+			})
+
 			setPlayers(usersList as any)
 		}
 		getPlayers()
@@ -48,11 +57,14 @@ export default function Leaderboard() {
 								{/* title case */}
 							</div>
 						</div>
-						<div className="font-semibold text-gray-800">
+						<div className="font-semibold flex items-center">
+							{player.teamName && (
+								<div className='text-gray-800 pr-4 font-normal'>{player.teamName}</div>
+							)}
 							{player.points !== null ? (
-								<div>⭐ {player.points}</div>
+								<div className='text-gray-800'>⭐ {player.points}</div>
 							) : (
-								''
+								<div className='text-gray-600'>organizer</div>
 							)}
 						</div>
 					</li>

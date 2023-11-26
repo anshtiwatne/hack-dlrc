@@ -16,7 +16,6 @@ export default function Countdown() {
 	const [email, setEmail] = useState<string>('')
 
 	function handleSubscribe() {
-		console.log(email)
 		if (email) {
 			const subscribersRef = doc(db, 'mailList', 'subscribers')
 			updateDoc(subscribersRef, { emails: arrayUnion(email.toLowerCase()) })
@@ -63,7 +62,7 @@ export default function Countdown() {
 				</div>
 			</div>
 			<div className="flex w-screen items-center justify-center px-4 pt-4">
-				<div className="whitespace-nowrap text-xl font-semibold text-gray-800">
+				{/* <div className="whitespace-nowrap text-xl font-semibold text-gray-800">
 					Remind me
 				</div>
 				<div className="flex">
@@ -82,7 +81,8 @@ export default function Countdown() {
 					>
 						Submit
 					</button>
-				</div>
+				</div> */}
+				<div className='flex text-center text-lg text-red-600'>We're facing some issues sorry for the delay, the hackathon will start soon!</div>
 			</div>
 		</div>
 	)

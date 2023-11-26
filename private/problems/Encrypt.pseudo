@@ -1,8 +1,8 @@
-Impressive Work! We wanted to store participant emails securely in our database. But we forgot to encrypt them (no joke) and we're relying on you to code an encryption algorithm based on the pseudocode given below. The final answer is your email encrypted by the algorithm
+Impressive Work! We wanted to store participant emails securely in our database. But we forgot to encrypt them (no joke) and we're relying on you to code an encryption algorithm based on the pseudocode given below. The final answer is your email encrypted by the algorithm. The map for ciphering your email can be found in the browser console. Good luck!
 
 // Map_F(c) : takes a character c and returns the cesar cipher of the character
 // Map_B(c) : takes the ciphered character c and returns deciphered character
-// Hexify(i) : takes integer i and returns a string representing i in base 16
+// Hexify(i) : takes integer i and returns a string representing i in base 16 (without the 0x leading characters)
 // Prime(n) : takes integer n and returns the n-th prime number
 // Ascii(c) : takes character c and returns its ASCII value
 // Append(a, x): takes an array a and a value x and appends x to a

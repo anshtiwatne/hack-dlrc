@@ -2,21 +2,33 @@
 
 import Link from 'next/link'
 import { useState, useEffect, Key } from 'react'
+import { userAuth } from '@/lib/firebase/auth'
 import { problemData } from '@/lib/utils/types'
 import formattedText from '@/lib/utils/text'
+import { userData } from '@/lib/utils/types'
+import { collection, doc, getDoc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
+import { db } from '@/lib/firebase/config'
 
 function Submit({
+	userData,
 	questionNum,
 	questionData,
 	isLoading,
 }: {
+	userData: userData | null
 	questionNum: number | 'sample'
 	questionData: problemData | null | undefined
 	isLoading: boolean
 }) {
+	const { user } = userAuth()
+	const userRef = doc(collection(db, 'users'), user?.uid)
+
+	if (isLoading) return <div>Loading...</div>
+
 	const [answer, setAnswer] = useState('')
 	const [answerCorrect, setAnswerCorrect] = useState(false)
 	const [answerTimeout, setAnswerTimeout] = useState<number>(0)
+
 	useEffect(() => {
 		let intervalId: NodeJS.Timeout
 
@@ -33,8 +45,18 @@ function Submit({
 
 	function handleSubmit() {
 		if (answer == questionData?.output[0]) {
-			alert('correct')
-			setAnswer('')
+			if (userData?.answers[questionNum] == undefined) {
+				const newAnswers = userData?.answers as any
+				newAnswers[questionNum] = {answer: answer, timestamp: serverTimestamp()}
+				setDoc(userRef, 
+					{answers: newAnswers}, {merge: true}
+					)
+					setDoc(userRef, {points: userData?.points as number + questionData?.points}, {merge: true})
+				alert('correct')
+				setAnswer('')
+			} else {
+				alert('you\'ve already got this right')
+			}
 			setAnswerCorrect(true)
 		} else {
 			// alert('incorrect')
@@ -101,11 +123,28 @@ export default function Question({
 	questionNum,
 	questionData,
 	isLoading,
+	isUserInit,
 }: {
 	questionNum: number
 	questionData: problemData | null | undefined
 	isLoading: boolean
+	isUserInit: boolean
 }) {
+	const { user } = userAuth()
+	const [playerData, setUserData] = useState<userData | null>(null)
+	
+	useEffect(() => {
+		async function getInputID() {
+			if (user) {
+				const userRef = doc(collection(db, 'users'), user?.uid)
+				const userDoc = await getDoc(userRef)
+				const userData = userDoc.data()
+				setUserData(userData as any)
+			}
+		}
+		getInputID()
+	}, [isUserInit, user])
+
 	if (isLoading)
 		return (
 			<p
@@ -167,6 +206,14 @@ export default function Question({
 					</div>
 				))}
 			</div>
+			{questionData?.hint && (
+				<>
+					<div className="text-xl font-medium text-gray-800">Hint (-10pts)</div>
+					<div className="py-4 text-gray-900">
+						{formattedText(questionData.hint)}
+					</div>
+				</>
+			)}
 			<div
 				className={`text-xl font-medium text-gray-800 ${
 					questionData.resources == undefined ? 'hidden' : ''
@@ -176,8 +223,9 @@ export default function Question({
 			</div>
 			{resources}
 			<br />
-			{questionData?.input && (
+			{playerData && !isLoading && questionData.input && (
 				<Submit
+					userData={playerData}
 					questionNum={questionNum}
 					questionData={questionData}
 					isLoading={isLoading}

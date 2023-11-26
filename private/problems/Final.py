@@ -31,5 +31,18 @@ def map_backward(string: str) -> str:
     return "".join([MAPPING_B[c] for c in string])
 
 
-email: str = "aneesh1701@gmail.com"
+# inverse functions
+
+def unhex_letters(string: str) -> list[int]:
+    return [int(x, 16) for x in string.split("-")]
+
+def undo_math(xs: list[int]) -> str:
+    a = lambda x: x + 32
+    b = lambda x: PRIMES.index(x)
+
+    return "".join([chr(a(b(x))) for x in xs])
+
+email: str = "mrunmaybehere@gmail.com"
+encrypted: str = "xSFw[wx*Fwx*wxSFwOTwFwx<OwJiw$FwJiw[wJiw{[w[iwxSFwOTwO*wxVTw<Tw<iwi[wxSF"
 print(map_backward(hex_letters(do_math(map_forward(email)))))
+print(map_forward(unhex_letters(undo_math(map_backward(encrypted)))))

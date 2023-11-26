@@ -3,7 +3,7 @@
 // Fonts
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Open_Sans } from 'next/font/google'
 import { JetBrains_Mono } from 'next/font/google'
 import MenuIcon from '@mui/icons-material/MenuRounded'
@@ -13,7 +13,9 @@ import CloseIcon from '@mui/icons-material/CloseRounded'
 import { serverTime } from '@/lib/firebase/time'
 import { userAuth } from '@/lib/firebase/auth'
 import { displaySize } from '@/lib/utils/size'
-import { AuthProps, TimeProps, SizeProps } from '@/lib/utils/types'
+import { AuthProps, TimeProps, SizeProps, userData } from '@/lib/utils/types'
+import { collection, doc, getDoc } from 'firebase/firestore'
+import { db } from '@/lib/firebase/config'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
@@ -77,6 +79,20 @@ export default function Header() {
 		}
 	}
 
+	const [playerData, setUserData] = useState<userData | null>(null)
+	
+	useEffect(() => {
+		async function getInputID() {
+			if (user) {
+				const userRef = doc(collection(db, 'users'), user?.uid)
+				const userDoc = await getDoc(userRef)
+				const userData = userDoc.data()
+				setUserData(userData as any)
+			}
+		}
+		getInputID()
+	}, [user])
+
 	function LargeHeader() {
 		return (
 			<header>
@@ -115,7 +131,7 @@ export default function Header() {
 						)}
 					</nav>
 
-					{timer === null ? (
+					{(timer == null || timer < 0) ? (
 						''
 					) : (
 						<div
@@ -145,7 +161,7 @@ export default function Header() {
 					) : (
 						<div className="flex items-center">
 							{timer != null && timer > 0 && (
-								<div className="font-medium">⭐ 0</div>
+								<div className="font-medium">⭐ {playerData?.points}</div>
 							)}
 							{countdown != null && countdown > 0 && (
 								<Link
@@ -209,7 +225,7 @@ export default function Header() {
 					) : (
 						<div className="flex items-center">
 							{timer != null && timer > 0 && (
-								<div className="font-medium">⭐ 0</div>
+								<div className="font-medium">⭐ {playerData?.points}</div>
 							)}
 
 							<button

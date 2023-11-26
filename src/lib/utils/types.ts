@@ -7,6 +7,7 @@ interface problemData {
     description: string
     example: string
     additionalInfo: string[]
+    hint: string
     resources: {[key: string]: string}
     input: string[]
     output: string[]
@@ -19,8 +20,9 @@ interface userData {
     phone: string
     name: string
     photoURL: string
-    answers: Object
+    answers: {[questionNum: number | string]: string}
     points: number | null
+    teamName: string | null
     teamMembers: string[]
     lastLogin: Timestamp
 }

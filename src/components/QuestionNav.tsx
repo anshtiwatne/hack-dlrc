@@ -6,67 +6,54 @@ import { getDoc, doc } from 'firebase/firestore'
 import { problemData } from '@/lib/utils/types'
 import Question from '@/components/Question'
 
+// console.log({
+// 	'÷': 'https://hack.dlrc.in/finalboss'
+// 		.split('')
+// 		.map((c) => c.charCodeAt(0))
+// 		.map((i) => i * 20220239),
+// })
+console.clear()
 console.log({
-	'÷': 'https://hack.dlrc.in/finalboss'
-		.split('')
-		.map((c) => c.charCodeAt(0))
-		.map((i) => i * 20220239),
-}) // for question 7
-
-function Submit({
-	questionNum,
-	questionData,
-	isLoading,
-}: {
-	questionNum: number | 'sample'
-	questionData: problemData | null | undefined
-	isLoading: boolean
-}) {
-	const [answer, setAnswer] = useState('')
-
-	function handleGetInput() {
-		return null
-	}
-
-	function handleSubmit() {
-		return null
-	}
-
-	return (
-		<div className="flex">
-			<div>
-				<div className="flex items-center justify-center text-sm">
-					<button
-						onClick={handleSubmit}
-						className="rounded-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
-					>
-						Get Input
-					</button>
-					<div className="flex">
-						<input
-							value={answer}
-							onChange={(e) => setAnswer(e.currentTarget.value)}
-							className="ml-4 w-full rounded-l-full bg-slate-200 px-4 py-2 font-medium text-gray-900 outline-none"
-							type="text"
-							placeholder="Answer"
-						/>
-						<button
-							onClick={handleSubmit}
-							className="rounded-r-full bg-slate-500 px-4 py-2 font-semibold text-white hover:bg-slate-600"
-						>
-							Submit
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	)
-}
+    "÷": [
+        2102904856,
+        2345547724,
+        2345547724,
+        2264666768,
+        2325327485,
+        1172773862,
+        950351233,
+        950351233,
+        2102904856,
+        1961363183,
+        2001803661,
+        2163565573,
+        930130994,
+        2022023900,
+        2183785812,
+        2305107246,
+        2001803661,
+        930130994,
+        2123125095,
+        2224226290,
+        950351233,
+        2062464378,
+        2123125095,
+        2224226290,
+        1961363183,
+        2183785812,
+        1981583422,
+        2244446529,
+        2325327485,
+        2325327485
+    ]
+})
 
 export default function QuestionNav({
 	totalQuestions,
+	isUserInit,
 }: {
 	totalQuestions: number
+	isUserInit: boolean
 }) {
 	const [questionNum, setQuestionNum] = useState(1)
 	const [isLoading, setLoading] = useState(true)
@@ -110,6 +97,7 @@ export default function QuestionNav({
 					questionNum={questionNum}
 					questionData={questionData}
 					isLoading={isLoading}
+					isUserInit={isUserInit}
 				/>
 			</div>
 		</div>

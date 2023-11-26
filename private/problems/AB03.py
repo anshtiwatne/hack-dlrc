@@ -16,6 +16,7 @@ def generate_problem():
             out += "R\n"
     return out
 
+
 inp = """
 N
 W

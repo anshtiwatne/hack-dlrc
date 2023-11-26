@@ -43,6 +43,6 @@ def undo_math(xs: list[int]) -> str:
     return "".join([chr(a(b(x))) for x in xs])
 
 email: str = "mrunmaybehere@gmail.com"
-encrypted: str = "xSFw[wx*Fwx*wxSFwOTwFwx<OwJiw$FwJiw[wJiw{[w[iwxSFwOTwO*wxVTw<Tw<iwi[wxSF"
+# encrypted: str = "xSFw[wx*Fwx*wxSFwOTwFwx<OwJiw$FwJiw[wJiw{[w[iwxSFwOTwO*wxVTw<Tw<iwi[wxSF"
 print(map_backward(hex_letters(do_math(map_forward(email)))))
-print(map_forward(unhex_letters(undo_math(map_backward(encrypted)))))
+# print(map_forward(unhex_letters(undo_math(map_backward(encrypted)))))

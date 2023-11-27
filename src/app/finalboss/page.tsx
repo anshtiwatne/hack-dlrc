@@ -7,6 +7,7 @@ import { collection, doc, getDoc, serverTimestamp, setDoc } from "firebase/fires
 import { db } from "@/lib/firebase/config"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import encryptEmail from "@/lib/utils/final"
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
@@ -39,15 +40,36 @@ function Submit({
 		}
 	}, [answerTimeout])
 
-	function handleSubmit() {
-        alert('submitted, you can resubmit if you want to change your answer, we will verify your final answer and update your score accordingly')
-        const newAnswers = userData?.answers as any
-        newAnswers['finalboss'] = {answer: answer, timestamp: serverTimestamp()}
-        setDoc(userRef, 
-            {answers: newAnswers}, {merge: true}
-        )
-        setAnswer('')
-	}
+	// function handleSubmit() {
+    //     alert('submitted, you can resubmit if you want to change your answer, we will verify your final answer and update your score accordingly')
+    //     const newAnswers = userData?.answers as any
+    //     newAnswers['finalboss'] = {answer: answer, timestamp: serverTimestamp()}
+    //     setDoc(userRef, 
+    //         {answers: newAnswers}, {merge: true}
+    //     )
+    //     setAnswer('')
+	// }
+
+    function handleSubmit() {
+        if (answer == encryptEmail(user?.email as string)) {
+            if (!userData?.answers || !userData?.answers['finalboss'] || userData?.answers['finalboss'].answer != encryptEmail(user?.email as string)) {
+                const newAnswers = userData?.answers as any
+                newAnswers['finalboss'] = {answer: answer, timestamp: serverTimestamp()}
+                setDoc(userRef, 
+                    {answers: newAnswers}, {merge: true}
+                )
+                setDoc(userRef, {points: userData?.points as number + 15}, {merge: true})
+                alert('correct')
+                setAnswer('')
+
+            } else {
+                alert('you\'ve already got this right')
+            }
+        } else {
+            alert('incorrect')
+        }
+    
+    }
 
 	return (
 		<div className="inline-block w-96 py-4">
@@ -100,10 +122,6 @@ function Submit({
 			</div>
 		</div>
 	)
-}
-
-function encryptEmail(email: string) {
-    
 }
 
 export default function Q7() {

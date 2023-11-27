@@ -1,0 +1,2148 @@
+[
+    {
+        "uid": "0ElQaqhx21Tr0TSyQai915UFbrq1",
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700846541,
+                    "nanoseconds": 273000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700846541,
+                    "nanoseconds": 273000000
+                },
+                "answer": "21"
+            },
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700846541,
+                    "nanoseconds": 273000000
+                }
+            }
+        },
+        "phone": null,
+        "inputID": null,
+        "name": "Shlok Nemani",
+        "lastLogin": {
+            "seconds": 1700855190,
+            "nanoseconds": 87000000
+        },
+        "email": "shloknemani10nov@gmail.com",
+        "teamMembers": [],
+        "points": 29,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJG0IXBeVgGTdRrdvvfrr4lK1ealwAhrJ9RsedWZbeg=s96-c"
+    },
+    {
+        "inputID": 2,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLdO9fOTA7o28MmrZSZteA7DmZo7kXZkSmCwcNLEzAB_Xk=s96-c",
+        "teamMembers": [],
+        "points": 0,
+        "teamName": "SGs",
+        "name": "Anand Ganapathy",
+        "phone": null,
+        "email": "ganapathyanand@gmail.com",
+        "uid": "0gXNXqIQiUbl0PETXR2g2X4THrE3",
+        "lastLogin": {
+            "seconds": 1700892174,
+            "nanoseconds": 799000000
+        },
+        "answers": {}
+    },
+    {
+        "email": "rajat@stck.me",
+        "inputID": 3,
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700900659,
+                    "nanoseconds": 458000000
+                }
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700901325,
+                    "nanoseconds": 387000000
+                }
+            },
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700909728,
+                    "nanoseconds": 71000000
+                }
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700909728,
+                    "nanoseconds": 71000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "timestamp": {
+                    "seconds": 1700909766,
+                    "nanoseconds": 442000000
+                },
+                "answer": "1303"
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700909643,
+                    "nanoseconds": 475000000
+                }
+            }
+        },
+        "name": "Rajat Singla",
+        "teamMembers": [],
+        "points": 75,
+        "lastLogin": {
+            "seconds": 1700995551,
+            "nanoseconds": 580000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIu_Fhdsib5RgKOLnHBb4YGb94PyiQahAeK7_EOt9Bs=s96-c",
+        "phone": null,
+        "uid": "1VpIlVCz5ob5QRTyVC2735EvPut2"
+    },
+    {
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700901848,
+                    "nanoseconds": 913000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700902668,
+                    "nanoseconds": 656000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700927795,
+                    "nanoseconds": 138000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700907570,
+                    "nanoseconds": 65000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700929157,
+                    "nanoseconds": 737000000
+                }
+            },
+            "6": {
+                "timestamp": {
+                    "seconds": 1700992323,
+                    "nanoseconds": 569000000
+                },
+                "answer": "162511"
+            },
+            "finalboss": {
+                "timestamp": {
+                    "seconds": 1700996697,
+                    "nanoseconds": 94000000
+                },
+                "answer": "9iwU[wXxwU[wiGwU9wVGwJiw*9wU9w[iwV9w*9wU[w**wXxwVGwJwUiw*9"
+            }
+        },
+        "uid": "1leFx5vGEGMH1lJEqAyLKZY1mtK2",
+        "inputID": 9,
+        "lastLogin": {
+            "seconds": 1700996707,
+            "nanoseconds": 378000000
+        },
+        "name": "Palash H",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocK5ONBfOkxpvnTYTVXkfn3jCgXjN4iIm6BmU3VIngju=s96-c",
+        "phone": null,
+        "email": "palash.bmh@gmail.com",
+        "teamMembers": [],
+        "points": 75
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKDmIu15ocDy7-Rl2U9B8MmptTAYvWN37b6UbsqfyVh=s96-c",
+        "phone": null,
+        "teamMembers": [],
+        "uid": "1vFpAX78gmMWFHBzFP3ie5ytPhx1",
+        "lastLogin": {
+            "seconds": 1700901852,
+            "nanoseconds": 378000000
+        },
+        "answers": {},
+        "inputID": 14,
+        "email": "tejal.deshpande@gmail.com",
+        "points": 0,
+        "name": "Tejal Deshpande"
+    },
+    {
+        "points": 0,
+        "teamMembers": [],
+        "phone": null,
+        "email": "yogajul@gmail.com",
+        "uid": "2N5U4yzJIjQH95so8gKyUwkQTMi1",
+        "inputID": 12,
+        "answers": {},
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJ2jmskuZRp4ARPY9bIzxmuENSnenelWzVAmjVey_8t8yc=s96-c",
+        "lastLogin": {
+            "seconds": 1700898547,
+            "nanoseconds": 96000000
+        },
+        "name": "Yogesh Gajul"
+    },
+    {
+        "email": "swara.patil196@gmail.com",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKC9ekZhZtUQPGPQTg0zegnILjZF088tQ6aa1dez2malQ=s96-c",
+        "lastLogin": {
+            "seconds": 1700996353,
+            "nanoseconds": 848000000
+        },
+        "points": 100,
+        "phone": null,
+        "inputID": 6,
+        "teamName": "Girlie Pies",
+        "uid": "3toktQ5BjoRoghl7wuDEjYhJKVm2",
+        "teamMembers": [],
+        "answers": {
+            "1": "AA-734",
+            "2": "21",
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700847226,
+                    "nanoseconds": 415000000
+                }
+            },
+            "4": "6498069498523",
+            "5": {
+                "timestamp": {
+                    "seconds": 1700841712,
+                    "nanoseconds": 169000000
+                },
+                "answer": "1303"
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700853596,
+                    "nanoseconds": 981000000
+                }
+            },
+            "finalboss": {
+                "answer": "xG wJ9wxU wxSxwxU wu wxuGwxU wJ[wV[wx*iw9[wxb9w'Gw'[w 9wGxwxU wV[wx*iwu wJwx9GwGx",
+                "timestamp": {
+                    "seconds": 1700912539,
+                    "nanoseconds": 870000000
+                }
+            }
+        },
+        "name": "Swara Patil"
+    },
+    {
+        "email": "shoraj617@gmail.com",
+        "uid": "591XKtJXw8NGyUsR8RTSuoB8Ci93",
+        "name": "Rithik Kumar",
+        "lastLogin": {
+            "seconds": 1700969140,
+            "nanoseconds": 951000000
+        },
+        "inputID": 2,
+        "answers": {},
+        "points": 0,
+        "teamMembers": [],
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI-1WLrrDn0JqofDsVw8n7IaD7IHbUU21zOtO0d5MCt=s96-c"
+    },
+    {
+        "inputID": 7,
+        "answers": {},
+        "points": 0,
+        "lastLogin": {
+            "seconds": 1700931672,
+            "nanoseconds": 778000000
+        },
+        "name": "Unaming Gaming",
+        "teamMembers": [],
+        "uid": "7h5UzDyKxcbWrYioAOYloA4dQk03",
+        "phone": null,
+        "email": "minecraftpeisgoodforhealth@gmail.com",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJH6FcOTlnVnpsfxRGEfz56KRQrGH_qalvlHUijjAqiww=s96-c"
+    },
+    {
+        "lastLogin": {
+            "seconds": 1700989088,
+            "nanoseconds": 427000000
+        },
+        "teamMembers": [],
+        "email": "anshag239@gmail.com",
+        "points": 0,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJGsN5lmhv77rLKGQpsYRquripU_zXsg6qOvkAkh7ZHkms=s96-c",
+        "phone": null,
+        "name": "05_XC_Ansh Agarwal",
+        "inputID": 1,
+        "answers": {},
+        "uid": "7wBX4GbqrURJ90BMMPDgItIUTcI3"
+    },
+    {
+        "name": "Elizabeth Makhotina",
+        "phone": null,
+        "email": "mylizpat@gmail.com",
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700846131,
+                    "nanoseconds": 857000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700918623,
+                    "nanoseconds": 520000000
+                }
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700919910,
+                    "nanoseconds": 434000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700921345,
+                    "nanoseconds": 896000000
+                },
+                "answer": "6498069498523"
+            }
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIycuETeouYEHJWsHZbm81-qSJOY4f9CZvR0M2jPbIS5g=s96-c",
+        "lastLogin": {
+            "seconds": 1700921090,
+            "nanoseconds": 376000000
+        },
+        "teamMembers": [],
+        "teamName": "Renaissance (wo)men",
+        "uid": "9QKajQSIfsNDZdk3A4sHHsE4nPy2",
+        "inputID": 15,
+        "points": 41
+    },
+    {
+        "uid": "BgJES5qbUJWhSFrleMOSW9JqvJd2",
+        "lastLogin": {
+            "seconds": 1699961393,
+            "nanoseconds": 506000000
+        },
+        "answers": {},
+        "points": 0,
+        "name": "Pavan Iyengar",
+        "inputID": 1,
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLBiUpcpM0mMl2jRNQzzhck8_KD4RgewPms89SmFteB=s96-c"
+    },
+    {
+        "teamMembers": [],
+        "uid": "CVDR7JUODTaksZgo1n8GbbY2a9d2",
+        "answers": {
+            "1": "AA-734",
+            "2": {
+                "timestamp": {
+                    "seconds": 1700918620,
+                    "nanoseconds": 927000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700919855,
+                    "nanoseconds": 787000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700921331,
+                    "nanoseconds": 44000000
+                }
+            }
+        },
+        "name": "Mila LASRY",
+        "teamName": "Renaissance (wo)men",
+        "email": "mila.lasry@gmail.com",
+        "lastLogin": {
+            "seconds": 1700921701,
+            "nanoseconds": 498000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJo3w0aFWV07qeup72VAYXV3ZKC-CAOt_CvunqNKVElwQ=s96-c",
+        "phone": null,
+        "inputID": 12,
+        "points": 41
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJ2-szORhc7gEJ71BcTxKhmeXp59rUekIoFqroR-XvRaoo=s96-c",
+        "lastLogin": {
+            "seconds": 1700841432,
+            "nanoseconds": 879000000
+        },
+        "teamMembers": [],
+        "name": "Ankit Saxena",
+        "uid": "DHira7DbzWdJ5rx5TXE9yaLvwS52",
+        "email": "saxenankit@gmail.com",
+        "phone": null,
+        "answers": {
+            "6": {
+                "timestamp": {
+                    "seconds": 1700841419,
+                    "nanoseconds": 474000000
+                },
+                "answer": "162511"
+            }
+        },
+        "inputID": 7,
+        "points": 18,
+        "teamName": "Team Shruti"
+    },
+    {
+        "phone": null,
+        "teamMembers": [],
+        "uid": "F3vSmVZlIrNUcmv1Ekgpv6LfZKt1",
+        "points": 0,
+        "name": "Urvi Chitnis",
+        "lastLogin": {
+            "seconds": 1700999326,
+            "nanoseconds": 728000000
+        },
+        "inputID": 10,
+        "email": "urvichitnis@gmail.com",
+        "answers": {},
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJ5YDHMOGK1EbygB3FQcy8B3KtTYV7Od9azpI6agua3=s96-c"
+    },
+    {
+        "answers": {},
+        "name": "Praney Chainani",
+        "points": 0,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJ7Qx6hCplVBq-3JKlU0ya9ToFcAvmAVC8d4mQweiCVwVY=s96-c",
+        "email": "blitzerfnonyt@gmail.com",
+        "teamMembers": [],
+        "uid": "FbOq6fTTErf530tRLsEn8NKgRgc2",
+        "lastLogin": {
+            "seconds": 1700923899,
+            "nanoseconds": 746000000
+        },
+        "inputID": 15,
+        "phone": null
+    },
+    {
+        "phone": null,
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700924069,
+                    "nanoseconds": 583000000
+                }
+            },
+            "2": "21",
+            "3": "24",
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700844080,
+                    "nanoseconds": 843000000
+                }
+            },
+            "5": "1303",
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700841449,
+                    "nanoseconds": 67000000
+                }
+            }
+        },
+        "points": 75,
+        "email": "shweta.poddar@gmail.com",
+        "inputID": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJWt6EeodT4fmuID3G88sHwD7DqZVIPhhJx0fYAp1Cm=s96-c",
+        "uid": "IHnYLYmO6bbLBGnfrdd9WnJizCt2",
+        "name": "Shweta Poddar",
+        "teamName": "Team Shruti",
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700988703,
+            "nanoseconds": 231000000
+        }
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIWOZQ_PGC4LdkiF_OP6_lJL9HksonMaL7iRgidVrkHug=s96-c",
+        "teamMembers": [],
+        "phone": null,
+        "uid": "IvGAPSS1I9M712VI0VZHhWnS7333",
+        "points": 0,
+        "answers": {},
+        "email": "olayinkabello962@gmail.com",
+        "lastLogin": {
+            "seconds": 1700810362,
+            "nanoseconds": 16000000
+        },
+        "name": "De Gamer",
+        "inputID": 14
+    },
+    {
+        "uid": "KeOo4AnohTftcID3dzHpVAp9BTf2",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJgORf6mo_3htxIjTgkAE4vcG9s0VXb5qDFPQeqJ49kzgI=s96-c",
+        "answers": {},
+        "name": "Meghana Behere",
+        "phone": null,
+        "teamMembers": [],
+        "points": 0,
+        "inputID": 2,
+        "lastLogin": {
+            "seconds": 1700895925,
+            "nanoseconds": 716000000
+        },
+        "email": "meghanabehere@gmail.com"
+    },
+    {
+        "lastLogin": {
+            "seconds": 1700993861,
+            "nanoseconds": 416000000
+        },
+        "inputID": 4,
+        "points": 57,
+        "phone": null,
+        "email": "hesh.gondi@gmail.com",
+        "teamMembers": [],
+        "name": "Mahesh Gondi",
+        "teamName": "madEP",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI-yM3pkZByE5JqhSH45VGLx2ylUehwyUKQEsQaQNF_trY=s96-c",
+        "uid": "Kn5mxgF8SrTyQjgPVySK0owliQO2",
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700853003,
+                    "nanoseconds": 168000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700895466,
+                    "nanoseconds": 7000000
+                }
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700945150,
+                    "nanoseconds": 458000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700930604,
+                    "nanoseconds": 407000000
+                }
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700945150,
+                    "nanoseconds": 458000000
+                }
+            },
+            "finalboss": {
+                "answer": "xOOwxSTwxGTwxOOw<TwTOwxOGwVOwxFTwV[w{[wTOwGxwx$TwV[wx*iw<TwJwxOGwGx",
+                "timestamp": {
+                    "seconds": 1700995947,
+                    "nanoseconds": 333000000
+                }
+            }
+        }
+    },
+    {
+        "teamName": "Minarva",
+        "points": 57,
+        "teamMembers": [],
+        "uid": "N8hO9e65C7WEKVBPcnMyveY7vNU2",
+        "email": "rinishjain@gmail.com",
+        "inputID": 14,
+        "lastLogin": {
+            "seconds": 1700976003,
+            "nanoseconds": 771000000
+        },
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700846230,
+                    "nanoseconds": 739000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700894945,
+                    "nanoseconds": 358000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700898661,
+                    "nanoseconds": 745000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700915305,
+                    "nanoseconds": 592000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700925597,
+                    "nanoseconds": 734000000
+                }
+            }
+        },
+        "name": "Rinish Jain",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLZk_6aXb7lc9GLSwR3aqRCGH5yI4Ga0g4NgrJ1ZYVVX0g=s96-c",
+        "phone": null
+    },
+    {
+        "email": "anushkasaxena120@gmail.com",
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI-SsxexxvgUnyTt3vAH5NRwuvkES27ktBhTa_4SV4rdw=s96-c",
+        "answers": {},
+        "inputID": 10,
+        "lastLogin": {
+            "seconds": 1700577853,
+            "nanoseconds": 452000000
+        },
+        "phone": null,
+        "points": 0,
+        "name": "anushka saxena",
+        "uid": "N9oUvBqnG5QcvYmUW7LpBQOoIRp2"
+    },
+    {
+        "lastLogin": {
+            "seconds": 1700464290,
+            "nanoseconds": 180000000
+        },
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKPEkH6fr-DZf3YhyY16jFjFKYRfWoEeQlFEPswEe229A=s96-c",
+        "inputID": 5,
+        "answers": {},
+        "email": "dalmiamona@gmail.com",
+        "teamMembers": [],
+        "uid": "NpAO2MUbk7W84pR57TgBaRUkctk1",
+        "points": 0,
+        "name": "Mona Dalmia"
+    },
+    {
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700923095,
+                    "nanoseconds": 922000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700923095,
+                    "nanoseconds": 922000000
+                },
+                "answer": "21"
+            }
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJrppB7xIKu7JIvpDqif1Eq_F7rg0PuulsoOulKw78at3E=s96-c",
+        "lastLogin": {
+            "seconds": 1700924696,
+            "nanoseconds": 197000000
+        },
+        "teamMembers": [],
+        "uid": "OCAox953xtSXHU4XnhOxJGCi9Hr2",
+        "name": "rdm com",
+        "inputID": 12,
+        "email": "titedog33@gmail.com",
+        "points": 15,
+        "phone": null
+    },
+    {
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKnVpHth0w-0mkkkead9gIrZu3WzOYswXFZDublmiud22g=s96-c",
+        "uid": "OhvWKPUU2HYiL7I2bQI7srdYhoR2",
+        "email": "bouchert@gmail.com",
+        "points": 75,
+        "inputID": 1,
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700854502,
+                    "nanoseconds": 603000000
+                }
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700862357,
+                    "nanoseconds": 0
+                }
+            },
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700862357,
+                    "nanoseconds": 0
+                }
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700862357,
+                    "nanoseconds": 0
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "timestamp": {
+                    "seconds": 1700862357,
+                    "nanoseconds": 0
+                },
+                "answer": "1303"
+            },
+            "6": {
+                "timestamp": {
+                    "seconds": 1700862357,
+                    "nanoseconds": 0
+                },
+                "answer": "162511"
+            }
+        },
+        "name": "Tyson Boucher",
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700863316,
+            "nanoseconds": 722000000
+        }
+    },
+    {
+        "teamName": "CR7",
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1701003009,
+                    "nanoseconds": 977000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1701003009,
+                    "nanoseconds": 977000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1701004263,
+                    "nanoseconds": 940000000
+                },
+                "answer": "24"
+            }
+        },
+        "teamMembers": [],
+        "email": "tuperaghav16@gmail.com",
+        "lastLogin": {
+            "seconds": 1701007004,
+            "nanoseconds": 418000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI027hSeHuEb9ZG9hV_qJdr5KB2YjfeNl5ak36pftpYxI8=s96-c",
+        "points": 22,
+        "phone": null,
+        "name": "Raghav Tupe",
+        "uid": "PRroIE5poOhRPvZnHo5AOPnlwi92",
+        "inputID": 8
+    },
+    {
+        "inputID": 5,
+        "points": 0,
+        "name": "Jaden Thattil",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJqlxsM0-VZkkNWM9zrO65NjM2k9ricN92s6lg7jwto_zc=s96-c",
+        "email": "jaden.thattil@gmail.com",
+        "uid": "RJzodcRe21Xvizv2AzYTrEDRCh63",
+        "lastLogin": {
+            "seconds": 1700920814,
+            "nanoseconds": 938000000
+        },
+        "phone": null,
+        "teamMembers": [],
+        "answers": {}
+    },
+    {
+        "email": "royaldedhia@gmail.com",
+        "teamName": "PolyHack",
+        "uid": "RWl4vn32TJVc53KhBfXJBWDYWbl2",
+        "phone": null,
+        "points": 15,
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700848515,
+                    "nanoseconds": 344000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700895310,
+                    "nanoseconds": 709000000
+                },
+                "answer": "21"
+            }
+        },
+        "name": "Neev Dedhia",
+        "inputID": 12,
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI-ToZVNZqwypNwYaOIzpKMrqG8m7cxnaET83uuyxUt=s96-c",
+        "lastLogin": {
+            "seconds": 1700932966,
+            "nanoseconds": 938000000
+        }
+    },
+    {
+        "inputID": 10,
+        "points": 0,
+        "teamMembers": [],
+        "uid": "RmC0eKQ8gFfvUPpzDVd9R2ZBk3E2",
+        "phone": null,
+        "answers": {},
+        "email": "smanas8765@gmail.com",
+        "lastLogin": {
+            "seconds": 1700249942,
+            "nanoseconds": 38000000
+        },
+        "teamName": "Pythonalviolators",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocL2RSP16Np9QMyp-6xegO7cOx-HpfQEPN7e1rY_T0eykBc=s96-c",
+        "name": "Manas Sathe"
+    },
+    {
+        "answers": {
+            "1": "AA-734",
+            "2": "21",
+            "4": {
+                "timestamp": {
+                    "seconds": 1700845828,
+                    "nanoseconds": 52000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "timestamp": {
+                    "seconds": 1700847728,
+                    "nanoseconds": 349000000
+                },
+                "answer": "1303"
+            }
+        },
+        "lastLogin": {
+            "seconds": 1700943428,
+            "nanoseconds": 339000000
+        },
+        "uid": "SLPkCaQCpiOX1q6TojOciFMorFQ2",
+        "teamMembers": [],
+        "name": "Akshay Dandekar",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKKW78O3w1x6q2P3JfCqW0gJAT4aIttibCmP4g9DSbydH5o=s96-c",
+        "phone": null,
+        "email": "adadandekar@gmail.com",
+        "points": 45,
+        "inputID": 8
+    },
+    {
+        "inputID": 0,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKqeoxW77hMYr8mxrXFP3BUhoxIU71-zIvrscf4u_v3V0Q=s96-c",
+        "email": "ansh.tiwatne@gmail.com",
+        "phone": null,
+        "uid": "Swm2ukWlsEWqdhhQ4nl3s7aJ8eq2",
+        "points": null,
+        "lastLogin": {
+            "seconds": 1701009011,
+            "nanoseconds": 883000000
+        },
+        "answers": {
+            "finalboss": {
+                "answer": "xU wV9wxG wx99wu wJ[wV[wJ9wxU wJ[wV9wxS w'[w 9wGxwxU wV[wx*iwu wJwx9GwGx",
+                "timestamp": {
+                    "seconds": 1700995200,
+                    "nanoseconds": 419000000
+                }
+            }
+        },
+        "teamMembers": [],
+        "name": "Ansh Tiwatne"
+    },
+    {
+        "points": null,
+        "name": "Aneesh Bhave",
+        "answers": {
+            "finalboss": {
+                "timestamp": {
+                    "seconds": 1700899519,
+                    "nanoseconds": 134000000
+                },
+                "answer": "abc"
+            }
+        },
+        "lastLogin": {
+            "seconds": 1701003920,
+            "nanoseconds": 100000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocINMrzVc8v21wIMb3QjOLlnGgQCyKnDw30IOPNgWD34UPo=s96-c",
+        "uid": "U87aBeGPNXTTHkeJudVE0qymkBZ2",
+        "teamMembers": [],
+        "inputID": 10
+    },
+    {
+        "inputID": 9,
+        "points": 0,
+        "uid": "Ud1ctSlJ7abihTz8fnKsxkjAvqn1",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocL0W58a0l0UIGzr_twHzbactXqBr_MMhgRXVDZuGeqOfDY=s96-c",
+        "phone": null,
+        "lastLogin": {
+            "seconds": 1701003049,
+            "nanoseconds": 457000000
+        },
+        "answers": {},
+        "teamMembers": [],
+        "email": "kulkarni.bhargav23@gmail.com",
+        "name": "Bhargav Kulkarni"
+    },
+    {
+        "inputID": 3,
+        "name": "Krushna Bagde",
+        "lastLogin": {
+            "seconds": 1701003626,
+            "nanoseconds": 193000000
+        },
+        "teamMembers": [],
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700846688,
+                    "nanoseconds": 767000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700846688,
+                    "nanoseconds": 767000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700848026,
+                    "nanoseconds": 823000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700847318,
+                    "nanoseconds": 20000000
+                },
+                "answer": "6498069498523"
+            }
+        },
+        "points": 41,
+        "uid": "VLix2Y3WyCMI2HK75d3TYiKuKyY2",
+        "phone": null,
+        "teamName": "Me, the Hens and The Dales",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLdjEqRXh0b_XVgj0O2vyWI7i4tlvAbdgPVx-Yd5tWdcGfi=s96-c",
+        "email": "krushna@gmail.com"
+    },
+    {
+        "inputID": 3,
+        "phone": null,
+        "teamMembers": [],
+        "uid": "WFKHnb4rfLRFX2kclF3mRKjgu2p1",
+        "points": 10,
+        "email": "sohamsohamsoham.poke2@gmail.com",
+        "lastLogin": {
+            "seconds": 1700878605,
+            "nanoseconds": 617000000
+        },
+        "answers": {
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700880843,
+                    "nanoseconds": 575000000
+                }
+            }
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI6kX69vVBdNPTIfXeDuphlwjFfKdlDGKRHFiaSvsVq=s96-c",
+        "name": "Soham Mehendale"
+    },
+    {
+        "phone": null,
+        "uid": "XExn27CwPWNH4EgSf5UawRgx0yL2",
+        "lastLogin": {
+            "seconds": 1701006672,
+            "nanoseconds": 585000000
+        },
+        "name": "Mrunmay Behere",
+        "answers": {
+            "1": "AA-734",
+            "2": {
+                "timestamp": {
+                    "seconds": 1700841580,
+                    "nanoseconds": 484000000
+                },
+                "answer": "21"
+            },
+            "3": "24",
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700838979,
+                    "nanoseconds": 103000000
+                }
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700845630,
+                    "nanoseconds": 668000000
+                }
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700889425,
+                    "nanoseconds": 273000000
+                }
+            },
+            "finalboss": {
+                "answer": "xSFw[wx*Fwx*wxSFwOTwFwx<OwJiw$FwJiw[wJiw{[w[iwxSFwOTwO*wxVTw<Tw<iwi[wxSF",
+                "timestamp": {
+                    "seconds": 1700964252,
+                    "nanoseconds": 335000000
+                }
+            }
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIzQefR2mU4UZ8Avchg-IUYArSzYe8gO9Ef5nOf1UvIS5A=s96-c",
+        "inputID": 15,
+        "points": 75,
+        "teamMembers": [],
+        "email": "mrunmaybehere@gmail.com"
+    },
+    {
+        "email": "akarshd32@gmail.com",
+        "uid": "YWkj4l1WNlO1HYiQqxwBa8ESIQb2",
+        "points": 0,
+        "teamMembers": [],
+        "name": "Akarsh Duddu",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIN70fUPKPRILJ-t788DPM02PVYc8GFD2B8Du5j9aUV=s96-c",
+        "phone": null,
+        "inputID": 11,
+        "answers": {},
+        "lastLogin": {
+            "seconds": 1700968326,
+            "nanoseconds": 575000000
+        }
+    },
+    {
+        "points": 0,
+        "name": "mary bastin",
+        "lastLogin": {
+            "seconds": 1699711494,
+            "nanoseconds": 873000000
+        },
+        "phone": null,
+        "inputID": 6,
+        "answers": {},
+        "teamName": "The Boys",
+        "uid": "Yb4ZPKh5wHOYaNWJWiAiXh2j8kx1",
+        "email": "marybastin2@gmail.com",
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLR9l8Q2FHyYzNlhAD8A2nft0MaWVPCwnyYeHNSWPv8MfVX=s96-c"
+    },
+    {
+        "email": "neofernandes2006@gmail.com",
+        "lastLogin": {
+            "seconds": 1699892426,
+            "nanoseconds": 24000000
+        },
+        "points": 0,
+        "uid": "ZgaQ9QTWaFZjKTa8S94jkI49BBw1",
+        "teamMembers": [],
+        "inputID": 6,
+        "phone": null,
+        "answers": {},
+        "name": "Neo Fernandes",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocICJVq-CF6bicgmyT2zFIZ3NKfEFkvagzWCKFGZjf6Cwts=s96-c"
+    },
+    {
+        "inputID": 4,
+        "phone": null,
+        "name": "Krishna Shingade",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKPh3OKNZX3DSF8Tm9Duq4DhY6n81X382TzDuP2G5SvXA=s96-c",
+        "email": "krishnashingade999@gmail.com",
+        "points": 75,
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700899957,
+                    "nanoseconds": 515000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700885937,
+                    "nanoseconds": 790000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700918173,
+                    "nanoseconds": 658000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700889041,
+                    "nanoseconds": 42000000
+                }
+            },
+            "5": {
+                "timestamp": {
+                    "seconds": 1700981474,
+                    "nanoseconds": 361000000
+                },
+                "answer": "1303"
+            },
+            "6": {
+                "timestamp": {
+                    "seconds": 1700995686,
+                    "nanoseconds": 154000000
+                },
+                "answer": "162511"
+            }
+        },
+        "lastLogin": {
+            "seconds": 1701009010,
+            "nanoseconds": 858000000
+        },
+        "teamMembers": [],
+        "uid": "Zv9CrTrMIScXNyDHKx8GWOh6i2u2"
+    },
+    {
+        "points": 75,
+        "uid": "bt81NHyb2lVMl4nfAV6iMNDvoC23",
+        "inputID": 0,
+        "email": "s@zsh.in",
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIJQnOCS5fbldWI5Hd1sSTplfxGXZxYrpCPKCc9Stql8bw=s96-c",
+        "name": "Shantanu Kulkarni",
+        "lastLogin": {
+            "seconds": 1701003271,
+            "nanoseconds": 231000000
+        },
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700870392,
+                    "nanoseconds": 502000000
+                }
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700897021,
+                    "nanoseconds": 141000000
+                }
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700874407,
+                    "nanoseconds": 986000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700998034,
+                    "nanoseconds": 2000000
+                }
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700879535,
+                    "nanoseconds": 210000000
+                }
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700992970,
+                    "nanoseconds": 473000000
+                }
+            }
+        },
+        "teamMembers": []
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJgXZC5E94ExeSUrICmajpXB92Thw126WFC4Rr83-YOxw=s96-c",
+        "teamMembers": [],
+        "name": "Agastya Varshney",
+        "email": "agastyavarshney@gmail.com",
+        "inputID": 1,
+        "answers": {},
+        "lastLogin": {
+            "seconds": 1700859229,
+            "nanoseconds": 156000000
+        },
+        "uid": "c9NtbnoquUXcwSfIPdrCNbamzdZ2",
+        "phone": null,
+        "points": 0
+    },
+    {
+        "phone": null,
+        "name": "Arth Salgia",
+        "points": 100,
+        "inputID": 7,
+        "email": "arthsalgia@gmail.com",
+        "lastLogin": {
+            "seconds": 1700917884,
+            "nanoseconds": 849000000
+        },
+        "answers": {
+            "1": "AA-734",
+            "2": "21",
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700895406,
+                    "nanoseconds": 886000000
+                }
+            },
+            "4": "6498069498523",
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700895378,
+                    "nanoseconds": 507000000
+                }
+            },
+            "6": {
+                "timestamp": {
+                    "seconds": 1700895656,
+                    "nanoseconds": 198000000
+                },
+                "answer": "162511"
+            },
+            "finalboss": {
+                "timestamp": {
+                    "seconds": 1700912608,
+                    "nanoseconds": 147000000
+                },
+                "answer": "xU wxSxwJ[wx99wxG wxU wx*iw 9wV[wxU w'[w 9wGxwxU wV[wx*iwu wJwx9GwGx"
+            }
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKn_DSWq0QfJGh1eboSmnd481w86Uc2XbVwVfJEdb8xcNo=s96-c",
+        "uid": "cC7gqtoEy9XEE7mfAe7MolCVjH83",
+        "teamMembers": [],
+        "teamName": "Girlie Pies"
+    },
+    {
+        "phone": null,
+        "name": "Sugandha Gosavi",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLaKmY0J1PvzrTOzSyyi5DeMsX8YA8TIjaBqeo6_3GU=s96-c",
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700327904,
+            "nanoseconds": 712000000
+        },
+        "email": "gosavisugandha@gmail.com",
+        "points": 0,
+        "inputID": 10,
+        "answers": {},
+        "uid": "d2jGWpX0w0f1qZhbpMcb5F8mMX23"
+    },
+    {
+        "phone": null,
+        "points": 0,
+        "inputID": 9,
+        "uid": "d84OTu5yhVTOwXN4txI5UIKRrSp2",
+        "lastLogin": {
+            "seconds": 1700836921,
+            "nanoseconds": 414000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLfsNAaqzc3dMm-76H9LCHZDPihjSaopC2GIvODNqaM=s96-c",
+        "email": "nairishanvi464@gmail.com",
+        "answers": {},
+        "name": "Ishanvi Nair",
+        "teamMembers": []
+    },
+    {
+        "email": "rgokul.gokulr@gmail.com",
+        "teamName": "madEP",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIYGLN0RTJCF5nFCFoZ0AzxE6a_QgEkAASN8RQjeOe2bv4H=s96-c",
+        "name": "Gokul R",
+        "inputID": 11,
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700895214,
+            "nanoseconds": 594000000
+        },
+        "answers": {},
+        "phone": null,
+        "uid": "d8tHl3uTEkbYHLUuP7yVji4jwcY2",
+        "points": 0
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIf8C7UVaSJmAjZrl14eMrICY3enE79fZTXz4I9h2AM=s96-c",
+        "email": "aahan07.k@gmail.com",
+        "phone": null,
+        "uid": "dtUQPSkYkPcFtQuKyJu0I2c9lo43",
+        "points": 0,
+        "teamMembers": [],
+        "inputID": 1,
+        "lastLogin": {
+            "seconds": 1700897969,
+            "nanoseconds": 859000000
+        },
+        "answers": {},
+        "name": "Aahan Kulkarni"
+    },
+    {
+        "points": 0,
+        "inputID": 9,
+        "teamMembers": [],
+        "phone": null,
+        "uid": "eCyKV9Mb0mMvooyIC3kSigfk3XE2",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJqGWIpjvgdtjo8pLDZFdj3U-79NjoFKvbckDhJCAlR=s96-c",
+        "answers": {},
+        "lastLogin": {
+            "seconds": 1701003979,
+            "nanoseconds": 391000000
+        },
+        "name": "Archis Bhave",
+        "email": "archis.bhave@gmail.com"
+    },
+    {
+        "answers": {
+            "1": "AA-734",
+            "2": "21",
+            "3": "24",
+            "4": "6498069498523",
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700844063,
+                    "nanoseconds": 486000000
+                }
+            },
+            "6": {
+                "timestamp": {
+                    "seconds": 1700841605,
+                    "nanoseconds": 988000000
+                },
+                "answer": "162511"
+            },
+            "finalboss": {
+                "timestamp": {
+                    "seconds": 1700910168,
+                    "nanoseconds": 739000000
+                },
+                "answer": "xG wx[_wbiwx99wx9GwxVGwV[wJ[wu[w'Gw'Gwxb9w'[w 9wGxwxU wV[wx*iwu wJwx9GwGx"
+            }
+        },
+        "inputID": 15,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLJmnQTEDEG1Kk7vU6jA6Jq5lvrJkAQ3rdodSQdKNlksU0=s96-c",
+        "teamMembers": [],
+        "name": "Subhojit Ghosh",
+        "uid": "eM9S2NmfwaUQGnGjEt5ZwK7Y9Bu1",
+        "points": 100,
+        "email": "subhojit0669@gmail.com",
+        "lastLogin": {
+            "seconds": 1700988690,
+            "nanoseconds": 250000000
+        },
+        "teamName": "Ionic_Iridiscense",
+        "phone": null
+    },
+    {
+        "inputID": 6,
+        "lastLogin": {
+            "seconds": 1700996230,
+            "nanoseconds": 513000000
+        },
+        "teamMembers": [],
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700990690,
+                    "nanoseconds": 633000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700990918,
+                    "nanoseconds": 856000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700991923,
+                    "nanoseconds": 527000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700991984,
+                    "nanoseconds": 852000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "timestamp": {
+                    "seconds": 1700991984,
+                    "nanoseconds": 852000000
+                },
+                "answer": "1303"
+            },
+            "finalboss": {
+                "answer": "dfczdzezdfczdbdzdjhzdldzdhazdzezdfczdkczdfczdldzdfczdbdzdajzdijzdkczdfczdjhzdkhzdgazdhdzdllzdkc",
+                "timestamp": {
+                    "seconds": 1700993368,
+                    "nanoseconds": 369000000
+                }
+            }
+        },
+        "name": "Aravind Ramana",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKcLzZ9RAcUxnPMKCtjFYPoyKFktoijYKegahEMk4tL=s96-c",
+        "points": 43,
+        "phone": null,
+        "email": "aravindramanav@gmail.com",
+        "uid": "eNiRYOKYxvOfakeGiJeZcPfJQo72"
+    },
+    {
+        "points": 57,
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700930788,
+                    "nanoseconds": 622000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700930788,
+                    "nanoseconds": 622000000
+                }
+            },
+            "3": {
+                "timestamp": {
+                    "seconds": 1700930788,
+                    "nanoseconds": 622000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "answer": "6498069498523",
+                "timestamp": {
+                    "seconds": 1700930788,
+                    "nanoseconds": 622000000
+                }
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700930788,
+                    "nanoseconds": 622000000
+                }
+            }
+        },
+        "uid": "fznDKSDrlThQ57P20RuNITgW13Q2",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocK-kldD6P8ac6BR4GujQKakS1cAyWbWGfeiLYTumQBE_OI=s96-c",
+        "teamMembers": [],
+        "inputID": 11,
+        "teamName": "Minarva",
+        "lastLogin": {
+            "seconds": 1700989300,
+            "nanoseconds": 364000000
+        },
+        "phone": null,
+        "email": "arinrjain@gmail.com",
+        "name": "Arin Jain"
+    },
+    {
+        "email": "anurag.gujarathi1998@gmail.com",
+        "teamMembers": [],
+        "uid": "gvWIi1j513eevT36MucBFgwmty13",
+        "answers": {},
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJU12l7Qxawg4Ue1yd532WlBiv16QSjlEK5Uu2JA9Erq3s=s96-c",
+        "lastLogin": {
+            "seconds": 1700310509,
+            "nanoseconds": 325000000
+        },
+        "phone": null,
+        "name": "Anurag Gujarathi",
+        "inputID": 13,
+        "points": 0,
+        "teamName": "BitBandits"
+    },
+    {
+        "inputID": 13,
+        "lastLogin": {
+            "seconds": 1700899204,
+            "nanoseconds": 408000000
+        },
+        "points": 0,
+        "uid": "iBfS39e4kWPg3Oq1CKWTrTnNZTn1",
+        "teamMembers": [],
+        "email": "godmail1122@gmail.com",
+        "answers": {},
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocI0YBc0sR8LOp5oMpZoQmREwS_V54WENIy3o1AfesrjWqkX=s96-c",
+        "name": "Hemant Sharma"
+    },
+    {
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKB_gFQ8XmWdPDCkrj_nhVNhR02jCNrcbfXv3KCgYaeYNM=s96-c",
+        "answers": {},
+        "email": "paarthdummy@gmail.com",
+        "uid": "iHf4AR3h2wWfpypfGyiomRzqjJ73",
+        "phone": null,
+        "points": 0,
+        "name": "paarth sharma",
+        "lastLogin": {
+            "seconds": 1700577225,
+            "nanoseconds": 25000000
+        },
+        "inputID": 14
+    },
+    {
+        "inputID": 1,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKo4v6iPBpfvhUN3P0k6wvsvSG6szwaz0n3-dfH-DR0Bw=s96-c",
+        "answers": {},
+        "email": "vedborkar08@gmail.com",
+        "phone": null,
+        "lastLogin": {
+            "seconds": 1699958840,
+            "nanoseconds": 374000000
+        },
+        "name": "Ved Borkar",
+        "points": 0,
+        "uid": "ivwGUB8gyxapNH7LAIhZDdJ5Kg72",
+        "teamMembers": []
+    },
+    {
+        "email": "palaashgang@gmail.com",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLUj_sz6gjWABkl25VAVUb4FFRHpD2Qm690TUH2tty5reE=s96-c",
+        "inputID": 8,
+        "points": 0,
+        "teamMembers": [],
+        "phone": null,
+        "lastLogin": {
+            "seconds": 1700836321,
+            "nanoseconds": 448000000
+        },
+        "answers": {},
+        "uid": "j04OCi18hrbbxlDNMmsrjVBlW8P2",
+        "name": "Palaash Gang"
+    },
+    {
+        "teamMembers": [],
+        "email": "4nonymouzy@gmail.com",
+        "phone": null,
+        "inputID": 1,
+        "lastLogin": {
+            "seconds": 1700972243,
+            "nanoseconds": 378000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJqQbZ3D-J3hIC8_HDho0WK9cIsUTNh6Ng34PpW8pZr=s96-c",
+        "name": "Anonymous Z",
+        "answers": {},
+        "points": 0,
+        "uid": "jFFewu1nZQNvjS2csdY4ENj79bd2"
+    },
+    {
+        "name": "Wasif Umair",
+        "points": 0,
+        "phone": null,
+        "teamMembers": [],
+        "email": "wasifumair2021@gmail.com",
+        "teamName": "Xterminal",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocK0onW9hYCePM4PHB7abGIWSigrrTVWjPHtXjuzim2D=s96-c",
+        "answers": {},
+        "uid": "ktHu8annVOZrw9pQJzSeCgR0NOf1",
+        "inputID": 12,
+        "lastLogin": {
+            "seconds": 1700847029,
+            "nanoseconds": 673000000
+        }
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLlKWVi8aHAOFNJo0874mXC0lckfcgUzwD9p-UhR1KSUA=s96-c",
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700933998,
+                    "nanoseconds": 735000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700949026,
+                    "nanoseconds": 105000000
+                }
+            }
+        },
+        "teamMembers": [],
+        "uid": "l9SD2DY0nKTORyf4SXmdReRn46D3",
+        "inputID": 10,
+        "email": "gkulkarni328@gmail.com",
+        "teamName": "YG Team",
+        "lastLogin": {
+            "seconds": 1701004660,
+            "nanoseconds": 554000000
+        },
+        "name": "Gaurav Kulkarni",
+        "points": 15,
+        "phone": null
+    },
+    {
+        "phone": null,
+        "inputID": 11,
+        "points": 100,
+        "name": "Anvesh Vohra",
+        "email": "anvesh.vohra@gmail.com",
+        "lastLogin": {
+            "seconds": 1700907981,
+            "nanoseconds": 513000000
+        },
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIiunrTwDBIrtpn6UD_bQsqgJcBrVs7HJcFJn7_Zpm6o3g=s96-c",
+        "answers": {
+            "1": "AA-734",
+            "2": "21",
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700837751,
+                    "nanoseconds": 510000000
+                }
+            },
+            "4": "6498069498523",
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700844240,
+                    "nanoseconds": 226000000
+                }
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700841739,
+                    "nanoseconds": 470000000
+                }
+            },
+            "finalboss": {
+                "answer": "xU wV9wx'xwxS wxG wx99wu wx'xwx9Gwx99wxSxwxU w'[w 9wGxwxU wV[wx*iwu wJwx9GwGx",
+                "timestamp": {
+                    "seconds": 1700910214,
+                    "nanoseconds": 349000000
+                }
+            }
+        },
+        "uid": "ns8I4gibVDVgVu5IfbhUphlIeNN2",
+        "teamName": "Ionic_Iridiscense"
+    },
+    {
+        "teamMembers": [],
+        "phone": null,
+        "name": "Rohan Kulkarni",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIaVvJg6QgQj3edFcpzUshoG0EQvNFEoxINmQZj20b7Yg=s96-c",
+        "points": 27,
+        "email": "rohansanketkulkarni@gmail.com",
+        "uid": "nsf4i3KfqMS77xI7Tbxk4tRB9Ak1",
+        "lastLogin": {
+            "seconds": 1701001695,
+            "nanoseconds": 398000000
+        },
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700930670,
+                    "nanoseconds": 367000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700936099,
+                    "nanoseconds": 360000000
+                },
+                "answer": "21"
+            },
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700936099,
+                    "nanoseconds": 360000000
+                }
+            }
+        },
+        "inputID": 1
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocKXqRUnP5lsTTysvdEhf3ExmZHcHuXGgK7YMwjsWjMkbQ=s96-c",
+        "name": "Qther",
+        "points": 100,
+        "uid": "nwKRW7VhwuZPtX6EYecN9RuGlzh1",
+        "lastLogin": {
+            "seconds": 1700988760,
+            "nanoseconds": 138000000
+        },
+        "phone": null,
+        "teamMembers": [],
+        "answers": {
+            "1": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700882624,
+                    "nanoseconds": 736000000
+                }
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700886017,
+                    "nanoseconds": 399000000
+                }
+            },
+            "3": "24",
+            "4": "6498069498523",
+            "5": "1303",
+            "6": {
+                "timestamp": {
+                    "seconds": 1700841231,
+                    "nanoseconds": 535000000
+                },
+                "answer": "162511"
+            },
+            "finalboss": {
+                "answer": "x_ wJ[wxU wJwx*iwxU wV9wx*iwxS w 9wV[wx9GwV9w'[w 9wGxwxU wV[wx*iwu wJwx9GwGx",
+                "timestamp": {
+                    "seconds": 1700923642,
+                    "nanoseconds": 692000000
+                }
+            }
+        },
+        "email": "dtaclanlegion@gmail.com",
+        "inputID": 0
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocL62grn9ueu8ySZB_CBmdhvuM15QVgCLZsWO-KanMHm-GU=s96-c",
+        "uid": "opJQYqhaEMZoxW8iOPcARPfZB4B3",
+        "email": "kulkarni.bhargav998@gmail.com",
+        "phone": null,
+        "inputID": 10,
+        "lastLogin": {
+            "seconds": 1701008397,
+            "nanoseconds": 800000000
+        },
+        "name": "Bhargav Kulkarni",
+        "teamMembers": [],
+        "answers": {},
+        "points": 0
+    },
+    {
+        "uid": "pHYDlG729Hce3PbqcO5ghJmU28B3",
+        "email": "akhose24apple@gmail.com",
+        "inputID": 7,
+        "answers": {},
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLJ4xuw51Pjbx1wJx6y4ffa1Gn0Wo1Bq9APbbKaiuVQ=s96-c",
+        "name": "Atreya Apple acc",
+        "points": 0,
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700910839,
+            "nanoseconds": 51000000
+        }
+    },
+    {
+        "email": "haze7470@gmail.com",
+        "answers": {},
+        "name": "Abhishek Bhagawati",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIMFhTLANveloWcyxD1dDGhwWxqLbA-QKak3YJHeiqR=s96-c",
+        "lastLogin": {
+            "seconds": 1699724777,
+            "nanoseconds": 799000000
+        },
+        "phone": null,
+        "inputID": 12,
+        "teamMembers": [],
+        "uid": "q6YI0xGakbdqQCHlOsl4w3w2KED3",
+        "points": 0
+    },
+    {
+        "teamMembers": [],
+        "inputID": null,
+        "teamName": "PolyHack",
+        "phone": null,
+        "name": "Yash Chaphekar",
+        "uid": "qerenEk0dZZeduuWzoSat5xXhfe2",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJvwhXU__ms5Pj6pj-nVc8L8o1unrrUPC30R-XOTJDX=s96-c",
+        "email": "yashchaphekar9@gmail.com",
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700894731,
+                    "nanoseconds": 476000000
+                }
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700840817,
+                    "nanoseconds": 409000000
+                },
+                "answer": "21"
+            }
+        },
+        "lastLogin": {
+            "seconds": 1700894733,
+            "nanoseconds": 359000000
+        },
+        "points": 15
+    },
+    {
+        "inputID": 3,
+        "teamMembers": [],
+        "uid": "ranJftyeICeejbERKGPkyU0jK9T2",
+        "points": 0,
+        "name": "Sakshini Ganesh",
+        "email": "sakshini.ganesh@gmail.com",
+        "phone": null,
+        "answers": {},
+        "lastLogin": {
+            "seconds": 1700939805,
+            "nanoseconds": 453000000
+        },
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLIxxf2xmnBbD4YT47-D9Br0EzcTiFxUbt-eMMltvylyzw=s96-c"
+    },
+    {
+        "points": 0,
+        "teamMembers": [],
+        "name": "Bhanu Teja Pogiri",
+        "phone": null,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocL8WFDWbd9e6VnLSCHE1Jpc9yYxVS2huLo2cC7ajdmg=s96-c",
+        "inputID": 12,
+        "email": "bhanutejap312@gmail.com",
+        "lastLogin": {
+            "seconds": 1700636262,
+            "nanoseconds": 176000000
+        },
+        "uid": "rw5rjjgP2JRwlR9JGKXZ8qb5azJ2",
+        "answers": {}
+    },
+    {
+        "answers": {},
+        "phone": null,
+        "uid": "sSjAMBN2I6MJGpDW5ME4iflNYMn1",
+        "lastLogin": {
+            "seconds": 1700574514,
+            "nanoseconds": 129000000
+        },
+        "teamMembers": [],
+        "inputID": 15,
+        "name": "Alexandr Maximenko",
+        "email": "crudiedo@gmail.com",
+        "points": 0,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLdVW5wSqrnVnisuJc6spYfrnYIKfvGDjC23HuMBeoCn54=s96-c"
+    },
+    {
+        "teamMembers": [],
+        "uid": "sYxIMRMqQ1QSgE7L2GmHqVswbpy1",
+        "lastLogin": {
+            "seconds": 1700925287,
+            "nanoseconds": 77000000
+        },
+        "points": 5,
+        "inputID": 3,
+        "name": "fuzzy!!",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJHHi7amH0G6KGEHwOSAwsoouWDi6KnEF9GoAZT4Rd3x38=s96-c",
+        "phone": null,
+        "email": "saran.wrap.2500@gmail.com",
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700847193,
+                    "nanoseconds": 181000000
+                },
+                "answer": "AA-734"
+            }
+        }
+    },
+    {
+        "email": "sakethskkpai@gmail.com",
+        "name": "Saketh Sudhir kumar",
+        "inputID": 14,
+        "teamMembers": [],
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJXzHMrizXfTEAPZ24N7YCdLmUQKhCBRCR6dLjRNgi3cw=s96-c",
+        "points": 0,
+        "answers": {},
+        "phone": null,
+        "lastLogin": {
+            "seconds": 1700530798,
+            "nanoseconds": 13000000
+        },
+        "uid": "uUO39vwNSqVUMN4HFm7hgP3zZ1w2"
+    },
+    {
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIhsAjutgcMCFbLZN3oUy_-6RY4xwjtZ_QGnunxjBLYuSk=s96-c",
+        "name": "Atreya Khose",
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700971043,
+            "nanoseconds": 101000000
+        },
+        "answers": {
+            "1": "AA-734",
+            "2": "21",
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700837749,
+                    "nanoseconds": 376000000
+                }
+            },
+            "4": "6498069498523",
+            "5": {
+                "timestamp": {
+                    "seconds": 1700841785,
+                    "nanoseconds": 104000000
+                },
+                "answer": "1303"
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700841629,
+                    "nanoseconds": 381000000
+                }
+            },
+            "finalboss": {
+                "timestamp": {
+                    "seconds": 1700910198,
+                    "nanoseconds": 118000000
+                },
+                "answer": "xU wxU*wx99wx9GwxG wxS wxX[wxSGw'[w 9wGxwxU wV[wx*iwu wJwx9GwGx"
+            }
+        },
+        "phone": null,
+        "points": 100,
+        "teamName": "Ionic_Iridiscense",
+        "uid": "w1txLmRVQHWYr6NjEpep7QC8kGf1",
+        "email": "akhose24@gmail.com",
+        "inputID": null
+    },
+    {
+        "inputID": 8,
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJTY-uUDH59ZNKtMCCBP44fjq7Q7Mad9hM-1YhaGCTdFuM=s96-c",
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700898516,
+                    "nanoseconds": 895000000
+                },
+                "answer": "AA-734"
+            },
+            "2": {
+                "timestamp": {
+                    "seconds": 1700904857,
+                    "nanoseconds": 797000000
+                },
+                "answer": "21"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700932746,
+                    "nanoseconds": 412000000
+                },
+                "answer": "6498069498523"
+            }
+        },
+        "phone": null,
+        "teamMembers": [],
+        "lastLogin": {
+            "seconds": 1700989543,
+            "nanoseconds": 179000000
+        },
+        "points": 29,
+        "uid": "wt6qJsV9v3dlmn04D6IJdRoIZ8E2",
+        "name": "Shekhar Tiwatne",
+        "email": "pythonic@gmail.com"
+    },
+    {
+        "name": "Prashant Chaudhari",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocIh5hTYjttkWasLfN3jvnrgAfeo_w3EMRgWsGk02UuN5NU=s96-c",
+        "phone": null,
+        "uid": "y6fgmyCO0qgPYuvVSQThLF3FMZi1",
+        "points": 75,
+        "email": "prashant.chaudhari89@gmail.com",
+        "teamMembers": [],
+        "answers": {
+            "1": {
+                "answer": "AA-734",
+                "timestamp": {
+                    "seconds": 1700917442,
+                    "nanoseconds": 606000000
+                }
+            },
+            "2": {
+                "answer": "21",
+                "timestamp": {
+                    "seconds": 1700917442,
+                    "nanoseconds": 606000000
+                }
+            },
+            "3": {
+                "answer": "24",
+                "timestamp": {
+                    "seconds": 1700917442,
+                    "nanoseconds": 606000000
+                }
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700924837,
+                    "nanoseconds": 657000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "answer": "1303",
+                "timestamp": {
+                    "seconds": 1700924837,
+                    "nanoseconds": 657000000
+                }
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700924837,
+                    "nanoseconds": 657000000
+                }
+            }
+        },
+        "lastLogin": {
+            "seconds": 1701002801,
+            "nanoseconds": 88000000
+        },
+        "inputID": 0
+    },
+    {
+        "points": 100,
+        "teamMembers": [],
+        "answers": {
+            "1": {
+                "timestamp": {
+                    "seconds": 1700845665,
+                    "nanoseconds": 504000000
+                },
+                "answer": "AA-734"
+            },
+            "2": "21",
+            "3": {
+                "timestamp": {
+                    "seconds": 1700844269,
+                    "nanoseconds": 215000000
+                },
+                "answer": "24"
+            },
+            "4": {
+                "timestamp": {
+                    "seconds": 1700879720,
+                    "nanoseconds": 805000000
+                },
+                "answer": "6498069498523"
+            },
+            "5": {
+                "timestamp": {
+                    "seconds": 1700838828,
+                    "nanoseconds": 60000000
+                },
+                "answer": "1303"
+            },
+            "6": {
+                "answer": "162511",
+                "timestamp": {
+                    "seconds": 1700883160,
+                    "nanoseconds": 94000000
+                }
+            },
+            "finalboss": {
+                "timestamp": {
+                    "seconds": 1700937452,
+                    "nanoseconds": 540000000
+                },
+                "answer": "xG wxSxwV[wxVGwxU wx*iwV[wxU*wxS wxG wx*iwxS wxS wxuGwV[wV9w 9w'[w 9wGxwxU wV[wx*iwu wJwx9GwGx"
+            }
+        },
+        "inputID": null,
+        "phone": null,
+        "email": "srijalikesleeping@gmail.com",
+        "lastLogin": {
+            "seconds": 1701005959,
+            "nanoseconds": 809000000
+        },
+        "name": "srija",
+        "uid": "ynnKcfB7QsWhhIBBloo76pFNvd03",
+        "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJpWmDwMqMndJLLmWiiSc5m20lRxnfXapiRuIz9BiVnlw=s96-c"
+    }
+]

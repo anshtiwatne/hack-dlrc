@@ -20,7 +20,7 @@ interface userData {
     phone: string
     name: string
     photoURL: string
-    answers: {[questionNum: number | string]: string}
+    answers: {[questionNum: number | string]: {answer: string, timestamp: Timestamp}}
     points: number | null
     teamName: string | null
     teamMembers: string[]

@@ -51,7 +51,7 @@ function Submit({
 				setDoc(userRef, 
 					{answers: newAnswers}, {merge: true}
 					)
-					setDoc(userRef, {points: userData?.points as number + questionData?.points}, {merge: true})
+				setDoc(userRef, {points: userData?.points as number + questionData?.points}, {merge: true})
 				alert('correct')
 				setAnswer('')
 			} else {

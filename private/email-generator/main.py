@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+#pylint: disable=redefined-outer-name
+
 import json
-from pprint import pprint
 from typing import Literal
 
 with open("users.json", "r", encoding="UTF-8") as f:
@@ -64,7 +66,7 @@ def get_top_teams():
 
         for user in USERS:
             if user.get("teamName", None) == team:
-                teams[team]["members"].append(user["name"])
+                teams[team]["members"].append(user["email"])
 
                 for answer in user["answers"]:
                     if answer not in team_answers:
@@ -124,22 +126,30 @@ def generate_email(user: dict, placement: int, category: Literal["individual", "
 
         return str(placement) + suffix
 
-    return INDIVIDUAL_EMAIL.format(
+    if category == "individual":
+        return INDIVIDUAL_EMAIL.format(
         email=user["email"],
         name=user["name"],
         placement=ordinal(placement),
         points=user["points"],
     )
+    elif category == "team":
+        return TEAM_EMAIL.format(
+            email=", ".join(user["members"]),
+            name=user["name"],
+            placement=ordinal(placement),
+            points=user["points"],
+        )
 
 
 if __name__ == "__main__":
     print("TOP INDIVIDUALS:")
     for i, user in enumerate(get_top_individuals()[:10]):
-        print(f"{i+1}. {user['name']} - {user['points']}")
+        print(f"{i+1}. {user['name']} - {user['email']}")
 
     print("\nTOP TEAMS:")
 
     for i, team in enumerate(get_top_teams()[:10]):
-        print(f"{i+1}. {team['name']} - {team['points']}")
+        print(f"{i+1}. {team['name']} - {", ".join(team['members'])}")
 
-    print(generate_email(get_top_individuals()[0], 1, "individual"))
+    # print(generate_email(get_top_individuals()[0], 1, "individual"))

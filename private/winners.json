@@ -1,0 +1,35 @@
+{
+    "top3": {
+        "individual": {
+            "1": {
+                "name": "Qther",
+                "email": "dtaclanlegion@gmail.com",
+                "points": 100
+            },
+            "2": {
+                "name": "srija",
+                "email": "srijalikesleeping@gmail.com",
+                "points": 100
+            },
+            "3": {
+                "name": "Tyson Boucher",
+                "email": "bouchert@gmail.com",
+                "points": 75
+            }
+        },
+        "team": {
+            "1": {
+                "name": "Team 1",
+                "points": 100
+            },
+            "2": {
+                "name": "Team 2",
+                "points": 100
+            },
+            "3": {
+                "name": "Team 3",
+                "points": 75
+            }
+        }
+    }
+}

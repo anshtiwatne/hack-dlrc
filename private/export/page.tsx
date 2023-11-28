@@ -10,8 +10,8 @@ export default function Page() {
         async function getMailList() {
             const docRef = doc(db, 'mailList', 'subscribers')
             const docSnap = await getDoc(docRef)
-            const emails = docSnap.data()?.emails
-            console.log(emails)
+            const emails = docSnap.data()
+            console.log({"emails": emails})
         }
         getMailList()
     }, [])

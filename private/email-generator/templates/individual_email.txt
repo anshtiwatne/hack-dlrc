@@ -1,0 +1,8 @@
+email: {email}
+
+Hello {name},
+
+Congratulations on placing {placement} in HackDLRC 2023, for your achievement, our sponsors are providing you with the following rewards:
+- The full Interview Cake course to level up your coding skills.
+- A giftable stck.me pro membership for those of you who like to write, or know someone that does.
+

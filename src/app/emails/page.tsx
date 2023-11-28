@@ -10,7 +10,7 @@ export default function Mail() {
             const docRef = collection(db, 'users')
             const docSnap = await getDocs(docRef)
             const users = docSnap.docs.map((doc) => doc.data())
-            console.log(users)
+            console.log({"users": users})
         }
         getMailList()
     }, [])

@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 #pylint: disable=redefined-outer-name
 
+import os
 import json
 from typing import Literal
 
 with open("users.json", "r", encoding="UTF-8") as f:
     USERS = json.load(f).get("users")
 
-with open("templates/individual_email.txt", "r", encoding="UTF-8") as f:
-    INDIVIDUAL_EMAIL = f.read()
+# with open("templates/individual_email.txt", "r", encoding="UTF-8") as f:
+#     INDIVIDUAL_EMAIL = f.read()
 
-with open("templates/team_email.txt", "r", encoding="UTF-8") as f:
-    TEAM_EMAIL = f.read()
+# with open("templates/team_email.txt", "r", encoding="UTF-8") as f:
+#     TEAM_EMAIL = f.read()
 
 
 POINTS = {
@@ -109,7 +110,7 @@ def get_top_teams():
     )
 
 
-def generate_email(user: dict, placement: int, category: Literal["individual", "team"]):
+def generate_email(user: dict, team: dict, placement: int, category: Literal["individual", "team"]):
     """Generate the email for a user"""
 
     def ordinal(placement):
@@ -125,33 +126,42 @@ def generate_email(user: dict, placement: int, category: Literal["individual", "
             suffix = "th"
 
         return str(placement) + suffix
+    
+    return f"""\
+email: {user["email"] if category == "individual" else ", ".join(team["members"])}
 
-    if category == "individual":
-        return INDIVIDUAL_EMAIL.format(
-        email=user["email"],
-        name=user["name"],
-        placement=ordinal(placement),
-        points=user["points"],
-    )
-    elif category == "team":
-        return TEAM_EMAIL.format(
-            email=", ".join(user["members"]),
-            name=user["name"],
-            placement=ordinal(placement),
-            points=user["points"],
-        )
+Greetings {team["name"] if category == "team" else user["name"]},
+{f"Congratulations on placing {ordinal(placement)} in HackDLRC!" if user["points"] else "Congratulations on your performance in HackDLRC!"}
+
+You've earned the following rewards -
+- An Interview Cake Full Course Membership, make sure you claim it before 9th Dec over at https://www.interviewcake.com/r/2I5JX1{"\n- A giftable Stck.me Pro Membership (see attached pdf for more info)" if user["points"] or (category == "team" and team["points"]) else ""}
+{"We've attached your HackDLRC certificate below." if user["points"] else ""}
+
+Thank you for being a part of HackDLRC, we hope to see you next year!
+Ansh & Aneesh
+"""
 
 
 if __name__ == "__main__":
     print("TOP INDIVIDUALS:")
     for i, user in enumerate(get_top_individuals()):
+        # os.mkdir(f"emails/{user["email"]}")
+        # with open(f"emails/{user["email"]}/email.txt", "w") as f:
+        #     f.write(generate_email(user, None, i+1, "individual"))
         if not user["points"]: continue
         print(f"{i+1}. {user['name']} - {user['email']}")
 
     print("\nTOP TEAMS:")
 
     for i, team in enumerate(get_top_teams()):
+        # os.mkdir(f"emails/{team["name"]}")
+        # with open(f"emails/{team["name"]}/email.txt", "w") as f:
+        #     f.write(generate_email(user, team, i+1, "team"))
         if not team["points"]: continue
-        print(f"{i+1}. {team['name']} - {", ".join(team['members'])}")
+        # name of team members
+        team_members = []
+        for user in USERS:
+            if user.get("teamName") == team["name"]:
+                team_members.append(user["name"])
 
-    # print(generate_email(get_top_individuals()[0], 1, "individual"))
+        print(f"{i+1}. {team['name']} - {", ".join(team_members)}")

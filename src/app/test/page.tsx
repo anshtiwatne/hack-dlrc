@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { userAuth } from '@/lib/firebase/auth'
+// import { userAuth } from '@/lib/firebase/auth'
 import { displaySize } from '@/lib/utils/size'
 import { SizeProps } from '@/lib/utils/types'
 
@@ -11,14 +11,12 @@ import CodeEditor from '@/components/CodeEditor'
 export default function Test() {
 	// const authorizedUsers = ['ansh.tiwatne@gmail.com', 'aneesh1701@gmail.com', 'neofernandes2006@gmail.com']
 	const { isMobile } = displaySize() as SizeProps
-	const [editorMinimized, setEditorMinimized] = useState(
-		typeof window !== 'undefined' && window.innerWidth < 1100,
-	)
-	const { user } = userAuth()
+	const [editorMinimized, setEditorMinimized] = useState(!isMobile)
+	// const { user } = userAuth()
 
 	return (
 		<main className="flex h-[100dvh] flex-col">
-			{true ? (
+			{/* {authorizedUsers.includes(user?.email as string) ? ( */}
 				<div className="flex flex-grow justify-between">
 					<div
 						className={`inline-block ${
@@ -29,7 +27,7 @@ export default function Test() {
 								: 'w-100'
 						}`}
 					>
-						<QuestionNav totalQuestions={7} isUserInit={false} />
+						<QuestionNav totalQuestions={7} isUserInit={true} />
 					</div>
 					<div
 						className={`inline-block ${
@@ -46,9 +44,9 @@ export default function Test() {
 						/>
 					</div>
 				</div>
-			) : (
+			{/* ) : (
                 <div>You're not permitted to view this content</div>
-            )}
+            )} */}
 		</main>
 	)
 }

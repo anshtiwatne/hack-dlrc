@@ -144,12 +144,14 @@ def generate_email(user: dict, placement: int, category: Literal["individual", "
 
 if __name__ == "__main__":
     print("TOP INDIVIDUALS:")
-    for i, user in enumerate(get_top_individuals()[:10]):
+    for i, user in enumerate(get_top_individuals()):
+        if not user["points"]: continue
         print(f"{i+1}. {user['name']} - {user['email']}")
 
     print("\nTOP TEAMS:")
 
-    for i, team in enumerate(get_top_teams()[:10]):
+    for i, team in enumerate(get_top_teams()):
+        if not team["points"]: continue
         print(f"{i+1}. {team['name']} - {", ".join(team['members'])}")
 
     # print(generate_email(get_top_individuals()[0], 1, "individual"))

@@ -1,12 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect, Key } from 'react'
+import { useState, useEffect } from 'react'
 import { userAuth } from '@/lib/firebase/auth'
 import { problemData } from '@/lib/utils/types'
 import formattedText from '@/lib/utils/text'
 import { userData } from '@/lib/utils/types'
-import { collection, doc, getDoc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
+import { collection, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore'
+import { displaySize } from'@/lib/utils/size'
 import { db } from '@/lib/firebase/config'
 
 function Submit({
@@ -132,6 +133,7 @@ export default function Question({
 }) {
 	const { user } = userAuth()
 	const [playerData, setUserData] = useState<userData | null>(null)
+	const { isMobile } = displaySize() as any
 	
 	useEffect(() => {
 		async function getInputID() {
@@ -149,7 +151,7 @@ export default function Question({
 		return (
 			<p
 				className={`${
-					screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'
+					!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'
 				}`}
 			>
 				Loading...
@@ -159,7 +161,7 @@ export default function Question({
 		return (
 			<p
 				className={`${
-					screen.width > 1100 ? 'w-[50dvw]' : 'w-[100dvw]'
+					!isMobile ? 'w-[50dvw]' : 'w-[100dvw]'
 				}`}
 			>
 				No question data

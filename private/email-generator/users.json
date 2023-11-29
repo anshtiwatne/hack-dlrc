@@ -345,19 +345,6 @@
 			"email": "mylizpat@gmail.com"
 		},
 		{
-			"photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLBiUpcpM0mMl2jRNQzzhck8_KD4RgewPms89SmFteB=s96-c",
-			"name": "Pavan Iyengar",
-			"lastLogin": {
-				"seconds": 1699961393,
-				"nanoseconds": 506000000
-			},
-			"inputID": 1,
-			"teamMembers": [],
-			"points": 0,
-			"answers": {},
-			"uid": "BgJES5qbUJWhSFrleMOSW9JqvJd2"
-		},
-		{
 			"uid": "CVDR7JUODTaksZgo1n8GbbY2a9d2",
 			"answers": {
 				"1": "AA-734",
@@ -904,27 +891,6 @@
 					}
 				}
 			}
-		},
-		{
-			"uid": "U87aBeGPNXTTHkeJudVE0qymkBZ2",
-			"points": 0,
-			"name": "Aneesh Bhave",
-			"inputID": 10,
-			"answers": {
-				"finalboss": {
-					"answer": "abc",
-					"timestamp": {
-						"seconds": 1700899519,
-						"nanoseconds": 134000000
-					}
-				}
-			},
-			"lastLogin": {
-				"seconds": 1701003920,
-				"nanoseconds": 100000000
-			},
-			"teamMembers": [],
-			"photoURL": "https://lh3.googleusercontent.com/a/ACg8ocINMrzVc8v21wIMb3QjOLlnGgQCyKnDw30IOPNgWD34UPo=s96-c"
 		},
 		{
 			"name": "Bhargav Kulkarni",

@@ -22,7 +22,7 @@ function Submit({
 	isLoading: boolean
 }) {
 	const { user } = userAuth()
-	const userRef = doc(collection(db, 'users'), user?.uid)
+	// const userRef = doc(collection(db, 'users'), user?.uid)
 
 	if (isLoading) return <div>Loading...</div>
 
@@ -46,18 +46,20 @@ function Submit({
 
 	function handleSubmit() {
 		if (answer == questionData?.output[0]) {
-			if (userData?.answers[questionNum] == undefined) {
-				const newAnswers = userData?.answers as any
-				newAnswers[questionNum] = {answer: answer, timestamp: serverTimestamp()}
-				setDoc(userRef, 
-					{answers: newAnswers}, {merge: true}
-					)
-				setDoc(userRef, {points: userData?.points as number + questionData?.points}, {merge: true})
-				alert('correct')
-				setAnswer('')
-			} else {
-				alert('you\'ve already got this right')
-			}
+			// if (userData?.answers[questionNum] == undefined) {
+			// 	const newAnswers = userData?.answers as any
+			// 	newAnswers[questionNum] = {answer: answer, timestamp: serverTimestamp()}
+			// 	setDoc(userRef, 
+			// 		{answers: newAnswers}, {merge: true}
+			// 		)
+			// 	setDoc(userRef, {points: userData?.points as number + questionData?.points}, {merge: true})
+			// 	alert('correct')
+			// 	setAnswer('')
+			// } else {
+			// 	alert('you\'ve already got this right')
+			// }
+			alert('correct')
+			setAnswer('')
 			setAnswerCorrect(true)
 		} else {
 			// alert('incorrect')
@@ -225,7 +227,15 @@ export default function Question({
 			</div>
 			{resources}
 			<br />
-			{playerData && !isLoading && questionData.input && (
+			{/* {playerData && !isLoading && questionData.input && (
+				<Submit
+					userData={playerData}
+					questionNum={questionNum}
+					questionData={questionData}
+					isLoading={isLoading}
+				/>
+			)} */}
+			{!isLoading && questionData.input && (
 				<Submit
 					userData={playerData}
 					questionNum={questionNum}

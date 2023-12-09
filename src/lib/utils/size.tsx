@@ -7,11 +7,12 @@ const SizeContext = createContext({})
 export function SizeContextProvider({ children }: { children: React.ReactNode }) {
 	const [width, setWidth] = useState(0)
 	const [height, setHeight] = useState(0)
-	const isMobile = width <= 1100
+	const [isMobile, setIsMobile] = useState<boolean | null>(null)
 
 	const handleWindowResize = () => {
 		setWidth(window.innerWidth)
 		setHeight(window.innerHeight)
+		setIsMobile(window.innerWidth < 1100)
 	}
 
 	useEffect(() => {

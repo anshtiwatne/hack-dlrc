@@ -894,21 +894,6 @@
 			}
 		},
 		{
-			"name": "Bhargav Kulkarni",
-			"phone": null,
-			"answers": {},
-			"photoURL": "https://lh3.googleusercontent.com/a/ACg8ocL0W58a0l0UIGzr_twHzbactXqBr_MMhgRXVDZuGeqOfDY=s96-c",
-			"points": 0,
-			"teamMembers": [],
-			"email": "kulkarni.bhargav23@gmail.com",
-			"lastLogin": {
-				"seconds": 1701003049,
-				"nanoseconds": 457000000
-			},
-			"inputID": 9,
-			"uid": "Ud1ctSlJ7abihTz8fnKsxkjAvqn1"
-		},
-		{
 			"photoURL": "https://lh3.googleusercontent.com/a/ACg8ocLdjEqRXh0b_XVgj0O2vyWI7i4tlvAbdgPVx-Yd5tWdcGfi=s96-c",
 			"teamName": "Me, the Hens and The Dales",
 			"lastLogin": {
@@ -1762,6 +1747,7 @@
 				"nanoseconds": 800000000
 			},
 			"points": 0,
+			"teamName": "CR7",
 			"teamMembers": [],
 			"uid": "opJQYqhaEMZoxW8iOPcARPfZB4B3",
 			"photoURL": "https://lh3.googleusercontent.com/a/ACg8ocL62grn9ueu8ySZB_CBmdhvuM15QVgCLZsWO-KanMHm-GU=s96-c",

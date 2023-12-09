@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 #pylint: disable=redefined-outer-name
 
-import os
 import json
 from typing import Literal
 
-with open("users.json", "r", encoding="UTF-8") as f:
+with open("private\\email-generator\\users.json", "r", encoding="UTF-8") as f:
     USERS = json.load(f).get("users")
 
 # with open("templates/individual_email.txt", "r", encoding="UTF-8") as f:

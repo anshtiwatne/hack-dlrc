@@ -20,6 +20,7 @@ import { TimeProps, SizeProps } from '@/lib/utils/types'
 import Countdown from '@/components/Countdown'
 import QuestionNav from '@/components/QuestionNav'
 import CodeEditor from '@/components/CodeEditor'
+import Link from 'next/link'
 
 export default function Home() {
 	const { countdown, timer } = serverTime() as TimeProps
@@ -104,8 +105,8 @@ export default function Home() {
 		if (user) {
 			return (
 				<main className="flex h-[100dvh] flex-col">
-					{countdown != null && countdown > 0 && <Countdown />}
-	
+					{true && <Countdown />}
+
 					{countdown != null && countdown <= 0 && (
 						<div className="flex flex-grow justify-between">
 							<div
@@ -117,7 +118,10 @@ export default function Home() {
 										  : 'w-100'
 								}`}
 							>
-								<QuestionNav totalQuestions={7} isUserInit={userInit} />
+								<QuestionNav
+									totalQuestions={7}
+									isUserInit={userInit}
+								/>
 							</div>
 							<div
 								className={`inline-block ${
@@ -139,15 +143,22 @@ export default function Home() {
 			)
 		} else {
 			return (
-				<div className='flex flex-grow justify-center items-center text-[2dvw] pb-10 font-semibold text-gray-700'>
+				<div className="flex flex-grow items-center justify-center pb-10 text-[2dvw] font-semibold text-gray-700">
 					HackDLRC has begun 🎉 Sign in now to get started!
 				</div>
 			)
 		}
 	} else {
 		return (
-			<div className='flex flex-grow justify-center items-center text-[2dvw] pb-10 font-semibold text-gray-700'>
-				HackDLRC 2023 has ended! You'll hear from us about awards soon 🏆
+			<div
+				className={`flex flex-grow flex-col items-center justify-center pb-10`}
+			>
+				<div className={`font-semibold text-gray-700 ${isMobile? 'text-7dvw' : 'text-5xl'}`}>
+					HackDLRC has ended!
+				</div>
+				<div className='text-xl pt-4 text-blue-600'>
+					<Link href="/2023/questions">2023 Questions</Link>
+				</div>
 			</div>
 		)
 	}
